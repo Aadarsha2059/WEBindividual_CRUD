@@ -1,0 +1,26 @@
+body{
+  margin: 0px;
+  height: 100vh;
+}
+
+#admin-panel{
+  height: 100%;
+}
+
+#admin-panel .topbar{
+  height: 80px;
+  background-color: red;
+}
+
+#admin-panel .main{
+  display: flex;
+  height: 100%;
+
+}
+#admin-panel .main .sidebar{
+  background-color: green;
+ width: 25%;
+}
+#admin-panel .main .content{
+  flex-grow: 1;
+}
