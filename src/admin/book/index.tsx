@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import '../../assets/css/index.css'
 
 function Book(){
 
@@ -10,23 +11,27 @@ function Book(){
         {
             queryKey:["BOOK_GET_ALL_API"],
             queryFn(){
-                return axios.get("http://localhost:8080/book/list")
+                return axios.get("http://localhost:8080/book")
             }
         }
     )
 
+    console.log(getApiCall)
+
     const deleteApi=useMutation({
         mutationKey:["DELETE_BOOK_API"],
         mutationFn(id:number){
-            return axios.delete("http://localhost:8080/book/delete/"+id);
+            return axios.delete("http://localhost:8080/book/"+id);
         },onSuccess(){
             getApiCall.refetch();
         }
     })
 
     return (<>
-    this is ground list page
-    <button onClick={()=>navigate("/admin/book/add")}>Add Book</button>
+   <div className="container">
+   <span>This is Book List page</span>
+   </div>
+   <button onClick={()=>navigate("/admin/book/add")} className="btn">Add Book</button>
 
     <table>
         <thead>
@@ -38,9 +43,9 @@ function Book(){
         </thead>
         
         <tbody>
-        {getApiCall?.data?.data?.data?.map((i:any)=>(
+        {getApiCall?.data?.data?.map((i:any)=>(
             <tr>
-                <td>{i?.book_name}</td>
+                <td>{i?.booksName}</td>
                 <td>{i?.genres}</td>
                 <td>
                     <button onClick={()=>navigate("/admin/book/edit/"+i?.id)}>Edit</button> | 

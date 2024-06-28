@@ -1,0 +1,20 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.btn{
+    justify-content: flex-start;
+}
+
+

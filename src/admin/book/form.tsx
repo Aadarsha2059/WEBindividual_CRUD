@@ -31,10 +31,11 @@ function BookForm(){
     const apiCall=useMutation({
         mutationKey:["BOOK_SAVE_API"],
         mutationFn(requestBody:any){
+            debugger
             if(requestBody?.id){
                 return axios.put("http://localhost:8080/book/update",requestBody)
             }
-            return axios.post("http://localhost:8080/book/save",requestBody)
+            return axios.post("http://localhost:8080/book",requestBody)
         },onSuccess(){
             navigate("/admin/book")
         }
@@ -57,7 +58,12 @@ function BookForm(){
                         </div>
                         <div>
                             <label>Book Name</label>
-                            <input type="text" {...register("book_name")}/>
+                            <input type="text" {...register("booksName")}/>
+                        </div>
+                        
+                        <div>
+                            <label>User id</label>
+                            <input value="2" type="text" {...register("userId")}/>
                         </div>
                         <div>
                             <input type="submit" />
