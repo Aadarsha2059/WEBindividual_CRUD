@@ -38,7 +38,7 @@ function Home() {
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li onClick={() => navigate("/login")}><a>Login as a Donor</a></li>
-                        <li><a href="loginseeker.html">Login as a Seeker</a></li>
+                        <li onClick={()=>navigate("/loginseeker")}><a>Login as a Seeker</a></li>
                         <li><a href="suggestionindex.html">Drop your suggestions</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
@@ -332,8 +332,7 @@ function Home() {
             <footer>
                 <h1>Book Donors Nepal 2024</h1>
                 <p>
-                    Stay updated with our latest news and offers by subscribing to our newsletter.
-                    Don't miss out on valuable insights and information!
+                   BOOK DONORS NEPAL 2024...BE CONNECTED WITH US FOR UPDATES!!!!
                 </p>
                 <div className="input_box">
                     <input type="email" placeholder="Enter your email" />

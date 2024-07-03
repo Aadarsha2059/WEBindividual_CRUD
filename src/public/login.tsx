@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../assets/css/login.css"
+import "../assets/images/munamadan.png"
 
 function Login(){
 

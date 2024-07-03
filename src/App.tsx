@@ -9,6 +9,8 @@ import Home from "./public/home";
 import Login from "./public/login";
 import Register from "./public/register";
 import SingupDonar from "./public/signupdonor";
+import LoginSeeker from "./public/loginseeker";
+import SignupSeeker from "./public/signupseeker";
 
 
 
@@ -34,10 +36,12 @@ function App() {
     { path: "/login", element: <Login /> },
     { path: "/register", element: <Register /> },
     {path:"/singupdonar",element:<SingupDonar/>},
+    {path:"/loginseeker",element:<LoginSeeker/>},
+    {path:"/signupseeker",element:<SignupSeeker/>},
     { path: "*", element: <>Unauthorized</> },
   ];
 
-  // TODO: Check accessToken then return true or false
+  
   const isLoggedIn = false;
 
   return (
