@@ -5,7 +5,7 @@ function Login(){
 
   const navigate=useNavigate();
     return (<> <div className="login-box">
-        <h1>Login</h1>
+        <h1>Login as A Donor</h1>
         <form>
           <label>Email</label>
           <input type="email" placeholder="" />
