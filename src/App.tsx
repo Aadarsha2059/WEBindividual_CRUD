@@ -11,6 +11,7 @@ import Register from "./public/register";
 import SingupDonar from "./public/signupdonor";
 import LoginSeeker from "./public/loginseeker";
 import SignupSeeker from "./public/signupseeker";
+// import DonorsPage from "./public/donorspage";
 
 
 
@@ -38,6 +39,7 @@ function App() {
     {path:"/singupdonar",element:<SingupDonar/>},
     {path:"/loginseeker",element:<LoginSeeker/>},
     {path:"/signupseeker",element:<SignupSeeker/>},
+    // {path:"/donorspage",element:<DonorsPage/>},
     { path: "*", element: <>Unauthorized</> },
   ];
 

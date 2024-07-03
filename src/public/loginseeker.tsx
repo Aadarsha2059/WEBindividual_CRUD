@@ -39,12 +39,10 @@ function LoginSeeker() {
           <input type="button" value="Submit" onClick={handleSubmit} />
         </form>
         <p className="para-2">
-          Don't have an account?{" "}
-          <a href="/signupseeker">Sign Up as Seeker</a>
+          Don't have an account? <a onClick={()=>navigate("/signupseeker")}>Sign Up as Seeker</a>
         </p>
-      </div>
-    </>
-  );
+      </div></>)
+   
 }
 
 export default LoginSeeker;
