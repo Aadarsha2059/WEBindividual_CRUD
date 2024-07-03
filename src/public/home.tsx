@@ -20,10 +20,10 @@ import book12 from '../assets/images/book_12.png';
 import book13 from '../assets/images/book_13.png';
 import book14 from '../assets/images/book_14.png';
 import book15 from '../assets/images/book_15.png';
-import review1 from '../assets/images/review_1.png';
-import review2 from '../assets/images/review_2.png';
-import review3 from '../assets/images/review_3.png';
-import review4 from '../assets/images/review_4.png';
+import nirajan from '../assets/images/nirajan.png';
+import chirayu from '../assets/images/chirayu.png';
+import suraj from '../assets/images/suraj.png';
+import anuj from '../assets/images/anuj.png';
 
 function Home() {
     const navigate = useNavigate();
@@ -276,11 +276,24 @@ function Home() {
                 <div className="review_box">
                     <div className="review_card">
                         <div className="review_image">
-                            <img src={review1} alt="Reviewer 1" />
+                            <img src={nirajan} alt="Reviewer 1" />
                         </div>
                         <div className="review_tag">
                             <h2>Client Review</h2>
-                            <p className="client">Client: Aadarsha</p>
+                            <p className="client">Client: Nirajan Bhattarai</p>
+                            <p className="details">
+                                It's my great privilege to thank the donor and Book Donors Nepal.
+                                Great effort by Aadarsha to connect donors and seekers within Nepal.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="review_card">
+                        <div className="review_image">
+                            <img src={chirayu} alt="Reviewer 2" />
+                        </div>
+                        <div className="review_tag">
+                            <h2>Client Review</h2>
+                            <p className="client">Client: Chirayu Baij</p>
                             <p className="details">
                                 It's my great privilege to thank the donor and Book Donors Nepal.
                                 I got a book for my study which helped me a lot. I appreciate your service.
@@ -289,40 +302,27 @@ function Home() {
                     </div>
                     <div className="review_card">
                         <div className="review_image">
-                            <img src={review2} alt="Reviewer 2" />
+                            <img src={anuj} alt="Reviewer 3" />
                         </div>
                         <div className="review_tag">
                             <h2>Client Review</h2>
-                            <p className="client">Client: Rishan Shrestha</p>
+                            <p className="client">Client: Anuj Singh</p>
                             <p className="details">
                                 It's my great privilege to thank the donor and Book Donors Nepal.
-                                I got a book for my study which helped me a lot. I appreciate your service.
+                                It will be best for readers and will promote reading culture.Hats off to developer.
                             </p>
                         </div>
                     </div>
                     <div className="review_card">
                         <div className="review_image">
-                            <img src={review3} alt="Reviewer 3" />
+                            <img src={suraj} alt="Reviewer 4" />
                         </div>
                         <div className="review_tag">
                             <h2>Client Review</h2>
                             <p className="client">Client: Suraj Tamang</p>
                             <p className="details">
-                                It's my great privilege to thank the donor and Book Donors Nepal.
-                                I got a book for my study which helped me a lot. I appreciate your service.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="review_card">
-                        <div className="review_image">
-                            <img src={review4} alt="Reviewer 4" />
-                        </div>
-                        <div className="review_tag">
-                            <h2>Client Review</h2>
-                            <p className="client">Client: Bishnu Budhathoki</p>
-                            <p className="details">
-                                It's my great privilege to thank the donor and Book Donors Nepal.
-                                I got a book for my study which helped me a lot. I appreciate your service.
+                                This website helped me to find and study novels during my summer vacations.
+                                Awesome effort by my friend Aadarsha.
                             </p>
                         </div>
                     </div>
@@ -330,7 +330,7 @@ function Home() {
             </section>
 
             <footer>
-                <h1>Newsletter</h1>
+                <h1>Book Donors Nepal 2024</h1>
                 <p>
                     Stay updated with our latest news and offers by subscribing to our newsletter.
                     Don't miss out on valuable insights and information!
@@ -345,6 +345,8 @@ function Home() {
                     <i className="fa-brands fa-linkedin-in"></i>
                     <i className="fa-brands fa-instagram"></i>
                 </div>
+
+                <p className="end">All rights on<span><i className="fa-solid fa-face-grin"></i> Aadarsha Babu Dhakal</span></p>
             </footer>
         </>
     );
