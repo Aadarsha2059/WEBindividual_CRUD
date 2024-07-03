@@ -145,7 +145,7 @@ function Home() {
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
                             <p className="donor">Donor: Anuj Singh</p>
-                            <div className="categories">Romance</div>
+                            <div className="categories">Love Story</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -155,7 +155,7 @@ function Home() {
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
                             <p className="donor">Donor: Ishan Shrestha</p>
-                            <div className="categories">Romance</div>
+                            <div className="categories">Love Story</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -195,7 +195,7 @@ function Home() {
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
                             <p className="donor">Donor: Rishan Shrestha</p>
-                            <div className="categories">Romance</div>
+                            <div className="categories">Love Story</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -214,8 +214,8 @@ function Home() {
                         </div>
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
-                            <p className="donor">Donor: Ishwor Paudel</p>
-                            <div className="categories">Romance</div>
+                            <p className="donor">Donor: Chirayu Baij</p>
+                            <div className="categories">Love Story</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -224,7 +224,7 @@ function Home() {
                         </div>
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
-                            <p className="donor">Donor: Sandesh Sharma</p>
+                            <p className="donor">Donor: Aayush Rasaili</p>
                             <div className="categories">Horror</div>
                         </div>
                     </div>
@@ -234,8 +234,8 @@ function Home() {
                         </div>
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
-                            <p className="donor">Donor: Nabin Yadav</p>
-                            <div className="categories">Romance</div>
+                            <p className="donor">Donor: Raj Karki</p>
+                            <div className="categories">Love Story</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -244,8 +244,8 @@ function Home() {
                         </div>
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
-                            <p className="donor">Donor: Ankit Shrestha</p>
-                            <div className="categories">Romance</div>
+                            <p className="donor">Donor: Aayash Dwa</p>
+                            <div className="categories">Love Story</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -295,7 +295,7 @@ function Home() {
                             <h2>Client Review</h2>
                             <p className="client">Client: Chirayu Baij</p>
                             <p className="details">
-                                It's my great privilege to thank the donor and Book Donors Nepal.
+                                Innovative work by the developer in the field of education.
                                 I got a book for my study which helped me a lot. I appreciate your service.
                             </p>
                         </div>
@@ -308,7 +308,7 @@ function Home() {
                             <h2>Client Review</h2>
                             <p className="client">Client: Anuj Singh</p>
                             <p className="details">
-                                It's my great privilege to thank the donor and Book Donors Nepal.
+                                Surely, in future this website will be the most visited site by passionate readers.
                                 It will be best for readers and will promote reading culture.Hats off to developer.
                             </p>
                         </div>
