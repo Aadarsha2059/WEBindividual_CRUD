@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import "../assets/css/home.css"
 
 import logo from '../assets/images/logo.png';
 import tablePng from '../assets/images/table.png';
 
 function Home(){
+
+    const navigate= useNavigate();
     
     return (<>
 
@@ -17,7 +20,7 @@ function Home(){
 
             <ul>
                 <li><a href="Home">Home</a></li>
-                <li><a href="login.html">Login as a Donor</a></li>
+                <li onClick={()=>navigate("/login")}><a>Login as a Donor</a></li>
                 <li><a href="loginseeker.html">Login as a Seeker</a></li>
                 <li><a href="suggestionindex.html">Drop your suggestions</a></li>
                 <li><a href="contact.html">Contact</a></li> 

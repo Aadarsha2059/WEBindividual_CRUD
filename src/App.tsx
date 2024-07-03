@@ -8,6 +8,7 @@ import UserForm from "./admin/user/form";
 import Home from "./public/home";
 import Login from "./public/login";
 import Register from "./public/register";
+import SingupDonar from "./public/signupdonor";
 
 
 
@@ -32,6 +33,7 @@ function App() {
     { path: "/", element: <Home /> },
     { path: "/login", element: <Login /> },
     { path: "/register", element: <Register /> },
+    {path:"/singupdonar",element:<SingupDonar/>},
     { path: "*", element: <>Unauthorized</> },
   ];
 

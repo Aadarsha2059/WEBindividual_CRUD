@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import "../assets/css/login.css"
 
 function Login(){
 
+  const navigate=useNavigate();
     return (<> <div className="login-box">
         <h1>Login</h1>
         <form>
@@ -12,7 +14,7 @@ function Login(){
           <input type="button" value="Submit" />
         </form>
         <p className="para-2">
-          Don't have an account? <a href="signupindex.html">Sign Up as Donor</a>
+          Don't have an account? <a onClick={()=>navigate("/singupdonar")}>Sign Up as Donor</a>
         </p>
       </div></>)
 
