@@ -12,6 +12,10 @@ import SingupDonar from "./public/signupdonor";
 import LoginSeeker from "./public/loginseeker";
 import SignupSeeker from "./public/signupseeker";
 import DonorsPage from "./public/donorspage";
+import Contact from "./public/contact";
+import SeekersPage from "./public/seekerspage";
+
+
 
 
 
@@ -40,6 +44,8 @@ function App() {
     {path:"/loginseeker",element:<LoginSeeker/>},
     {path:"/signupseeker",element:<SignupSeeker/>},
     {path:"/donorspage",element:<DonorsPage/>},
+    {path:"/seekerspage",element:<SeekersPage/>},
+    {path:"/contact",element:<Contact/>},
     { path: "*", element: <>Unauthorized</> },
   ];
 

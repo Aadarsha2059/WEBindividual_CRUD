@@ -40,7 +40,7 @@ function Home() {
                         <li onClick={() => navigate("/login")}><a>Login as a Donor</a></li>
                         <li onClick={()=>navigate("/loginseeker")}><a>Login as a Seeker</a></li>
                         <li><a href="suggestionindex.html">Drop your suggestions</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li onClick={()=>navigate("/contact")}><a>Contact</a></li>
                     </ul>
                     <div className="social_icon">
                         <i className="fa-solid fa-magnifying-glass"></i>
