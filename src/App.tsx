@@ -14,6 +14,7 @@ import SignupSeeker from "./public/signupseeker";
 import DonorsPage from "./public/donorspage";
 import Contact from "./public/contact";
 import SeekersPage from "./public/seekerspage";
+import SuggestionsPage from "./public/suggestion";
 
 
 
@@ -45,6 +46,7 @@ function App() {
     {path:"/signupseeker",element:<SignupSeeker/>},
     {path:"/donorspage",element:<DonorsPage/>},
     {path:"/seekerspage",element:<SeekersPage/>},
+    {path:"/suggestions",element:<SuggestionsPage/>},
     {path:"/contact",element:<Contact/>},
     { path: "*", element: <>Unauthorized</> },
   ];
