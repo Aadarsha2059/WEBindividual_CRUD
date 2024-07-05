@@ -10,7 +10,7 @@ const{register,handleSubmit}=useForm();
 const apiCallToGet=useQuery({
     queryKey:["GT_DATa"],
     queryFn(){
-        return axios.get("http://localhost:8080/book")
+        return axios.get("http://localhost:8080/book/user/"+ localStorage.getItem("loggedUserID"))
     }
 })
 
