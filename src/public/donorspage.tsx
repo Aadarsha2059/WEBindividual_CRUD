@@ -19,23 +19,32 @@ console.log(apiCallToGet?.data?.data)
 const apiCallTosave=useMutation({
     mutationKey:["SAVE_BOOK_DATA"],
     mutationFn(data){
-return axios.post("http://localhost:8080/book",data)
+        console.log(data['image'][0])
+        const formData= new FormData();
+        formData.append("image",data['image'][0]);
+        formData.append("booksName",data['booksName']);
+        formData.append("genres",data['genres']);
+        formData.append("userId",localStorage.getItem("loggeinUserId") || "");
+    
+    
+return axios.post("http://localhost:8080/book",formData)
     }
 
 })
 
 const submit=(data:any)=>{
+
     console.log({...data,userId:localStorage.getItem("loggeinUserId")});
     apiCallTosave.mutate({...data,userId:localStorage.getItem("loggeinUserId")},{
-        onSuccess(){
-            alert("Book Added Successfully");
+        onSuccess(res){
+            // alert("Book Added Successfully");
             apiCallToGet.refetch();
         }
     })
-    // axios.post("http://localhost:8080/book",{...data,userId:localStorage.getItem("loggeinUserId")}).then(res=>{
-    //     console.log(res);
-    //     alert(res?.data?.message)
-    // })
+    axios.post("http://localhost:8080/book",{...data,userId:localStorage.getItem("loggeinUserId")}).then(res=>{
+        console.log(res);
+        alert(res?.data?.message)
+    })
 }
 
 const deleteApiCall=useMutation({
@@ -49,8 +58,8 @@ const deleteApiCall=useMutation({
     <div className="container">
         <h1>Donate My Book</h1>
         <form onSubmit={handleSubmit(submit)} id="donatehtmlForm">
-            {/* <label htmlFor="bookImage">Book Image / File:</label>
-            <input type="file" id="bookImage"   accept=".png, .pdf, .doc, .docx" required /> */}
+            <label htmlFor="bookImage">Book Image / File:</label>
+            <input type="file" {...register("image")} id="bookImage"   accept=".png, .pdf, .doc, .docx" required />
             
             <label htmlFor="bookGenre">Genre:</label>
             <select id="bookGenre" {...register("genres")} required>
@@ -79,6 +88,7 @@ const deleteApiCall=useMutation({
                     {/* <th>Book Image / File</th> */}
                     <th>Genre</th>
                     <th>Book Name</th>
+                    <th>Image</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -91,6 +101,8 @@ const deleteApiCall=useMutation({
                             <td>{d.id}</td>
                             <td>{d.genres}</td>
                             <td>{d.booksName}</td>
+                            <td><img src={`data:image/jpeg;base64, `+d.image}  width={100}/></td>
+
                             <td><button onClick={() => deleteApiCall.mutate(d.id, { onSuccess() { apiCallToGet.refetch(); } })}>Delete</button></td>
                         </tr>
                     );

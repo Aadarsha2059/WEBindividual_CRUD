@@ -28,7 +28,7 @@ function SuggestionsPage() {
     onSuccess: () => {
       alert("Suggestion Added Successfully");
       apiCallToGetSuggestions.refetch();
-      reset(); // Reset form fields after successful submission
+      reset(); 
     },
   });
 

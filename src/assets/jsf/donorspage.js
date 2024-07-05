@@ -17,14 +17,14 @@ function donateBook() {
             bookName: bookName
         };
 
-        // Get current books from localStorage
+     
         let books = JSON.parse(localStorage.getItem('donatedBooks')) || [];
         books.push(bookData);
 
-        // Store updated books back to localStorage
+        
         localStorage.setItem('donatedBooks', JSON.stringify(books));
 
-        // Add book to table
+       
         addBookToTable(bookData);
     };
     reader.readAsDataURL(bookImage);

@@ -33,6 +33,8 @@ function SeekersPage() {
                     <tr>
                         <th>Genre</th>
                         <th>Book Name</th>
+                        <th>image</th>
+
                         <th>Action</th>
                         <th>Reservation Status</th>
                     </tr>
@@ -42,6 +44,8 @@ function SeekersPage() {
                         <tr key={book.id}>
                             <td>{book.genres}</td>
                             <td>{book.booksName}</td>
+                            <td><img src={`data:image/jpeg;base64, `+book.image}  width={100}/></td>
+
                             <td>
                                 {!book.isReserved ? (
                                     <button onClick={() => handleReserve(book.id)}>Reserve</button>
