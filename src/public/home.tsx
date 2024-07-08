@@ -5,22 +5,22 @@ import '../assets/css/home.css';
 import logo from '../assets/images/logo.png';
 import tablePng from '../assets/images/table.png';
 import aboutImg from '../assets/images/about.png';
-import book1 from '../assets/images/book_1.jpg';
+import karnaliblues from '../assets/images/karnaliblues.png';
 import book2 from '../assets/images/book_2.jpg';
 import book3 from '../assets/images/book_3.jpg';
 import book4 from '../assets/images/book_4.jpg';
 import book5 from '../assets/images/book_5.jpg';
 import book6 from '../assets/images/book_6.jpg';
-import book7 from '../assets/images/book_7.png';
+import pagalbasti from '../assets/images/pagalbasti.png';
 import book8 from '../assets/images/book_8.png';
 import book9 from '../assets/images/book_9.jpg';
 import book10 from '../assets/images/book_10.png';
 import book11 from '../assets/images/book_11.jpg';
-import book12 from '../assets/images/book_12.png';
-import book13 from '../assets/images/book_13.png';
-import book14 from '../assets/images/book_14.png';
-import book15 from '../assets/images/book_15.png';
-import nirajan from '../assets/images/nirajan.png';
+import devkotapoems from '../assets/images/devkotapoems.png';
+import doshichasma from '../assets/images/doshichasma.png';
+import bhagwatgeeta from '../assets/images/bhagwatgeeta.png';
+import sumnima from '../assets/images/sumnina.png';
+import bisnu from '../assets/images/bisnhu.png.jpeg';
 import chirayu from '../assets/images/chirayu.png';
 import suraj from '../assets/images/suraj.png';
 import anuj from '../assets/images/anuj.png';
@@ -121,7 +121,7 @@ function Home() {
                 <div className="featured_book_box">
                     <div className="featured_book_card">
                         <div className="featured_book_img">
-                            <img src={book1} alt="Book 1" />
+                            <img src={karnaliblues} alt="Book 1" />
                         </div>
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
@@ -181,7 +181,7 @@ function Home() {
                     </div>
                     <div className="featured_book_card">
                         <div className="featured_book_img">
-                            <img src={book7} alt="Book 7" />
+                            <img src={pagalbasti} alt="Book 7" />
                         </div>
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
@@ -231,7 +231,7 @@ function Home() {
                     </div>
                     <div className="featured_book_card">
                         <div className="featured_book_img">
-                            <img src={book12} alt="Book 12" />
+                            <img src={devkotapoems} alt="Book 12" />
                         </div>
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
@@ -241,7 +241,7 @@ function Home() {
                     </div>
                     <div className="featured_book_card">
                         <div className="featured_book_img">
-                            <img src={book13} alt="Book 13" />
+                            <img src={doshichasma} alt="Book 13" />
                         </div>
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
@@ -251,7 +251,7 @@ function Home() {
                     </div>
                     <div className="featured_book_card">
                         <div className="featured_book_img">
-                            <img src={book14} alt="Book 14" />
+                            <img src={bhagwatgeeta} alt="Book 14" />
                         </div>
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
@@ -261,7 +261,7 @@ function Home() {
                     </div>
                     <div className="featured_book_card">
                         <div className="featured_book_img">
-                            <img src={book15} alt="Book 15" />
+                            <img src={sumnima} alt="Book 15" />
                         </div>
                         <div className="featured_book_tag">
                             <h2>Book Title</h2>
@@ -277,14 +277,15 @@ function Home() {
                 <div className="review_box">
                     <div className="review_card">
                         <div className="review_image">
-                            <img src={nirajan} alt="Reviewer 1" />
+                            <img src={bisnu} alt="Reviewer 1" />
                         </div>
                         <div className="review_tag">
                             <h2>Client Review</h2>
-                            <p className="client">Client: Nirajan Bhattarai</p>
+                            <p className="client">Client: Bishnu Budhathoki.</p>
                             <p className="details">
                                 It's my great privilege to thank the donor and Book Donors Nepal.
                                 Great effort by Aadarsha to connect donors and seekers within Nepal.
+                                Aadarsha does every work perfectly touching users requirements in the present scenario.
                             </p>
                         </div>
                     </div>
