@@ -22,19 +22,18 @@ function SuggestionsPage() {
   const apiCallToSaveSuggestion = useMutation({
     mutationKey: ["SAVE_SUGGESTION"],
     mutationFn: async (data: SuggestionFormData) => {
-      const userId = localStorage.getItem("Id");
-      return axios.post("http://localhost:8080/suggestion", { ...data, userId });
+      return axios.post("http://localhost:8080/suggestion", data);
     },
     onSuccess: () => {
       alert("Suggestion Added Successfully");
       apiCallToGetSuggestions.refetch();
-      reset(); 
+      reset();
     },
   });
 
   const deleteSuggestion = useMutation({
     mutationKey: ["DELETE_SUGGESTION"],
-    mutationFn: async (id: string) => {
+    mutationFn: async (id: number) => {
       return axios.delete(`http://localhost:8080/suggestion/${id}`);
     },
     onSuccess: () => {
@@ -83,11 +82,7 @@ function SuggestionsPage() {
               <td>{suggestion.id}</td>
               <td>{suggestion.suggestionList}</td>
               <td>
-                <button
-                  onClick={() =>
-                    deleteSuggestion.mutate(suggestion.id)
-                  }
-                >
+                <button onClick={() => deleteSuggestion.mutate(suggestion.id)}>
                   Delete
                 </button>
               </td>
