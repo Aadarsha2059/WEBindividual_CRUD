@@ -37,7 +37,7 @@ const Chatbot: React.FC = () => {
                 botResponse = "There are currently 10 books available to seek.";
                 break;
             case "what are the categories of books available?":
-                botResponse = "We have categories such as Fiction, Non-fiction, Mystery, Fantasy, Science Fiction, and more.";
+                botResponse = "We have categories such as Fiction, Non-fiction, Literature, Biography, Science Fiction, and more.";
                 break;
             case "how can i donate books?":
                 botResponse = "You can donate books by logging into your account and accessing the donate section.";
