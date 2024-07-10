@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    background-color: #6e9ed2;
+    background-color: #de262f;
     color: rgb(31, 4, 4);
     text-align: center;
     padding: 1em 0;
@@ -24,7 +24,7 @@ main {
 }
 
 .suggestions {
-    background-color: white;
+    background-color: rgb(220, 220, 28);
     padding: 2em;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

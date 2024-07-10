@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "../assets/css/suggestion.css";
 import axios from "axios";
@@ -10,6 +10,10 @@ type SuggestionFormData = {
 
 function SuggestionsPage() {
   const { register, handleSubmit, reset } = useForm<SuggestionFormData>();
+  const [deleteConfirmation, setDeleteConfirmation] = useState<{
+    show: boolean;
+    suggestionId: number | null;
+  }>({ show: false, suggestionId: null });
 
   const apiCallToGetSuggestions = useQuery({
     queryKey: ["GET_SUGGESTIONS"],
@@ -38,11 +42,36 @@ function SuggestionsPage() {
     },
     onSuccess: () => {
       apiCallToGetSuggestions.refetch();
+      setDeleteConfirmation({ show: false, suggestionId: null });
     },
   });
 
   const submitSuggestion = (data: SuggestionFormData) => {
     apiCallToSaveSuggestion.mutate(data);
+  };
+
+  const handleDeleteConfirm = () => {
+    if (deleteConfirmation.suggestionId) {
+      
+      const username = prompt("Enter your username:");
+      const password = prompt("Enter your password:");
+
+      // Assuming you have authentication logic here
+      if (username && password) {
+        // Call delete mutation with suggestionId
+        deleteSuggestion.mutate(deleteConfirmation.suggestionId);
+      } else {
+        alert("Username and password are required.");
+      }
+    }
+  };
+
+  const handleDeleteCancel = () => {
+    setDeleteConfirmation({ show: false, suggestionId: null });
+  };
+
+  const handleDeleteRequest = (suggestionId: number) => {
+    setDeleteConfirmation({ show: true, suggestionId });
   };
 
   return (
@@ -82,9 +111,18 @@ function SuggestionsPage() {
               <td>{suggestion.id}</td>
               <td>{suggestion.suggestionList}</td>
               <td>
-                <button onClick={() => deleteSuggestion.mutate(suggestion.id)}>
-                  Delete
-                </button>
+                {!deleteConfirmation.show && (
+                  <button onClick={() => handleDeleteRequest(suggestion.id)}>
+                    Delete
+                  </button>
+                )}
+                {deleteConfirmation.show && deleteConfirmation.suggestionId === suggestion.id && (
+                  <div>
+                    <p>Confirm deletion for suggestion ID: {suggestion.id}</p>
+                    <button onClick={handleDeleteConfirm}>Confirm</button>
+                    <button onClick={handleDeleteCancel}>Cancel</button>
+                  </div>
+                )}
               </td>
             </tr>
           ))}
