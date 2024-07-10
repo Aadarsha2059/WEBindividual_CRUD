@@ -24,7 +24,7 @@ const apiCallTosave=useMutation({
         formData.append("image",data['image'][0]);
         formData.append("booksName",data['booksName']);
         formData.append("genres",data['genres']);
-        formData.append("userId",localStorage.getItem("loggeinUserId") || "");
+        formData.append("userId",localStorage.getItem("loggedUserID") || "");
     
     
 return axios.post("http://localhost:8080/book",formData)
@@ -34,8 +34,8 @@ return axios.post("http://localhost:8080/book",formData)
 
 const submit=(data:any)=>{
 
-    console.log({...data,userId:localStorage.getItem("loggeinUserId")});
-    apiCallTosave.mutate({...data,userId:localStorage.getItem("loggeinUserId")},{
+    console.log({...data,userId:localStorage.getItem("loggedUserID")});
+    apiCallTosave.mutate({...data,userId:localStorage.getItem("loggedUserID")},{
         onSuccess(res){
             // alert("Book Added Successfully");
             apiCallToGet.refetch();

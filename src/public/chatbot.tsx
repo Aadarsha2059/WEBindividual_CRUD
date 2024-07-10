@@ -4,6 +4,7 @@ import '../assets/css/chatbot.css';
 const Chatbot: React.FC = () => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [inputValue, setInputValue] = useState<string>('');
+    const [isThinking, setIsThinking] = useState<boolean>(false);
 
     interface Message {
         text: string;
@@ -16,53 +17,61 @@ const Chatbot: React.FC = () => {
 
         switch (userInput) {
             case "who developed you?":
-                botResponse =   "My supreme creator Aadarsha Babu Dhakal developed me.";
+                botResponse = "My supreme creator Aadarsha Babu Dhakal developed me.";
                 break;
             case "can you provide me your source code?":
-                botResponse =   "No, I cannot do this. My developer would be sad and I cant see him being sad.. He is my creator and  I respect his order";
+                botResponse = "No, I cannot do this. My developer would be sad and I can't see him being sad. He is my creator and I respect his order.";
                 break;
-            case   "in which year aadarsha developed you?":
+            case "in which year aadarsha developed you?":
                 botResponse = "He structured me in 2024 AD.";
                 break;
-            case   "what is the motive of your website?":
-                botResponse =   "The motive is to facilitate book donation and sharing among users.";
+            case "what is the motive of your website?":
+                botResponse = "The motive is to facilitate book donation and sharing among users.";
                 break;
-            case  "how many donors are there?":
-                botResponse =   "There are currently 23 donors.";
+            case "how many donors are there?":
+                botResponse = "There are currently 23 donors.";
                 break;
-            case   "how many seekers are there?":
-                botResponse =   "There are currently 15 seekers.";
+            case "how many seekers are there?":
+                botResponse = "There are currently 15 seekers.";
                 break;
-            case   "how many books are currently available to seek?":
-                botResponse =  "There are currently 10 books available to seek.";
+            case "how many books are currently available to seek?":
+                botResponse = "There are currently 10 books available to seek.";
                 break;
             case "what are the categories of books available?":
                 botResponse = "We have categories such as Fiction, Non-fiction, Literature, Biography, Science Fiction, and more.";
                 break;
             case "how can i donate books?":
-                botResponse =   "You can donate books by logging into your account and accessing the donate section.";
+                botResponse = "You can donate books by logging into your account and accessing the donate section.";
                 break;
             case "how can i seek books?":
-                botResponse =   "You can seek books by logging into your account and accessing the seek section.";
+                botResponse = "You can seek books by logging into your account and accessing the seek section.";
                 break;
             case "who is aadarsha babu dhakal?":
-                botResponse =   "Aadarsha Babu Dhakal is one of the passionate students of Softwarica College of IT and E-commerce, dreaming to become a software engineer. I'm the product of his brilliant mind.";
+                botResponse = "Aadarsha Babu Dhakal is one of the passionate students of Softwarica College of IT and E-commerce, dreaming to become a software engineer. I'm the product of his brilliant mind.";
                 break;
             case "what is the age of your developer?":
-                botResponse =   "The age of my developer is 22 years old.";
+                botResponse = "The age of my developer is 22 years old.";
                 break;
             case "is your website free to use now?":
-                botResponse =   "Yes, for now we are completely free for users.";
+                botResponse = "Yes, for now we are completely free for users.";
                 break;
             default:
                 botResponse = "I'm sorry, I don't understand that question.";
         }
 
         const newMessage: Message = { text: userInput, isUser: true };
-        const botMessage: Message = { text: botResponse, isUser: false };
+        const thinkingMessage: Message = { text: "🤔 Thinking...........", isUser: false };
 
-        setMessages([...messages, newMessage, botMessage]);
+        setMessages([...messages, newMessage, thinkingMessage]);
+        setIsThinking(true);
         setInputValue('');
+
+        setTimeout(() => {
+            setMessages(prevMessages => {
+                return prevMessages.slice(0, prevMessages.length - 1).concat({ text: botResponse, isUser: false });
+            });
+            setIsThinking(false);
+        }, 4000); 
     };
 
     return (
@@ -87,8 +96,9 @@ const Chatbot: React.FC = () => {
                     placeholder="Ask a question..."
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
+                    disabled={isThinking}
                 />
-                <button onClick={askQuestion}>Send</button>
+                <button onClick={askQuestion} disabled={isThinking}>Send</button>
             </div>
             <div className="chat-footer">
                 All rights on Aadarsha Babu Dhakal

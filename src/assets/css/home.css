@@ -38,7 +38,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #fca311;
+    color: #cd8208;
 }
 
 .social_icon {
@@ -77,7 +77,7 @@ nav ul li a:hover {
 }
 
 .main_tag span {
-    color: #fca311;
+    color: #1e6829;
 }
 
 .main_tag p {
@@ -86,8 +86,8 @@ nav ul li a:hover {
 
 .main_btn {
     display: inline-block;
-    background-color: #fca311;
-    color: #333;
+    background-color: #e6af56;
+    color: #840d0d;
     padding: 0.8rem 2rem;
     text-decoration: none;
     border-radius: 0.3rem;
@@ -154,8 +154,8 @@ nav ul li a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 4rem 2rem;
-    background-color: #4596c9;
-    color: #fff;
+    background-color: #87b2ca;
+    color: #6b3f3f;
 }
 
 .about_image img {
@@ -234,7 +234,7 @@ nav ul li a:hover {
 
 .featured_book_tag .categories {
     display: inline-block;
-    background-color: #52c1d7;
+    background-color: #5d605d;
     color: #fff;
     padding: 0.2rem 0.5rem;
     border-radius: 0.2rem;
