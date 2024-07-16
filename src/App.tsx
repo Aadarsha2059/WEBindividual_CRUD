@@ -18,6 +18,8 @@ import SeekersPage from "./public/seekerspage";
 import SuggestionsPage from "./public/suggestion";
 import Chatbot from "./public/chatbot";
 import BookLoader from "./public/BookLoader";
+import Chat from "./public/ChatDonorSeeker";
+import ChatDonorSeeker from "./public/ChatDonorSeeker";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +60,7 @@ function App() {
     { path: "/suggestions", element: <SuggestionsPage /> },
     { path: "/chatbot", element: <Chatbot /> },
     { path: "/contact", element: <Contact /> },
+    { path: "/chatdonorseeker", element: <ChatDonorSeeker /> },
     { path: "*", element: <>Unauthorized</> },
   ];
 

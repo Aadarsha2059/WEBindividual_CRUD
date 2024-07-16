@@ -1,0 +1,130 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ee2929;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(113, 149, 216, 0.1);
+    background-color: #61d1e2;
+    overflow: hidden;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #3eaac2;
+    color: #eddb11;
+    border-bottom: 1px solid #e9f108;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.chat-header button {
+    background-color: #ede514;
+    color: #223002;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #e7be7c;
+}
+
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background-color: #d99cd8;
+    position: relative;
+}
+
+.own-message {
+    align-self: flex-end;
+    background-color: #79aac0;
+    color: #5630d3;
+}
+
+.message-sender {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.message-content {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.message-timestamp {
+    font-size: 0.8rem;
+    color: #090909;
+    text-align: right;
+}
+
+.chat-input {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #48cfd8;
+    padding: 1rem;
+    background-color: #6c6f66;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #065b66;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.chat-input button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #4c54af;
+    color: #f69527;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.reply-button {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: #fbe608;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0;
+}
+
+.replying-to {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a3d720;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.reply-context {
+    font-size: 0.9rem;
+    color: #050505;
+    margin-bottom: 0.5rem;
+}

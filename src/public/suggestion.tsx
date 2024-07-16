@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import "../assets/css/suggestion.css";
 import axios from "axios";
+import "../assets/css/suggestion.css";
+
 import { useMutation, useQuery } from "@tanstack/react-query";
 
 type SuggestionFormData = {
