@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Master from "./admin";
@@ -16,14 +17,21 @@ import Contact from "./public/contact";
 import SeekersPage from "./public/seekerspage";
 import SuggestionsPage from "./public/suggestion";
 import Chatbot from "./public/chatbot";
-
-
-
-
+import BookLoader from "./public/BookLoader";
 
 const queryClient = new QueryClient();
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 7000); // 7 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const privateRoutes = [
     {
       path: "/admin",
@@ -42,25 +50,28 @@ function App() {
     { path: "/", element: <Home /> },
     { path: "/login", element: <Login /> },
     { path: "/register", element: <Register /> },
-    {path:"/singupdonar",element:<SingupDonar/>},
-    {path:"/loginseeker",element:<LoginSeeker/>},
-    {path:"/signupseeker",element:<SignupSeeker/>},
-    {path:"/donorspage",element:<DonorsPage/>},
-    {path:"/seekerspage",element:<SeekersPage/>},
-    {path:"/suggestions",element:<SuggestionsPage/>},
-    {path:"/chatbot",element:<Chatbot/>},
-    {path:"/contact",element:<Contact/>},
+    { path: "/singupdonar", element: <SingupDonar /> },
+    { path: "/loginseeker", element: <LoginSeeker /> },
+    { path: "/signupseeker", element: <SignupSeeker /> },
+    { path: "/donorspage", element: <DonorsPage /> },
+    { path: "/seekerspage", element: <SeekersPage /> },
+    { path: "/suggestions", element: <SuggestionsPage /> },
+    { path: "/chatbot", element: <Chatbot /> },
+    { path: "/contact", element: <Contact /> },
     { path: "*", element: <>Unauthorized</> },
   ];
 
-  
   const isLoggedIn = false;
+
+  const routes = isLoading
+    ? [{ path: "*", element: <BookLoader /> }]
+    : isLoggedIn
+    ? privateRoutes
+    : publicRoutes;
 
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider
-        router={createBrowserRouter(isLoggedIn ? privateRoutes : publicRoutes)}
-      />
+      <RouterProvider router={createBrowserRouter(routes)} />
     </QueryClientProvider>
   );
 }

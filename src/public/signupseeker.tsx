@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../assets/css/signupseeker.css"; 
 
+
 function SignupSeeker() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
