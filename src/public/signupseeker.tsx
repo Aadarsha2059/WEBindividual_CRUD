@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../assets/css/signupseeker.css"; 
+import video from "../assets/images/video.mp4"
 
 
 function SignupSeeker() {
@@ -24,6 +25,12 @@ function SignupSeeker() {
   return (
     <>
       <div className="signup-box">
+        
+        <div>
+        <video width="320" height="240" autoPlay controls >
+  <source src={video} type="video/mp4" />
+</video>
+        </div>
         <h1>Sign Up</h1>
         <h4>Become a registered book seeker</h4>
         <form onSubmit={handleSubmit}>

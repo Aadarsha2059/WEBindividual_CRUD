@@ -7,14 +7,18 @@ function SeekersPage() {
     const apiCallToGet = useQuery({
         queryKey: ['GT_DATA'],
         queryFn() {
-            return axios.get('http://localhost:8080/book');
+            return axios.get('http://localhost:8080/book/getAllData');
         },
     });
 
     const reserveApiCall = useMutation({
         mutationKey: ['RESERVE_BOOK'],
         mutationFn(id: any) {
-            return axios.post(`http://localhost:8080/book/reserve/${id}`);
+            let payload={
+                userId:localStorage.getItem("loggedUserID"),
+                bookId:id,
+            }
+            return axios.post(`http://localhost:8080/seeker`,payload);
         },
         onSuccess() {
             apiCallToGet.refetch();
@@ -24,6 +28,15 @@ function SeekersPage() {
     const handleReserve = (id: any) => {
         reserveApiCall.mutate(id);
     };
+
+    const deleteReserve=(id:any)=>{
+        // alert(id)
+
+        axios.delete("http://localhost:8080/seeker/"+ id).then(res=>{
+            apiCallToGet.refetch();
+
+        })
+    }
 
     return (
         <div className="container">
@@ -47,13 +60,12 @@ function SeekersPage() {
                             <td><img src={`data:image/jpeg;base64, `+book.image}  width={100}/></td>
 
                             <td>
-                                {!book.isReserved ? (
+                                {!book.userId ? (
                                     <button onClick={() => handleReserve(book.id)}>Reserve</button>
                                 ) : (
-                                    <span>Reserved</span>
-                                )}
+<button onClick={() => deleteReserve(book.seekerId)}>Cancel Reserve</button>                                )}
                             </td>
-                            <td>{book.isReserved ? 'Reserved' : 'Available'}</td>
+                            <td>{book.userId ? 'Reserved' : 'Available'}</td>
                         </tr>
                     ))}
                 </tbody>
