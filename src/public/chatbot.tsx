@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faBox, faPhone } from '@fortawesome/free-solid-svg-icons';
+import video from '../assets/images/chatbotvideo.mp4'; // Add your video file path
 import '../assets/css/chatbot.css';
 
 const Chatbot: React.FC = () => {
@@ -16,6 +19,7 @@ const Chatbot: React.FC = () => {
         let botResponse = "";
 
         switch (userInput) {
+            // Your predefined questions and responses
             case "who developed you?":
                 botResponse = "My supreme creator Aadarsha Babu Dhakal developed me.";
                 break;
@@ -71,39 +75,44 @@ const Chatbot: React.FC = () => {
                 return prevMessages.slice(0, prevMessages.length - 1).concat({ text: botResponse, isUser: false });
             });
             setIsThinking(false);
-        }, 4000); 
+        }, 4000);
     };
 
     return (
-        <div className="chat-container">
-            <div className="chat-header">
-                Book Donors Nepal Chat Bot
+        <>
+            <video className="chatbot-video" autoPlay muted loop>
+                <source src={video} type="video/mp4" />
+            </video>
+            <div className="chat-container">
+                <div className="chat-header">
+                    Book Donors Nepal Chat Bot
+                </div>
+                <div className="chat-box" id="chat-box">
+                    {messages.map((message, index) => (
+                        <div key={index} className={`chat-message ${message.isUser ? 'user-message' : 'bot-message'}`}>
+                            <span className={message.isUser ? 'user' : 'bot'}>
+                                {message.isUser ? 'User:' : 'Book Donors Nepal Bot:'}
+                            </span>
+                            {message.text}
+                        </div>
+                    ))}
+                </div>
+                <div className="chat-input">
+                    <input
+                        type="text"
+                        id="user-input"
+                        placeholder="Ask a question..."
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        disabled={isThinking}
+                    />
+                    <button onClick={askQuestion} disabled={isThinking}>Send</button>
+                </div>
+                <div className="chat-footer">
+                    All rights on Aadarsha Babu Dhakal
+                </div>
             </div>
-            <div className="chat-box" id="chat-box">
-                {messages.map((message, index) => (
-                    <div key={index} className={`chat-message ${message.isUser ? 'user-message' : 'bot-message'}`}>
-                        <span className={message.isUser ? 'user' : 'bot'}>
-                            {message.isUser ? 'User:' : 'Book Donors Nepal Bot:'}
-                        </span>
-                        {message.text}
-                    </div>
-                ))}
-            </div>
-            <div className="chat-input">
-                <input
-                    type="text"
-                    id="user-input"
-                    placeholder="Ask a question..."
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    disabled={isThinking}
-                />
-                <button onClick={askQuestion} disabled={isThinking}>Send</button>
-            </div>
-            <div className="chat-footer">
-                All rights on Aadarsha Babu Dhakal
-            </div>
-        </div>
+        </>
     );
 };
 

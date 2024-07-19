@@ -1,49 +1,76 @@
-/* contact.css */
+/* Ensuring the video covers the entire background */
+.contact-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
 
+/* Style the contact box */
 .contact-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .contact {
-    background-color: #f9f9f9;
-    border: 2px solid #007bff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  .contact h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: #007bff;
-  }
-  
-  .contact-info p {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-  }
-  
-  .contact-info p a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .contact-info p a:hover {
-    text-decoration: underline;
-  }
-  
-  .contact-info p .fa-icon {
-    margin-right: 0.5rem;
-  }
-  
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  padding: 40px;
+  margin: 100px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  position: relative; /* Ensure it stays above the video */
+  z-index: 1; /* Ensure it stays above the video */
+}
+
+/* Style the contact section */
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Style the heading */
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Style the contact information */
+.contact-info {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Style each contact info paragraph */
+.contact-info p {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Style icons */
+.contact-info .faEnvelope,
+.contact-info .faBox,
+.contact-info .faPhone {
+  margin-right: 10px;
+  color: #333;
+}
+
+/* Style the strong elements */
+.contact-info strong {
+  color: #333;
+  margin-right: 5px;
+}
+
+/* Style the anchor elements */
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}

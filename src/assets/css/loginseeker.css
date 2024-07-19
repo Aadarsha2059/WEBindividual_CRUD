@@ -1,93 +1,86 @@
-/* loginseeker.css */
+/* Ensuring the video covers the entire background */
+.login-seeker-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
 
-.login-container {
+/* Styling the login container */
+.login-page {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #7aa0a5; /* Example background color */
+  background: rgba(0, 0, 0, 0.6); /* Add a slight dark overlay */
 }
 
-.login-form {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 400px;
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
   padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #333;
-}
-
-form {
-  width: 100%;
-  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  text-align: left;
-}
-
-input[type="email"],
-input[type="password"],
-input[type="button"] {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #b4d62a; /* Example button color */
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-input[type="button"]:hover {
-  background-color: #0056b3; /* Example hover color */
-}
-
-.dont-have-account {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 0.9rem;
-}
-
-.dont-have-account a {
-  color: #007bff; /* Example link color */
-  cursor: pointer;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.dont-have-account a:hover {
-  color: #0056b3; /* Example hover color */
-}
-
-.image-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .image-container img {
-  max-width: 100%;
-  height: auto;
-  max-height: 300px; /* Adjust height as needed */
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.login-form {
+  margin-left: 20px;
+}
+
+.login-form h1 {
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  display: block;
+  margin-top: 10px;
+}
+
+.login-form input[type="email"], 
+.login-form input[type="password"] {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-form input[type="button"] {
+  margin-top: 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login-form input[type="button"]:hover {
+  background: #45a049;
+}
+
+.para-2 {
+  margin-top: 20px;
+}
+
+.para-2 a {
+  color: #4CAF50;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.para-2 a:hover {
+  text-decoration: underline;
 }

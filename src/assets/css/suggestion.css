@@ -1,96 +1,119 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+/* Ensure the container fills the viewport */
+.suggestions-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
-header {
-    background-color: #de262f;
-    color: rgb(31, 4, 4);
-    text-align: center;
-    padding: 1em 0;
-}
-
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2em;
-}
-
-.suggestions {
-    background-color: rgb(220, 220, 28);
-    padding: 2em;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+/* Ensure the video covers the entire background */
+.suggestion-background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place the video behind other content */
 }
 
-h2 {
-    color: #333;
+/* Content styling on top of the video */
+.content {
+    position: relative;
+    z-index: 1; /* Ensure content stays above the video */
+    background: rgba(91, 240, 10, 0.7); /* Semi-transparent dark background for readability */
+    color: #f5f5f5; /* Light text color for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    max-width: 800px; /* Adjust width to suit your design */
+    box-sizing: border-box;
+    /* Set a max height and enable scrolling */
+    max-height: calc(100vh - 40px); /* Adjust based on your design */
+    overflow-y: auto;
 }
 
-form {
+/* Header styling */
+.content h1 {
+    color: #a8301b; /* Tomato color for main header */
+    font-size: 2.5rem; /* Larger font size for main header */
+    margin-bottom: 20px;
+}
+
+.content h2 {
+    color: #1c1d1e; /* Steel blue for section headers */
+    font-size: 1.75rem; /* Slightly larger font size for section headers */
+    margin-bottom: 15px;
+}
+
+/* Form styling */
+.suggestion form {
     display: flex;
     flex-direction: column;
 }
 
-label {
-    margin-bottom: 0.5em;
-    color: #555;
+.suggestion label {
+    font-size: 1rem;
+    color: #131313; /* Light blue for labels */
+    margin-top: 10px;
 }
 
-textarea {
-    padding: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    margin-bottom: 1em;
-    font-size: 1em;
-    color: #333;
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-button {
-    padding: 0.75em 1.5em;
+.suggestion textarea {
+    width: 100%;
+    padding: 10px;
     border: none;
-    border-radius: 4px;
-    font-size: 1em;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 1rem;
+    background-color: #444;
+    color: #11e8ec; /* Red text for textarea */
+}
+
+.buttons button {
+    background-color: #ccdbb0; /* Blue for primary action */
+    color: #0d0d0d; /* Green text for button */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#drop-suggestion {
-    background-color: #4cbe74;
-    color: white;
+.buttons button:hover {
+    background-color: #27948b;
+    transform: scale(1.05);
 }
 
-#drop-suggestion:hover {
-    background-color: #b4da19;
+/* Table styling */
+#suggestionsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-#delete-suggestion {
-    background-color: #f44336;
-    color: white;
+#suggestionsTable th,
+#suggestionsTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
 }
 
-#delete-suggestion:hover {
-    background-color: #e53935;
+#suggestionsTable th {
+    background-color: #333;
+    color: #10f410; /* Green for table headers */
 }
 
-footer {
-    background-color: #6e9ed2;
-    color: rgb(48, 15, 230);
-    text-align: center;
-    padding: 1em 0;
+#suggestionsTable tr:nth-child(even) {
+    background-color: #bd5d5d; /* Light red for even rows */
+}
+
+#suggestionsTable tr:hover {
+    background-color: #875d5d; /* Light grey on hover */
+}
+#suggestionsTable .delete-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    transform: scale(1.05);
 }

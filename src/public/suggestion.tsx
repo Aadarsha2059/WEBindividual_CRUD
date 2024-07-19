@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import "../assets/css/suggestion.css";
-
 import { useMutation, useQuery } from "@tanstack/react-query";
+import video from "../assets/images/suggestionboxvideo.mp4"; 
 
 type SuggestionFormData = {
   suggestionList: string;
@@ -53,13 +53,10 @@ function SuggestionsPage() {
 
   const handleDeleteConfirm = () => {
     if (deleteConfirmation.suggestionId) {
-      
       const username = prompt("Enter your username:");
       const password = prompt("Enter your password:");
 
-      // Assuming you have authentication logic here
       if (username && password) {
-        // Call delete mutation with suggestionId
         deleteSuggestion.mutate(deleteConfirmation.suggestionId);
       } else {
         alert("Username and password are required.");
@@ -76,59 +73,65 @@ function SuggestionsPage() {
   };
 
   return (
-    <div className="container">
-      <h1>Book Donors Nepal</h1>
-      <section className="suggestion">
-        <h2>Drop Your Suggestions</h2>
-        <form onSubmit={handleSubmit(submitSuggestion)} id="suggestion-form">
-          <label htmlFor="suggestion">Your Suggestion:</label>
-          <textarea
-            id="suggestion"
-            {...register("suggestionList", { required: true })}
-            rows={5}
-            placeholder="Write your suggestion here..."
-            required
-          ></textarea>
-          <div className="buttons">
-            <button type="submit" id="drop-suggestion">
-              Drop Suggestion
-            </button>
-          </div>
-        </form>
-      </section>
+    <div className="suggestions-container">
+      <video className="suggestion-background-video" autoPlay muted loop>
+        <source src={video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="content">
+        <h1>Book Donors Nepal</h1>
+        <section className="suggestion">
+          <h2>Drop Your Suggestions</h2>
+          <form onSubmit={handleSubmit(submitSuggestion)} id="suggestion-form">
+            <label htmlFor="suggestion">Your Suggestion:</label>
+            <textarea
+              id="suggestion"
+              {...register("suggestionList", { required: true })}
+              rows={5}
+              placeholder="Write your suggestion here..."
+              required
+            ></textarea>
+            <div className="buttons">
+              <button type="submit" id="drop-suggestion">
+                Drop Suggestion
+              </button>
+            </div>
+          </form>
+        </section>
 
-      <h2>Suggestions</h2>
-      <table id="suggestionsTable">
-        <thead>
-          <tr>
-            <th>Suggestion ID</th>
-            <th>Suggestion</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {apiCallToGetSuggestions?.data?.map((suggestion: any) => (
-            <tr key={suggestion.id}>
-              <td>{suggestion.id}</td>
-              <td>{suggestion.suggestionList}</td>
-              <td>
-                {!deleteConfirmation.show && (
-                  <button onClick={() => handleDeleteRequest(suggestion.id)}>
-                    Delete
-                  </button>
-                )}
-                {deleteConfirmation.show && deleteConfirmation.suggestionId === suggestion.id && (
-                  <div>
-                    <p>Confirm deletion for suggestion ID: {suggestion.id}</p>
-                    <button onClick={handleDeleteConfirm}>Confirm</button>
-                    <button onClick={handleDeleteCancel}>Cancel</button>
-                  </div>
-                )}
-              </td>
+        <h2>Suggestions</h2>
+        <table id="suggestionsTable">
+          <thead>
+            <tr>
+              <th>Suggestion ID</th>
+              <th>Suggestion</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {apiCallToGetSuggestions?.data?.map((suggestion: any) => (
+              <tr key={suggestion.id}>
+                <td>{suggestion.id}</td>
+                <td>{suggestion.suggestionList}</td>
+                <td>
+                  {!deleteConfirmation.show && (
+                    <button onClick={() => handleDeleteRequest(suggestion.id)}>
+                      Delete
+                    </button>
+                  )}
+                  {deleteConfirmation.show && deleteConfirmation.suggestionId === suggestion.id && (
+                    <div>
+                      <p>Confirm deletion for suggestion ID: {suggestion.id}</p>
+                      <button onClick={handleDeleteConfirm}>Confirm</button>
+                      <button onClick={handleDeleteCancel}>Cancel</button>
+                    </div>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

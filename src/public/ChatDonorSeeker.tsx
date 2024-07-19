@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../assets/css/chatdonorseeker.css';
+import '../assets/css/chatdonorseeker.css'; // Ensure this path is correct
+import donorseekerchatvideo from '../assets/images/donorseekerchatvideo.mp4'; // Adjust path as needed
 
 interface Message {
     id: number;
@@ -43,43 +44,56 @@ const ChatDonorSeeker: React.FC = () => {
         }
     };
 
+    const handleUserSwitch = () => {
+        setUser(user === 'Donor' ? 'Seeker' : 'Donor');
+    };
+
     return (
         <div className="chat-container">
-            <div className="chat-header">
-                <h2>Donor-Seeker Chat</h2>
-                <button onClick={() => setUser(user === 'Donor' ? 'Seeker' : 'Donor')}>
-                    Switch to {user === 'Donor' ? 'Seeker' : 'Donor'}
-                </button>
-            </div>
-            <div className="chat-messages">
-                {messages.map((msg, index) => (
-                    <div key={index} className={`chat-message ${msg.sender === user ? 'own-message' : ''}`}>
-                        {msg.replyTo && (
-                            <div className="reply-context">
-                                <span>Replying to: {messages.find(m => m.id === msg.replyTo)?.content}</span>
-                            </div>
-                        )}
-                        <span className="message-sender">{msg.sender === 'Donor' ? '📚 Donor' : '📖 Seeker'}:</span>
-                        <span className="message-content">{msg.content}</span>
-                        <span className="message-timestamp">{msg.timestamp}</span>
-                        <button className="reply-button" onClick={() => setReplyTo(msg.id)}>Reply</button>
-                    </div>
-                ))}
-            </div>
-            <div className="chat-input">
-                {replyTo && (
-                    <div className="replying-to">
-                        Replying to: {messages.find(m => m.id === replyTo)?.content}
-                        <button onClick={() => setReplyTo(null)}>Cancel</button>
-                    </div>
-                )}
-                <input 
-                    type="text" 
-                    value={input} 
-                    onChange={(e) => setInput(e.target.value)} 
-                    placeholder="Type a message..." 
-                />
-                <button onClick={sendMessage}>Send</button>
+            <video className="chat-background-video" autoPlay muted loop>
+                <source src={donorseekerchatvideo} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            <div className="chat-overlay">
+                <div className="chat-header">
+                    <h2>Donor-Seeker Chat</h2>
+                    <button 
+                        onClick={handleUserSwitch} 
+                        className={`switch-user-button ${user === 'Donor' ? 'donor' : 'seeker'}`}
+                    >
+                        Switch to {user === 'Donor' ? 'Seeker' : 'Donor'}
+                    </button>
+                </div>
+                <div className="chat-messages">
+                    {messages.map((msg, index) => (
+                        <div key={index} className={`chat-message ${msg.sender === user ? 'own-message' : ''}`}>
+                            {msg.replyTo && (
+                                <div className="reply-context">
+                                    <span>Replying to: {messages.find(m => m.id === msg.replyTo)?.content}</span>
+                                </div>
+                            )}
+                            <span className="message-sender">{msg.sender === 'Donor' ? '📚 Donor' : '📖 Seeker'}:</span>
+                            <span className="message-content">{msg.content}</span>
+                            <span className="message-timestamp">{msg.timestamp}</span>
+                            <button className="reply-button" onClick={() => setReplyTo(msg.id)}>Reply</button>
+                        </div>
+                    ))}
+                </div>
+                <div className="chat-input">
+                    {replyTo && (
+                        <div className="replying-to">
+                            Replying to: {messages.find(m => m.id === replyTo)?.content}
+                            <button onClick={() => setReplyTo(null)}>Cancel</button>
+                        </div>
+                    )}
+                    <input 
+                        type="text" 
+                        value={input} 
+                        onChange={(e) => setInput(e.target.value)} 
+                        placeholder="Type your message..." 
+                    />
+                    <button onClick={sendMessage}>Send</button>
+                </div>
             </div>
         </div>
     );
