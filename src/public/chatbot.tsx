@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faBox, faPhone } from '@fortawesome/free-solid-svg-icons';
-import video from '../assets/images/chatbotvideo.mp4'; // Add your video file path
+import video from '../assets/images/chatbotvideo.mp4'; 
 import '../assets/css/chatbot.css';
 
 const Chatbot: React.FC = () => {
@@ -86,6 +86,9 @@ const Chatbot: React.FC = () => {
             <div className="chat-container">
                 <div className="chat-header">
                     Book Donors Nepal Chat Bot
+                </div>
+                <div className="welcome-message">
+                    Welcome to Book Donors Nepal Chat Bot! Feel free to ask me any questions about our book donation-seek services.
                 </div>
                 <div className="chat-box" id="chat-box">
                     {messages.map((message, index) => (

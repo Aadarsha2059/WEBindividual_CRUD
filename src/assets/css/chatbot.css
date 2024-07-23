@@ -33,6 +33,18 @@
     text-align: center;
 }
 
+/* Welcome message styling */
+.welcome-message {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /* Chat box styling */
 .chat-box {
     flex: 1; /* Allow the chat-box to expand and fill available space */

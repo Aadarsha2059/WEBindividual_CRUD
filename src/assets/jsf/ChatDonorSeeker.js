@@ -2,27 +2,19 @@ import React, { useState, useEffect } from 'react';
 import '../assets/css/chatdonorseeker.css'; // Ensure this path is correct
 import donorseekerchatvideo from '../assets/images/donorseekerchatvideo.mp4'; // Adjust path as needed
 
-interface Message {
-    id: number;
-    sender: string;
-    content: string;
-    timestamp: string;
-    replyTo?: number;
-}
-
-const ChatDonorSeeker: React.FC = () => {
-    const [messages, setMessages] = useState<Message[]>([]);
-    const [input, setInput] = useState<string>('');
-    const [user, setUser] = useState<string>('Donor'); // Can be 'Donor' or 'Seeker'
-    const [replyTo, setReplyTo] = useState<number | null>(null);
+const ChatDonorSeeker = () => {
+    const [messages, setMessages] = useState([]);
+    const [input, setInput] = useState('');
+    const [user, setUser] = useState('Donor'); // Can be 'Donor' or 'Seeker'
+    const [replyTo, setReplyTo] = useState(null);
 
     useEffect(() => {
         // Fetch messages from local storage on initial load
         const storedMessages = localStorage.getItem('chatMessages');
         if (storedMessages) {
-            const parsedMessages: Message[] = JSON.parse(storedMessages);
+            const parsedMessages = JSON.parse(storedMessages);
             const validMessages = parsedMessages.filter(msg => {
-                return (new Date().getTime() - new Date(msg.timestamp).getTime()) <= 24 * 60 * 60 * 1000;
+                return (new Date() - new Date(msg.timestamp)) <= 24 * 60 * 60 * 1000;
             });
             setMessages(validMessages);
         }
@@ -35,7 +27,7 @@ const ChatDonorSeeker: React.FC = () => {
 
     const sendMessage = () => {
         if (input.trim()) {
-            const newMessage: Message = {
+            const newMessage = {
                 id: messages.length + 1,
                 sender: user,
                 content: input,

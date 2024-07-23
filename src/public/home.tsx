@@ -43,6 +43,7 @@ function Home() {
                         <li onClick={()=>navigate("/suggestions")}><a>Drop your suggestions</a></li>
                         <li onClick={()=>navigate("/contact")}><a>Contact</a></li>
                         <li onClick={()=>navigate("/chatdonorseeker")}><a>Seeker/Donor-Chats</a></li>
+                        <li onClick={()=>navigate("/article")}><a>Articles</a></li>
                         
                     </ul>
                     <div className="social_icon">

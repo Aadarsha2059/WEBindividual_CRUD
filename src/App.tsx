@@ -17,6 +17,7 @@ import Contact from "./public/contact";
 import SeekersPage from "./public/seekerspage";
 import SuggestionsPage from "./public/suggestion";
 import Chatbot from "./public/chatbot";
+import Article from "./public/article";
 import BookLoader from "./public/BookLoader";
 import Chat from "./public/ChatDonorSeeker";
 import ChatDonorSeeker from "./public/ChatDonorSeeker";
@@ -61,6 +62,7 @@ function App() {
     { path: "/chatbot", element: <Chatbot /> },
     { path: "/contact", element: <Contact /> },
     { path: "/chatdonorseeker", element: <ChatDonorSeeker /> },
+    { path: "/article", element: <Article /> },
     { path: "*", element: <>Unauthorized</> },
   ];
 
