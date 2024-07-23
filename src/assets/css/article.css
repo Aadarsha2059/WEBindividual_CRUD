@@ -1,14 +1,36 @@
-/* Container for all articles */
-.articles-container {
+/* Full-screen background video */
+.article-background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.6; /* Adjust opacity to ensure readability of text */
+  }
+  
+  /* Container for all articles */
+  .articles-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 40px 20px;
-    background-color: #b2c9db;
-}
-
-/* Styling for individual article card */
-.article-card {
+    background-color: rgba(178, 201, 219, 0.8); /* Semi-transparent background */
+    border-radius: 15px;
+    margin: 20px;
+  }
+  
+  /* Heading for the articles section */
+  .section-heading {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  /* Styling for individual article card */
+  .article-card {
     background: #e9f09b;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -17,44 +39,45 @@
     width: 90%;
     max-width: 800px;
     transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.article-card:hover {
+  }
+  
+  .article-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Title of the article */
-.article-title {
+  }
+  
+  /* Title of the article */
+  .article-title {
     font-size: 2rem;
     color: #2b089c;
     margin-bottom: 10px;
-}
-
-/* Author of the article */
-.article-author {
+  }
+  
+  /* Author of the article */
+  .article-author {
     font-size: 1.1rem;
     color: #777;
     margin-bottom: 5px;
-}
-
-/* Date of publication */
-.article-date {
+  }
+  
+  /* Date of publication */
+  .article-date {
     font-size: 0.9rem;
     color: #999;
     margin-bottom: 5px;
-}
-
-/* Source of the article */
-.article-source {
+  }
+  
+  /* Source of the article */
+  .article-source {
     font-size: 0.9rem;
     color: #007bff;
     margin-bottom: 15px;
-}
-
-/* Content of the article */
-.article-content {
+  }
+  
+  /* Content of the article */
+  .article-content {
     font-size: 1.2rem;
     color: #555;
     line-height: 1.8;
-}
+  }
+  

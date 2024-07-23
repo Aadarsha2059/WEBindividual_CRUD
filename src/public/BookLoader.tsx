@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/css/BookLoader.css';
-import video from '../assets/images/preloadervideoo.mp4'; // Add your video file path
+import video from '../assets/images/bookpreloader.mp4'; // Add your video file path
 
 const BookLoader: React.FC = () => {
     const pages = Array.from({ length: 18 }, (_, i) => i);

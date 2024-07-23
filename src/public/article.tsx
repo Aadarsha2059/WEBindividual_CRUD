@@ -1,5 +1,6 @@
 import React from 'react';
 import '../assets/css/article.css';
+import articleVideo from '../assets/images/articlevideo.mp4'; 
 
 const articles = [
   {
@@ -41,17 +42,23 @@ const articles = [
 
 const Article: React.FC = () => {
   return (
-    <div className="articles-container">
-      {articles.map((article, index) => (
-        <div key={index} className="article-card">
-          <h2 className="article-title">{article.title}</h2>
-          <p className="article-author">{article.author}</p>
-          <p className="article-date">{article.date}</p>
-          <p className="article-source">{article.source}</p>
-          <p className="article-content">{article.content}</p>
-        </div>
-      ))}
-    </div>
+    <>
+      <video className="article-background-video" autoPlay muted loop>
+        <source src={articleVideo} type="video/mp4" />
+      </video>
+      <div className="articles-container">
+        <h1 className="section-heading">Articles Published on Renowned Papers of the World</h1>
+        {articles.map((article, index) => (
+          <div key={index} className="article-card">
+            <h2 className="article-title">{article.title}</h2>
+            <p className="article-author">{article.author}</p>
+            <p className="article-date">{article.date}</p>
+            <p className="article-source">{article.source}</p>
+            <p className="article-content">{article.content}</p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
