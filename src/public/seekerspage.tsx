@@ -14,11 +14,11 @@ function SeekersPage() {
     const reserveApiCall = useMutation({
         mutationKey: ['RESERVE_BOOK'],
         mutationFn(id: any) {
-            let payload={
-                userId:localStorage.getItem("loggedUserID"),
-                bookId:id,
-            }
-            return axios.post(`http://localhost:8080/seeker`,payload);
+            let payload = {
+                userId: localStorage.getItem("loggedUserID"),
+                bookId: id,
+            };
+            return axios.post(`http://localhost:8080/seeker`, payload);
         },
         onSuccess() {
             apiCallToGet.refetch();
@@ -29,14 +29,13 @@ function SeekersPage() {
         reserveApiCall.mutate(id);
     };
 
-    const deleteReserve=(id:any)=>{
-        // alert(id)
-
-        axios.delete("http://localhost:8080/seeker/"+ id).then(res=>{
-            apiCallToGet.refetch();
-
-        })
-    }
+    const deleteReserve = (id: any) => {
+        if (window.confirm("Are you sure you want to cancel the reservation of this book?")) {
+            axios.delete("http://localhost:8080/seeker/" + id).then(res => {
+                apiCallToGet.refetch();
+            });
+        }
+    };
 
     return (
         <div className="container">
@@ -46,8 +45,7 @@ function SeekersPage() {
                     <tr>
                         <th>Genre</th>
                         <th>Book Name</th>
-                        <th>image</th>
-
+                        <th>Image</th>
                         <th>Action</th>
                         <th>Reservation Status</th>
                     </tr>
@@ -55,15 +53,15 @@ function SeekersPage() {
                 <tbody>
                     {apiCallToGet?.data?.data?.map((book: any) => (
                         <tr key={book.id}>
-                            <td>{book.genres}</td>
-                            <td>{book.booksName}</td>
-                            <td><img src={`data:image/jpeg;base64, `+book.image}  width={100}/></td>
-
+                            <td>{book.genre}</td>
+                            <td>{book.name}</td>
+                            <td><img src={`data:image/jpeg;base64, ${book.image}`} width={100} alt={book.booksName} /></td>
                             <td>
                                 {!book.userId ? (
                                     <button onClick={() => handleReserve(book.id)}>Reserve</button>
                                 ) : (
-<button onClick={() => deleteReserve(book.seekerId)}>Cancel Reserve</button>                                )}
+                                    <button onClick={() => deleteReserve(book.seekerId)}>Cancel Reserve</button>
+                                )}
                             </td>
                             <td>{book.userId ? 'Reserved' : 'Available'}</td>
                         </tr>
