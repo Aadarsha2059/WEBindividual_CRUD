@@ -117,3 +117,16 @@
     background-color: #cc0000; /* Darker red on hover */
     transform: scale(1.05);
 }
+/* backButton.css */
+.back-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #0b951d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure the button is above other elements */
+}

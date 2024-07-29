@@ -10,11 +10,16 @@ function LoginSeeker() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-    if (email && password) {
+    // Regular expression to validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email || !password) {
+      alert("Please enter both email and password.");
+    } else if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+    } else {
       // API validation here
       navigate("/seekerspage");
-    } else {
-      alert("Please enter both email and password.");
     }
   };
 
@@ -47,8 +52,11 @@ function LoginSeeker() {
               />
               <input type="button" value="Submit" onClick={handleSubmit} />
             </form>
+            <p className="info-text">
+              Note: "If you have previously signed up as a donor, you can use the same email and password here to become a seeker."
+            </p>
             <p className="para-2">
-              Don't have an account?{" "}
+              Don't have an  seeker account?{" "}
               <a onClick={() => navigate("/signupseeker")}>Sign Up as Seeker</a>
             </p>
           </div>

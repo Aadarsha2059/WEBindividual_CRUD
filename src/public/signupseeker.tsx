@@ -1,22 +1,38 @@
-import { useState } from "react";
-import "../assets/css/signupseeker.css"; 
-import video from "../assets/images/video.mp4";
+import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "../assets/css/signupseeker.css";
+import video from "../assets/images/video.mp4"; // Add your video file path
+
+interface SeekerData {
+  seekerName: string;
+  email: string;
+  password: string;
+  address: string;
+}
 
 function SignupSeeker() {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [address, setAddress] = useState("");
+  const { register, handleSubmit, reset } = useForm<SeekerData>();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    
-    if (fullName && email && password && confirmPassword && address) {
-      console.log("Form submitted:", { fullName, email, password, address });
-    } else {
-      alert("Please fill in all fields.");
+  const saveApi = useMutation({
+    mutationKey: ["SAVE_API_OF_SIGNUP_SEEKER"],
+    mutationFn: (data: SeekerData) => {
+      return axios.post("http://localhost:8080/user", data);
+    },
+    onSuccess: () => {
+      alert("Signed up successfully");
+      reset(); // Reset the form fields after successful submission
+      navigate("/loginseeker"); // Navigate to the LoginSeeker page
+    },
+    onError: (error: any) => {
+      alert("Error saving data: " + error.message);
     }
+  });
+
+  const submit = (data: SeekerData) => {
+    saveApi.mutate(data);
   };
 
   return (
@@ -24,47 +40,38 @@ function SignupSeeker() {
       <video className="signup-seeker-video" autoPlay muted loop>
         <source src={video} type="video/mp4" />
       </video>
-      <div className="signup-seeker-box">
+      <div className="signup-box">
+        <div className="back-button" onClick={() => navigate('/loginseeker')}>
+          <button>Back</button>
+        </div>
         <h1>Sign Up</h1>
         <h4>Become a registered book seeker</h4>
-        <form onSubmit={handleSubmit}>
-          <label>Full Name</label>
+        <form onSubmit={handleSubmit(submit)}>
+          <label>Seeker Name</label>
           <input
             type="text"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            placeholder="Enter your full name"
+            {...register("seekerName")}
+            placeholder="Enter your name"
             required
           />
           <label>Email</label>
           <input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            {...register("email")}
             placeholder="Enter your email"
             required
           />
           <label>Password</label>
           <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            {...register("password")}
             placeholder="Enter your password"
-            required
-          />
-          <label>Confirm Password</label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="Confirm your password"
             required
           />
           <label>Address</label>
           <input
             type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            {...register("address")}
             placeholder="Enter your address"
             required
           />

@@ -1,6 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../assets/css/article.css';
-import articleVideo from '../assets/images/articlevideo.mp4'; 
+import articleVideo from '../assets/images/articlevideo.mp4';
 
 const articles = [
   {
@@ -41,11 +42,31 @@ const articles = [
 ];
 
 const Article: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <video className="article-background-video" autoPlay muted loop>
         <source src={articleVideo} type="video/mp4" />
       </video>
+      <button
+        className="back-button"
+        onClick={() => navigate('/')}
+        style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          backgroundColor: '#000',
+          color: '#fff',
+          border: 'none',
+          padding: '10px 20px',
+          cursor: 'pointer',
+          borderRadius: '5px',
+          zIndex: 1000, // Ensure the button is above other elements
+        }}
+      >
+        BACK
+      </button>
       <div className="articles-container">
         <h1 className="section-heading">Articles Published on Renowned Papers of the World</h1>
         {articles.map((article, index) => (

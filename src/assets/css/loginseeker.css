@@ -84,3 +84,10 @@
 .para-2 a:hover {
   text-decoration: underline;
 }
+.info-text {
+  font-size: 0.85rem; /* Adjust the font size as needed */
+  margin-top: 10px; /* Space above the text */
+  line-height: 1.4; /* Adjust line spacing */
+  color: #555; /* Text color */
+}
+

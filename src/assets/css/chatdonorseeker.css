@@ -181,3 +181,16 @@
 .replying-to button:hover {
     background-color: #c82333;
 }
+/* Ensure this CSS is in your chatdonorseeker.css file */
+.back-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure the button is above other elements */
+}

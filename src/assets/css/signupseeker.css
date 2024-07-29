@@ -64,3 +64,19 @@
 .signup-seeker-box a:hover {
   text-decoration: underline;
 }
+.back-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.back-button button {
+  padding: 10px 20px;
+  background-color: #13d1a5;
+  border: none;
+  cursor: pointer;
+}
+
+.back-button button:hover {
+  background-color: #151414;
+}
