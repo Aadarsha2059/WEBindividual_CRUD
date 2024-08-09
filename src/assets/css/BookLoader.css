@@ -21,8 +21,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: rgba(94, 193, 213, 0.5); /* Add a dark overlay to the video */
-    color: #fff;
+    background: rgba(10, 190, 226, 0.5); /* Add a dark overlay to the video */
+    color: #b1b852;
     text-align: center;
     padding: 20px;
     position: relative;
@@ -37,7 +37,7 @@ h1 {
 .book {
     position: relative;
     margin-bottom: 20px;
-    --color: #fff;
+    --color: #eaf60b;
     --duration: 6.8s;
     width: 32px;
     height: 12px;
@@ -295,7 +295,7 @@ h1 {
 .quotes {
     margin-top: 20px;
     font-size: 1em;
-    color: #d9fa04;
+    color: #2906ee;
     font-style: italic;
 }
 

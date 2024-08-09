@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/css/home.css';
-
 import logo from '../assets/images/logo.png';
 import tablePng from '../assets/images/table.png';
 import aboutImg from '../assets/images/about.png';

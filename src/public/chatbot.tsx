@@ -38,8 +38,8 @@ const Chatbot: React.FC = () => {
             case "how many seekers are there?":
                 botResponse = "There are currently 15 seekers.";
                 break;
-            case "how many books are currently available to seek?":
-                botResponse = "There are currently 10 books available to seek.";
+            case "how many genres are currently available to seek?":
+                botResponse = "There are currently 6 genres books available to seek.";
                 break;
             case "what are the categories of books available?":
                 botResponse = "We have categories such as Fiction, Non-fiction, Literature, Biography, Science Fiction, and more.";
@@ -53,8 +53,11 @@ const Chatbot: React.FC = () => {
             case "who is aadarsha babu dhakal?":
                 botResponse = "Aadarsha Babu Dhakal is one of the passionate students of Softwarica College of IT and E-commerce, dreaming to become a software engineer. I'm the product of his brilliant mind.";
                 break;
-            case "what is the age of your developer?":
-                botResponse = "The age of my developer is 22 years old.";
+            case "which programming languages developed your website?":
+                botResponse = "For frontend html css and react framework and for backend java springboot concepts";
+                break;
+            case "Which genres books are currently available?":
+                botResponse = "For now we can provide u fiction, non-fiction,science,poetry,religion and sprituality";
                 break;
             case "is your website free to use now?":
                 botResponse = "Yes, for now we are completely free for users.";

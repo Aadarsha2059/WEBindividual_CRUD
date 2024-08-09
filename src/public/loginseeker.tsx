@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/loginseeker.css";
 import loginSeekerImage from "../assets/images/loginseeker.png";
-import video from "../assets/images/loginseeker.mp4"; // Add your video file path
+import video from "../assets/images/loginseeker.mp4"; 
+import axios from "axios";
 
 function LoginSeeker() {
   const navigate = useNavigate();
@@ -10,16 +11,17 @@ function LoginSeeker() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-    // Regular expression to validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (!email || !password) {
-      alert("Please enter both email and password.");
-    } else if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
+      alert("Please enter both name and password.");
     } else {
-      // API validation here
-      navigate("/seekerspage");
+      axios.post("http://localhost:8080/user/login", {
+        username: email,
+        password: password,
+      }).then((res) => {
+        console.log(res);
+        localStorage.setItem("loggedUserID", res?.data);
+        navigate("/seekerspage");
+      });
     }
   };
 
@@ -36,12 +38,12 @@ function LoginSeeker() {
           <div className="login-form">
             <h1>Login as A Seeker</h1>
             <form>
-              <label>Email</label>
+              <label>Seeker Name</label>
               <input
-                type="email"
+                type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
+                placeholder="Enter your name"
               />
               <label>Password</label>
               <input
@@ -53,10 +55,10 @@ function LoginSeeker() {
               <input type="button" value="Submit" onClick={handleSubmit} />
             </form>
             <p className="info-text">
-              Note: "If you have previously signed up as a donor, you can use the same email and password here to become a seeker."
+              Note: "If you have previously signed up as a donor, you can use the same name and password here to become a seeker."
             </p>
             <p className="para-2">
-              Don't have an  seeker account?{" "}
+              Don't have a seeker account?{" "}
               <a onClick={() => navigate("/signupseeker")}>Sign Up as Seeker</a>
             </p>
           </div>

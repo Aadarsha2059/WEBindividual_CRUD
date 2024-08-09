@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import axios from "axios";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import video from "../assets/images/finaldonor.mp4"; 
@@ -8,7 +8,7 @@ import "../assets/css/donorspage.css";
 
 function DonorsPage() {
   const { register, handleSubmit } = useForm();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const apiCallToGet = useQuery({
     queryKey: ["GT_DATa"],
@@ -65,8 +65,8 @@ function DonorsPage() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("loggedUserID"); // Clear the user ID from local storage
-    navigate('/'); // Navigate back to the home page
+    localStorage.removeItem("loggedUserID"); 
+    navigate('/'); 
   };
 
   return (
