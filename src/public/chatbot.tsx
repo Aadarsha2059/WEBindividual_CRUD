@@ -115,7 +115,7 @@ const Chatbot: React.FC = () => {
                     <button onClick={askQuestion} disabled={isThinking}>Send</button>
                 </div>
                 <div className="chat-footer">
-                    All rights on Aadarsha Babu Dhakal
+                    All rights on Team Aadarsha 4th Semester Project
                 </div>
             </div>
         </>

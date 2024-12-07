@@ -53,7 +53,7 @@ function Home() {
 
                 <div className="main">
                     <div className="main_tag">
-                        <h1>WELCOME TO<br /><span>BOOK DONORS NEPAL</span></h1>
+                        <h1>WELCOME TO<br /><span>पाठशाला PathSala</span></h1>
                         <p>
                             Reading books is a magical journey that expands our minds.
                             Through books, we can explore distant lands and touch the human soul.
@@ -96,7 +96,8 @@ function Home() {
                         <i className="fa-solid fa-lock"></i>
                         <h3>Secure Payment</h3>
                         <p>
-                            Seekers must pay the transportation charge.
+                            Seekers must pay the transportation charge of delivery 
+                            and the minimum cost of the book.
                         </p>
                     </div>
                 </div>
@@ -109,11 +110,12 @@ function Home() {
                 <div className="about_tag">
                     <h1>About Us</h1>
                     <p>
-                        We are launching a book donation initiative aimed at connecting
-                        generous donors with eager book seekers across Nepal.
-                        Our website serves as a bridge, making it easy for donors to contribute their
-                        used books and for seekers to find the literary treasures they need
-                        within Nepal!!
+                    We are excited to launch Pathsala, a book donation initiative designed
+                     to connect generous donors with eager book seekers across Nepal. 
+                    Our platform acts as a bridge, allowing users to donate or sell used books, notes, and study materials at minimal cost. 
+                    Seekers can access free donated books or purchase first and second-hand books at affordable prices. 
+                    With the support of our eLibrary system, Pathsala makes it easier than ever to share knowledge 
+                    and help others find the literary resources they need.
                     </p>
                 </div>
             </section>
@@ -285,9 +287,9 @@ function Home() {
                             <h2>Client Review</h2>
                             <p className="client">Client: Bishnu Budhathoki.</p>
                             <p className="details">
-                                It's my great privilege to thank the donor and Book Donors Nepal.
-                                Great effort by Aadarsha to connect donors and seekers within Nepal.
-                                Aadarsha does every work perfectly touching users requirements in the present scenario.
+                                It's my great privilege to thank the donor and Pathsala.
+                                Great effort by team members to connect donors and seekers within Nepal.
+                                 
                             </p>
                         </div>
                     </div>
@@ -334,9 +336,9 @@ function Home() {
             </section>
 
             <footer>
-                <h1>Book Donors Nepal 2024</h1>
+                <h1>पाठशाला PathSala</h1>
                 <p>
-                   BOOK DONORS NEPAL 2024...BE CONNECTED WITH US FOR UPDATES!!!!
+                पाठशाला PathSala 2024...BE CONNECTED WITH US FOR UPDATES!!!!
                 </p>
                 <div className="input_box">
                     <input type="email" placeholder="Enter your email" />
@@ -349,7 +351,7 @@ function Home() {
                     <i className="fa-brands fa-instagram"></i>
                 </div>
 
-                <p className="end">All rights on<span><i className="fa-solid fa-face-grin"></i> Aadarsha Babu Dhakal</span></p>
+                <p className="end">All rights on<span><i className="fa-solid fa-face-grin"></i> Enterprise Group Project Team Aadarsha</span></p>
             </footer>
         </>
     );

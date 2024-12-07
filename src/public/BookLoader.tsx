@@ -5,9 +5,9 @@ import video from '../assets/images/bookpreloader.mp4'; // Add your video file p
 const BookLoader: React.FC = () => {
     const pages = Array.from({ length: 18 }, (_, i) => i);
     const quotes = [
-        "Show me a family of readers, and I will show you the people who move the world   ->Napoleon Bonaparte",
-        "I think books are like people, in the sense that they’ll turn up in your life when you most need them    -> Emma Thompson",
-        "Innovative idea by    ->AADARSHA BABU DHAKAL..............."
+
+        "Welcome........ENJOY THE JOURNEY OF STUDYING AND LEARNING.......",
+     
     ];
 
     return (
@@ -16,7 +16,7 @@ const BookLoader: React.FC = () => {
                 <source src={video} type="video/mp4" />
             </video>
             <div className="loader-container">
-                <h1>"BOOK DONORS NEPAL 2024" <br />("Dreaming, Studying & Living"...)</h1>
+                <h1>"पाठशाला PathSala Enterprise Project 4th Semester 2024" <br />("Dreaming, Studying & Living"...)</h1>
                 <div className="book">
                     <div className="inner">
                         <div className="left"></div>
