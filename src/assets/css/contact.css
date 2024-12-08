@@ -1,14 +1,12 @@
-
 .contact-video {
   position: fixed;
   top: 0;
   left: 0;
   min-width: 100%;
   min-height: 100%;
-  z-index: -1;
   object-fit: cover;
+  z-index: -1;
 }
-
 
 .contact-box {
   background: rgba(255, 255, 255, 0.9); 
@@ -23,13 +21,11 @@
   z-index: 1; 
 }
 
-
 .contact {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 
 .contact h2 {
   font-size: 2rem;
@@ -37,13 +33,11 @@
   color: #333;
 }
 
-
 .contact-info {
   font-size: 1.2rem;
   line-height: 1.6;
   color: #555;
 }
-
 
 .contact-info p {
   margin: 10px 0;
@@ -58,12 +52,10 @@
   color: #333;
 }
 
-
 .contact-info strong {
   color: #333;
   margin-right: 5px;
 }
-
 
 .contact-info a {
   color: #007bff;
@@ -72,4 +64,86 @@
 
 .contact-info a:hover {
   text-decoration: underline;
+}
+
+.advertisement {
+  background: linear-gradient(135deg, #cce851, #a1e49e);
+  color: #333;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 320px;
+  animation: bounce 2s infinite, pulse 3s infinite;
+}
+
+.advertisement .ad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.advertisement .timer {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.advertisement .close-ad {
+  background: none;
+  color: #ff4d4d;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.advertisement .close-ad:hover {
+  color: #d93636;
+}
+
+.advertisement .ad-title {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.advertisement .ad-location {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.advertisement p {
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+.advertisement strong {
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+  }
 }

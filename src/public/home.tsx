@@ -36,13 +36,15 @@ function Home() {
                     </div>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li onClick={() => navigate("/login")}><a>Login as a Donor</a></li>
-                        <li onClick={()=>navigate("/loginseeker")}><a>Login as a Seeker</a></li>
+                        <li onClick={() => navigate("/login")}><a>Login as Donor</a></li>
+                        <li onClick={()=>navigate("/loginseeker")}><a>Login as Seeker</a></li>
                         <li onClick={()=>navigate("/chatbot")}><a>Chatbot</a></li>
                         <li onClick={()=>navigate("/suggestions")}><a>Drop your suggestions</a></li>
                         <li onClick={()=>navigate("/contact")}><a>Contact</a></li>
                         <li onClick={()=>navigate("/chatdonorseeker")}><a>Seeker/Donor-Chats</a></li>
                         <li onClick={()=>navigate("/article")}><a>Articles</a></li>
+                        <li onClick={()=>navigate("/teamsection")}><a>Our Team</a></li>
+                        
                         
                     </ul>
                     <div className="social_icon">

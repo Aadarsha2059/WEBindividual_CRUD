@@ -21,6 +21,7 @@ import Article from "./public/article";
 import BookLoader from "./public/BookLoader";
 import Chat from "./public/ChatDonorSeeker";
 import ChatDonorSeeker from "./public/ChatDonorSeeker";
+import TeamSection from "./public/aboutsection";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ function App() {
     { path: "/contact", element: <Contact /> },
     { path: "/chatdonorseeker", element: <ChatDonorSeeker /> },
     { path: "/article", element: <Article /> },
+    {path:"/teamsection",element:<TeamSection/>},
     { path: "*", element: <>Unauthorized</> },
   ];
 
