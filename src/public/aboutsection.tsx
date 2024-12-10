@@ -43,7 +43,7 @@ const TeamSection: React.FC = () => {
     return (
         <div className="wrapper">
             <div className="title">
-                <h4>PathSala Team</h4>
+                <h4>पाठशाला Team</h4>
             </div>
 
             <div className="card_Container">

@@ -20,6 +20,9 @@ import doshichasma from '../assets/images/doshichasma.png';
 import bhagwatgeeta from '../assets/images/bhagwatgeeta.png';
 import sumnima from '../assets/images/sumnina.png';
 import bisnu from '../assets/images/bisnhu.png.jpeg';
+import ritesh from '../assets/images/ritesh.png';
+import gaurva from '../assets/images/gaurav.png';
+import uttam from '../assets/images/uttam.png';
 import chirayu from '../assets/images/chirayu.png';
 import suraj from '../assets/images/suraj.png';
 import anuj from '../assets/images/anuj.png';
@@ -36,14 +39,18 @@ function Home() {
                     </div>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li onClick={() => navigate("/login")}><a>Login as Donor</a></li>
-                        <li onClick={()=>navigate("/loginseeker")}><a>Login as Seeker</a></li>
+                        <li onClick={() => navigate("/login")}><a>Login as D</a></li>
+                        <li onClick={()=>navigate("/loginseeker")}><a>Login as S</a></li>
                         <li onClick={()=>navigate("/chatbot")}><a>Chatbot</a></li>
-                        <li onClick={()=>navigate("/suggestions")}><a>Drop your suggestions</a></li>
+                        <li onClick={()=>navigate("/suggestions")}><a>Drop your suggestion</a></li>
                         <li onClick={()=>navigate("/contact")}><a>Contact</a></li>
-                        <li onClick={()=>navigate("/chatdonorseeker")}><a>Seeker/Donor-Chats</a></li>
-                        <li onClick={()=>navigate("/article")}><a>Articles</a></li>
-                        <li onClick={()=>navigate("/teamsection")}><a>Our Team</a></li>
+                        <li onClick={()=>navigate("/chatdonorseeker")}><a>Chat here</a></li>
+                        <li onClick={()=>navigate("/article")}><a>Article</a></li>
+                        <li onClick={()=>navigate("/teamsection")}><a>Dev Team</a></li>
+                        
+               
+                        
+                        
                         
                         
                     </ul>
@@ -91,7 +98,7 @@ function Home() {
                         <h3>Best Deal</h3>
                         <p>
                             We will try our best to become a good mediator
-                            between seeker and donor.
+                            between seeker and donor or buyer and seller.
                         </p>
                     </div>
                     <div className="services_card">
@@ -283,14 +290,15 @@ function Home() {
                 <div className="review_box">
                     <div className="review_card">
                         <div className="review_image">
-                            <img src={bisnu} alt="Reviewer 1" />
+                            <img src={ritesh} alt="Reviewer 1" />
                         </div>
                         <div className="review_tag">
                             <h2>Client Review</h2>
-                            <p className="client">Client: Bishnu Budhathoki.</p>
+                            <p className="client">Client: Ritesh Das.</p>
                             <p className="details">
                                 It's my great privilege to thank the donor and Pathsala.
                                 Great effort by team members to connect donors and seekers within Nepal.
+                                We got the opportunity to sell second hand books and notes for juniors at minimum cost.
                                  
                             </p>
                         </div>
@@ -310,27 +318,27 @@ function Home() {
                     </div>
                     <div className="review_card">
                         <div className="review_image">
-                            <img src={anuj} alt="Reviewer 3" />
+                            <img src={uttam} alt="Reviewer 3" />
                         </div>
                         <div className="review_tag">
                             <h2>Client Review</h2>
-                            <p className="client">Client: Anuj Singh</p>
+                            <p className="client">Client: Uttam Sapkota</p>
                             <p className="details">
                                 Surely, in future this website will be the most visited site by passionate readers.
-                                It will be best for readers and will promote reading culture.Hats off to developer.
+                                It will be best for readers and will promote reading culture.Hats off to developers team.
                             </p>
                         </div>
                     </div>
                     <div className="review_card">
                         <div className="review_image">
-                            <img src={suraj} alt="Reviewer 4" />
+                            <img src={gaurva} alt="Reviewer 4" />
                         </div>
                         <div className="review_tag">
                             <h2>Client Review</h2>
-                            <p className="client">Client: Suraj Tamang</p>
+                            <p className="client">Client: Gaurav Koirala</p>
                             <p className="details">
                                 This website helped me to find and study novels during my summer vacations.
-                                Awesome effort by my friend Aadarsha.
+                                Awesome effort by my friend Aadarsha and his team..!!
                             </p>
                         </div>
                     </div>
