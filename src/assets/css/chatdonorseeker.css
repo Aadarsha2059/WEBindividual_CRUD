@@ -1,25 +1,32 @@
-
-
-/* Ensure the chat container fills the viewport */
-.chat-container {
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Chat Section */
+  .chat-container {
     position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    background: #f9f9f9;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.chat-background-video {
+  }
+  
+  .chat-background-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1; /* Place the video behind other content */
-}
-
-.chat-overlay {
+    z-index: -1;
+  }
+  
+  .chat-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -29,93 +36,81 @@
     flex-direction: column;
     padding: 20px;
     box-sizing: border-box;
-    background: rgba(14, 22, 166, 0.437); /* Semi-transparent background */
-    color: #131212; /* Light text color for contrast */
-}
-
-/* Header styling */
-.chat-header {
+    background: rgba(14, 22, 166, 0.4);
+    color: #fff;
+  }
+  
+  .chat-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    color: #000;
-}
-
-.chat-header h2 {
+    color: #e0e0e0;
+  }
+  
+  .chat-header h2 {
     font-size: 2.2rem;
     margin: 0;
-    color: #e0e0e0; /* Light grey for the title */
-}
-
-.switch-user-button {
-    background-color: #406c9b; /* Primary button color */
-    color: #0d0e0d;
+  }
+  
+  .switch-user-button {
+    background-color: #406c9b;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.switch-user-button.donor {
-    background-color: #007bff; /* Blue for Donor */
-}
-
-.switch-user-button.seeker {
-    background-color: #28a745; /* Green for Seeker */
-}
-
-.switch-user-button:hover {
-    opacity: 0.8;
+  }
+  
+  .switch-user-button:hover {
+    background-color: #365c84;
     transform: scale(1.05);
-}
-
-/* Chat messages container */
-.chat-messages {
+  }
+  
+  .chat-messages {
     flex: 1;
     overflow-y: auto;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
-    background-color: rgba(21, 21, 21, 0.6); /* Darker background for messages */
-}
-
-/* Individual message styling */
-.chat-message {
+    background-color: rgba(21, 21, 21, 0.6);
+  }
+  
+  .chat-message {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 10px;
-    background-color: rgba(74, 202, 87, 0.7); /* Darker background for messages */
-}
-
-.chat-message.own-message {
+    background-color: rgba(241, 112, 97, 0.7);
+  }
+  
+  .chat-message.own-message {
     align-self: flex-end;
-    background-color: rgba(86, 196, 190, 0.8); /* Blue background for own messages */
-}
-
-.message-sender {
+    background-color: rgba(86, 196, 190, 0.8);
+  }
+  
+  .message-sender {
     font-weight: bold;
-    color: #141414; /* Light grey for sender */
-}
-
-.message-content {
+    color: #141414;
+  }
+  
+  .message-content {
     margin: 5px 0;
     line-height: 1.4;
-}
-
-.message-timestamp {
+  }
+  
+  .message-timestamp {
     font-size: 0.75rem;
-    color: #0c0101; /* Subtle timestamp color */
+    color: #ccc;
     text-align: right;
-}
-
-.reply-button {
+  }
+  
+  .reply-button {
     background-color: #294b70;
-    color: #926060;
+    color: #fff;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
@@ -123,74 +118,124 @@
     font-size: 0.875rem;
     margin-top: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.reply-button:hover {
-    background-color: #aab300;
+  }
+  
+  .reply-button:hover {
+    background-color: #3c5f90;
     transform: scale(1.05);
-}
-
-/* Input area styling */
-.chat-input {
+  }
+  
+  .chat-input {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-
-.chat-input input[type="text"] {
+  }
+  
+  .chat-input input[type="text"] {
     width: 100%;
     padding: 10px;
     border: none;
     border-radius: 5px;
     margin-bottom: 10px;
     font-size: 1rem;
-    background-color: #333; /* Dark background for input */
-    color: #cdfb00f1; /* Light text color */
-}
-
-.chat-input button {
+    background-color: #333;
+    color: #cdfb00;
+  }
+  
+  .chat-input button {
     background-color: #0d0d0d;
-    color: #871616;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.chat-input button:hover {
-    background-color: #3c7dc2;
-    transform: scale(1.05);
-}
-
-/* Replying to message styling */
-.replying-to {
-    background-color: rgba(30, 197, 74, 0.9);
-    color: #333;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.replying-to button {
-    background-color: #e02639;
-}
-
-.replying-to button:hover {
-    background-color: #c82333;
-}
-/* Ensure this CSS is in your chatdonorseeker.css file */
-.back-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #000000;
     color: #fff;
     border: none;
     padding: 10px 20px;
-    cursor: pointer;
     border-radius: 5px;
-    z-index: 1000; /* Ensure the button is above other elements */
-}
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .chat-input button:hover {
+    background-color: #3c5f90;
+    transform: scale(1.05);
+  }
+  
+  /* Advertisement Section */
+/* Advertisement Section */
+.advertisement-container {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    background: #f4f4f4; /* Background color */
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    z-index: 1000;
+    align-items: center;
+  }
+  
+  .advertisement {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .close-ad-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: red; /* Red color for close button */
+    cursor: pointer;
+  }
+  
+  .shoe img,
+  .women img {
+    width: 120px; /* Enlarged image size */
+    height: 120px; /* Enlarged image size */
+  }
+  
+  .content {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .content h3 {
+    margin: 0;
+    color: #8d5c5c;
+    font-size: 1.8rem;
+  }
+  
+  .content p {
+    font-size: 1rem;
+    color: #333;
+    margin: 5px 0;
+  }
+  
+  .content .ad-text {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .content .btn {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: #406c9b;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+  
+  .content .btn:hover {
+    background-color: #365c84;
+  }
+  

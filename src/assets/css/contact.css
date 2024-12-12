@@ -65,7 +65,6 @@
 .contact-info a:hover {
   text-decoration: underline;
 }
-
 .advertisement {
   background: linear-gradient(135deg, #cce851, #a1e49e);
   color: #333;
@@ -97,14 +96,17 @@
 
 .advertisement .close-ad {
   background: none;
-  color: #ff4d4d;
+  color: #ff4d4d; /* Red color for the close button */
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .advertisement .close-ad:hover {
-  color: #d93636;
+  color: #d93636; /* Slightly darker red on hover */
 }
 
 .advertisement .ad-title {
