@@ -6,15 +6,24 @@ import arrivalTwo from '../assets/images/arrival_2.jpg';
 import arrivalThree from '../assets/images/arrival_3.jpg';
 import arrivalFour from '../assets/images/arrival_4.jpg';
 import arrivalFive from '../assets/images/arrival_5.jpg';
+import arrivalSix from '../assets/images/arrival_6.jpg';
+import arrivalseven from '../assets/images/arrival_7.jpg';
+import arrivalEight from '../assets/images/arrival_8.webp';
+import arrivalnine from '../assets/images/arrival_9.jpg';
+import arrivalten from '../assets/images/arrival_10.jpg';
 
 const DonorsDashboard: React.FC = () => {
   const navigate = useNavigate(); // Initialize navigate hook
   const books = [
-    { imgSrc: arrivalOne, title: "Book Title 1", author: "Author Name 1", price: "Rs. 500" },
-    { imgSrc: arrivalTwo, title: "Book Title 2", author: "Author Name 2", price: "Rs. 600" },
-    { imgSrc: arrivalThree, title: "Book Title 3", author: "Author Name 3", price: "Rs. 450" },
-    { imgSrc: arrivalFour, title: "Book Title 4", author: "Author Name 4", price: "Rs. 700" },
-    { imgSrc: arrivalFive, title: "Book Title 5", author: "Author Name 5", price: "Rs. 700" },
+    { imgSrc: arrivalOne, title: "Book Title One", author: "Suraj", price: "Rs. 500" },
+    { imgSrc: arrivalTwo, title: "Book Title Two", author: "Aadarsha", price: "Rs. 400" },
+    { imgSrc: arrivalThree, title: "Book Title 3", author: "Bishnu", price: "FREE OF COST" },
+    { imgSrc: arrivalFour, title: "Book Title 4", author: "Anuj", price: "Rs. 200" },
+    { imgSrc: arrivalSix, title: "Book Title 5", author: "Ram bahadur", price: "FREE OF COST" },
+    { imgSrc: arrivalseven, title: "Book Title 5", author: "Shyam bahadur", price: "FREE OF COST" },
+    { imgSrc: arrivalEight, title: "Book Title 5", author: "Hari Bahadur", price: "Rs. 800" },
+    { imgSrc: arrivalnine, title: "Book Title 5", author: "Krishna Bahadur", price: "Rs. 600" },
+    { imgSrc: arrivalten, title: "Book Title 5", author: "Purna Bahadur", price:"FREE OF COST" },
   ];
 
   return (
@@ -39,7 +48,7 @@ const DonorsDashboard: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="suggestions" onClick={() => navigate("/suggestions")}> {/* Added onClick handler for suggestions */}
+            <a href="sellerspage" onClick={() => navigate("/sellerspage")}> {/* Added onClick handler for suggestions */}
               <i className='bx bx-dollar-circle'></i>
               <span className="text">Sell Books</span>
             </a>

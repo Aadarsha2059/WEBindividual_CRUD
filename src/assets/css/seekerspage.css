@@ -1,29 +1,65 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #bebecd;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 .container {
-    background-color: #2fbdb8;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 800px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+h1, h2 {
     text-align: center;
-}
-
-h1 {
     color: #333;
-    margin-bottom: 20px;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="file"],
+select,
+input[type="text"],
+input[type="range"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
 
 table {
     width: 100%;
@@ -31,71 +67,50 @@ table {
     margin-top: 20px;
 }
 
-table thead {
-    background-color: #6b95c2;
-    color: #fff;
-}
-
 table th, table td {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ddd;
-    text-align: left;
+    text-align: center;
+    vertical-align: middle;
 }
 
 table th {
-    text-transform: uppercase;
-    font-size: 14px;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-table tbody tr:nth-child(even) {
+table tbody tr:nth-child(odd) {
     background-color: #f9f9f9;
 }
 
-table tbody tr:hover {
-    background-color: #f1f1f1;
-}
-
-table img {
+img {
     max-width: 100px;
-    height: auto;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
-
-@media (max-width: 600px) {
-    .container {
-        width: 100%;
-        padding: 15px;
-    }
-
-    table th, table td {
-        padding: 8px;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-}
-.seekers-page-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; /* Ensure the video is behind other content */
+button {
+    margin: 5px;
 }
 
+button.delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+button.delete:hover {
+    background-color: #c82333;
+}
 
 .logout-button {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: #e74c3c; /* Red background */
+    background-color: #e74c3c;
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    z-index: 1000; /* Ensure the button is above other elements */
+    z-index: 1000;
+    font-size: 16px;
 }

@@ -26,6 +26,7 @@ import AdminPathSala from "./public/adminpathsala";
 import DonorsDashboard from "./public/donorsdashboard";
 import DonorsProfile from "./public/donorsprofile";
 import Settings from "./public/settings";
+import SellersPage from "./public/sellerspage";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,7 @@ function App() {
     {path:"/donorsdashboard",element:<DonorsDashboard/>},
     {path:"/donorsprofile",element:<DonorsProfile/>},
     {path:"/settings",element:<Settings/>},
+    {path:"/sellerspage",element:<SellersPage/>},
     
     
     
