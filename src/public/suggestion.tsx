@@ -88,7 +88,7 @@ function SuggestionsPage() {
           Your browser does not support the video tag.
         </video>
         <div className="content">
-          <h1>Book Donors Nepal</h1>
+          <h1>PATHSALA E-BOOK SYSTEM....</h1>
           <section className="suggestion">
             <h2>Drop Your Suggestions</h2>
             <form onSubmit={handleSubmit(submitSuggestion)} id="suggestion-form">

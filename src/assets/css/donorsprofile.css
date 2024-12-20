@@ -1,0 +1,150 @@
+/* General Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.profile-container {
+  width: 165%;
+  max-width: 1600px; /* Increased the width for better laptop screen fitting */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Profile Card */
+.profile-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Header Section */
+.profile-header {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 5px solid #74ebd5;
+  object-fit: cover;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.1);
+}
+
+.upload-icon {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.profile-header:hover .upload-icon {
+  display: block;
+}
+
+.stars {
+  color: #fdd835;
+  font-size: 1.4rem;
+  margin: 10px 0;
+}
+
+.profile-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Details Section */
+.profile-details {
+  margin-top: 20px;
+  text-align: left;
+}
+
+/* Input Group Styling */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.input-group input[type="password"] {
+  border: 1px solid #ccc;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #74ebd5;
+  box-shadow: 0 0 8px rgba(116, 235, 213, 0.5);
+}
+
+/* Password Alert */
+#password-alert {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #e74c3c;
+}
+
+/* Profile Actions Button */
+.profile-actions button {
+  background: #74ebd5;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.profile-actions button:hover {
+  background: #d2f607;
+}
+
+.profile-actions button:focus {
+  outline: none;
+}

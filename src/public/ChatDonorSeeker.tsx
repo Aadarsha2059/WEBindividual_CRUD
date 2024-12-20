@@ -99,7 +99,7 @@ const ChatDonorSeeker: React.FC = () => {
         <h3>50% off</h3>
         <p>offer ends after 5 days</p>
         <p className="ad-text">We are offering renowned branded shoes at a 50% discount for the festival Dashain 2081.</p>
-        <p className="ad-text">Shop Name: Bishnu Jutta Pasal, opposite Softwarica College Block A.</p>
+        <p className="ad-text">Shop Name: Bishnu SHOES Store, opposite Softwarica College Block A.</p>
         <a href="#" className="btn">view offer</a>
       </div>
       <div className="women">

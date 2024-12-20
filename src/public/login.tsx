@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../assets/css/login.css";
-import video from "../assets/images/logindonor.mp4"; // Add your video file path
+import video from "../assets/images/logindonor.mp4"; 
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -20,7 +20,7 @@ function Login() {
     axios.post("http://localhost:8080/user/login", data).then(res => {
       console.log(res);
       localStorage.setItem("loggedUserID", res?.data);
-      navigate("/donorspage");
+      navigate("/donorsdashboard");
     });
   };
 

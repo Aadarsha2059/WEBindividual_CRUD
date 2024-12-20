@@ -21,7 +21,7 @@ const Chatbot: React.FC = () => {
         switch (userInput) {
             // Your predefined questions and responses
             case "who developed you?":
-                botResponse = "My supreme creator Aadarsha Babu Dhakal developed me.";
+                botResponse = "My supreme creator Aadarsha Babu Dhakal designed me after this Nirajan, Bishnu,Anuj and Suraj worked together on different functionalities.";
                 break;
             case "can you provide me your source code?":
                 botResponse = "No, I cannot do this. My developer would be sad and I can't see him being sad. He is my creator and I respect his order.";
@@ -88,10 +88,10 @@ const Chatbot: React.FC = () => {
             </video>
             <div className="chat-container">
                 <div className="chat-header">
-                    Book Donors Nepal Chat Bot
+                    PathSala E-BOOK CHAT BOT SYSTEM..
                 </div>
                 <div className="welcome-message">
-                    Welcome to Book Donors Nepal Chat Bot! Feel free to ask me any questions about our book donation-seek services.
+                    Welcome to PathSala E-Book Chat Bot! Feel free to ask me any questions about our book donation-seek services.
                 </div>
                 <div className="chat-box" id="chat-box">
                     {messages.map((message, index) => (

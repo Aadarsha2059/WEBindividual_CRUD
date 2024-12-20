@@ -23,6 +23,8 @@ import Chat from "./public/ChatDonorSeeker";
 import ChatDonorSeeker from "./public/ChatDonorSeeker";
 import TeamSection from "./public/aboutsection";
 import AdminPathSala from "./public/adminpathsala";
+import DonorsDashboard from "./public/donorsdashboard";
+import DonorsProfile from "./public/donorsprofile";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +34,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 5000); // 5 seconds
+    }, 2000); // 5 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -66,6 +68,8 @@ function App() {
     { path: "/chatdonorseeker", element: <ChatDonorSeeker /> },
     { path: "/article", element: <Article /> },
     {path:"/teamsection",element:<TeamSection/>},
+    {path:"/donorsdashboard",element:<DonorsDashboard/>},
+    {path:"/donorsprofile",element:<DonorsProfile/>},
     
     
     

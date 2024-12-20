@@ -42,11 +42,15 @@ function Home() {
                         <li onClick={() => navigate("/login")}><a>Login as D</a></li>
                         <li onClick={()=>navigate("/loginseeker")}><a>Login as S</a></li>
                         <li onClick={()=>navigate("/chatbot")}><a>Chatbot</a></li>
-                        <li onClick={()=>navigate("/suggestions")}><a>Drop your suggestion</a></li>
+                     
                         <li onClick={()=>navigate("/contact")}><a>Contact</a></li>
                         <li onClick={()=>navigate("/chatdonorseeker")}><a>Chat here</a></li>
-                        <li onClick={()=>navigate("/article")}><a>Article</a></li>
+                       
                         <li onClick={()=>navigate("/teamsection")}><a>Dev Team</a></li>
+
+                        
+                        
+
                         
                
                         
