@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #74ebd5, #9face6);
+  background: linear-gradient(135deg, #d0cfb3, #c5d795);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,8 +12,8 @@ body {
 
 /* Container */
 .profile-container {
-  width: 165%;
-  max-width: 1600px; /* Increased the width for better laptop screen fitting */
+  width: 125%;
+  max-width: 1600px; /* Increased for better proportionality */
   padding: 20px;
   box-sizing: border-box;
 }
@@ -26,7 +26,6 @@ body {
   padding: 40px;
   text-align: center;
   margin-top: 20px;
-  width: 100%;
 }
 
 /* Header Section */
@@ -35,47 +34,55 @@ body {
   margin-bottom: 30px;
 }
 
-.profile-pic {
-  width: 180px;
-  height: 180px;
+.profile-pic-container {
+  width: 1000px; /* Larger container width */
+  height: 1000px; /* Larger container height */
+  margin: 0 auto;
   border-radius: 50%;
-  border: 5px solid #74ebd5;
+  overflow: hidden;
+  border: 8px solid #74ebd5;
+  box-shadow: 0 0 20px rgba(116, 235, 213, 0.7);
+  position: relative;
+}
+
+.profile-pic {
+  width: 500%;
+  height: 500%;
   object-fit: cover;
-  margin-bottom: 10px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-pic:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(116, 235, 213, 1);
 }
 
 .upload-icon {
   position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 10px;
+  right: 10px;
   background: rgba(0, 0, 0, 0.6);
   color: white;
   border-radius: 50%;
-  padding: 10px;
-  font-size: 1.5rem;
+  padding: 12px;
+  font-size: 1.8rem;
   cursor: pointer;
   display: none;
 }
 
-.profile-header:hover .upload-icon {
+.profile-pic-container:hover .upload-icon {
   display: block;
 }
 
 .stars {
   color: #fdd835;
-  font-size: 1.4rem;
-  margin: 10px 0;
+  font-size: 1.6rem;
+  margin: 20px 0;
 }
 
 .profile-name {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 20px;
@@ -83,7 +90,7 @@ body {
 
 /* Details Section */
 .profile-details {
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: left;
 }
 
@@ -102,22 +109,38 @@ body {
 .input-group input,
 .input-group select {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
   box-sizing: border-box;
-}
-
-.input-group input[type="password"] {
-  border: 1px solid #ccc;
+  animation: powerful-glow 2s infinite alternate;
 }
 
 .input-group input:focus,
 .input-group select:focus {
   outline: none;
   border-color: #74ebd5;
-  box-shadow: 0 0 8px rgba(116, 235, 213, 0.5);
+  box-shadow: 0 0 25px rgba(116, 235, 213, 0.8);
+}
+
+/* Powerful Glow Animation */
+@keyframes powerful-glow {
+  0% {
+    box-shadow: 0 0 15px #ff4500;
+  }
+  25% {
+    box-shadow: 0 0 25px #ffcc00;
+  }
+  50% {
+    box-shadow: 0 0 35px #32cd32;
+  }
+  75% {
+    box-shadow: 0 0 25px #1e90ff;
+  }
+  100% {
+    box-shadow: 0 0 15px #ff1493;
+  }
 }
 
 /* Password Alert */
@@ -132,17 +155,18 @@ body {
   background: #74ebd5;
   color: #fff;
   border: none;
-  padding: 12px 20px;
-  font-size: 1.1rem;
+  padding: 14px 20px;
+  font-size: 1.2rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
   width: 100%;
   box-sizing: border-box;
 }
 
 .profile-actions button:hover {
   background: #d2f607;
+  transform: scale(1.05);
 }
 
 .profile-actions button:focus {

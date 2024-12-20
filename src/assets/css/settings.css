@@ -1,0 +1,210 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7fa;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.dark-mode {
+    background-color: #222;
+    color: #f7f7fa;
+}
+
+/* Settings Container */
+.settings-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    z-index: 1;
+}
+
+/* Background Video */
+.settings-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Ensure video is behind the content */
+}
+
+/* Hover effect for settings container */
+.settings-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode Styles */
+.dark-mode .settings-container {
+    background: #333;
+}
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color: #444;
+}
+
+.dark-mode .title {
+    color: #f7f7fa;
+}
+
+/* Setting Options */
+.setting-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.setting-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f1f1f1;
+}
+
+.dark-mode .setting-option {
+    border-color: #444;
+    background-color: #444;
+}
+
+.dark-mode .setting-option:hover {
+    background-color: #555;
+}
+
+.setting-option i {
+    font-size: 24px;
+    color: #666;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.setting-option:hover i {
+    color: #333;
+}
+
+.dark-mode .setting-option i {
+    color: #aaa;
+}
+
+.dark-mode .setting-option:hover i {
+    color: #f7f7fa;
+}
+
+.setting-option p {
+    flex: 1;
+    font-size: 18px;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    position: relative;
+    width: 50px;
+    height: 25px;
+}
+
+.toggle-btn input {
+    display: none;
+}
+
+.toggle-btn label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-btn input:checked + label {
+    background: #4caf50;
+}
+
+.toggle-btn label::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 19px;
+    height: 19px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.toggle-btn input:checked + label::after {
+    transform: translateX(25px);
+}
+
+/* Select Dropdown */
+select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+    color: #333;
+    font-size: 16px;
+    transition: box-shadow 0.3s ease;
+}
+
+select:focus {
+    box-shadow: 0 0 6px rgba(0, 128, 255, 0.6);
+    outline: none;
+}
+
+.dark-mode select {
+    background: #555;
+    color: #f7f7fa;
+}
+
+/* Keyframe Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes hoverPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.setting-option:hover {
+    animation: hoverPulse 0.5s;
+}

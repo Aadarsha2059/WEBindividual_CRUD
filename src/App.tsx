@@ -25,6 +25,7 @@ import TeamSection from "./public/aboutsection";
 import AdminPathSala from "./public/adminpathsala";
 import DonorsDashboard from "./public/donorsdashboard";
 import DonorsProfile from "./public/donorsprofile";
+import Settings from "./public/settings";
 
 const queryClient = new QueryClient();
 
@@ -34,7 +35,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // 5 seconds
+    }, 4000); // 4 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -70,6 +71,7 @@ function App() {
     {path:"/teamsection",element:<TeamSection/>},
     {path:"/donorsdashboard",element:<DonorsDashboard/>},
     {path:"/donorsprofile",element:<DonorsProfile/>},
+    {path:"/settings",element:<Settings/>},
     
     
     

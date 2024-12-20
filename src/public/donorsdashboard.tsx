@@ -51,7 +51,7 @@ const DonorsDashboard: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="settings.html">
+          <a href="settings" onClick={() => navigate("/settings")}> {/* Updated to navigate to suggestions page */}
               <i className='bx bx-cog'></i>
               <span className="text">Settings</span>
             </a>
