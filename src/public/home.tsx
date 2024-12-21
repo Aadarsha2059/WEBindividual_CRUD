@@ -48,6 +48,8 @@ function Home() {
                        
                         <li onClick={()=>navigate("/teamsection")}><a>Dev Team</a></li>
 
+                        <li onClick={()=>navigate("/donorsdashboard")}><a>Dashboard</a></li>
+
                         
                         
 

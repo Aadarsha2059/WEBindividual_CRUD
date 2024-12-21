@@ -3,6 +3,7 @@ import '../assets/css/settings.css';
 
 const Settings: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [selectedTheme, setSelectedTheme] = useState('default');
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -17,6 +18,24 @@ const Settings: React.FC = () => {
   return (
     <div className={`settings-container ${darkMode ? 'dark-mode' : ''}`}>
       <h1 className="title">Settings</h1>
+
+      {/* Theme Section */}
+      <div className="setting-option">
+        <i className="fas fa-palette"></i>
+        <p>Theme</p>
+        <select
+          value={selectedTheme}
+          onChange={(e) => {
+            setSelectedTheme(e.target.value);
+            handleDropdownChange(e, 'Theme');
+          }}
+        >
+          <option value="default">Default</option>
+          <option value="ocean">Ocean</option>
+          <option value="forest">Forest</option>
+          <option value="solarized">Solarized</option>
+        </select>
+      </div>
 
       {/* Appearance Section */}
       <div className="setting-option">
@@ -33,28 +52,6 @@ const Settings: React.FC = () => {
         </div>
       </div>
 
-      {/* Notifications Section */}
-      <div className="setting-option">
-        <i className="fas fa-bell"></i>
-        <p>Notifications</p>
-        <select onChange={(e) => handleDropdownChange(e, 'Notifications')}>
-          <option value="all">All Notifications</option>
-          <option value="important">Important Only</option>
-          <option value="none">None</option>
-        </select>
-      </div>
-
-      {/* Settings and Privacy */}
-      <div className="setting-option">
-        <i className="fas fa-user-shield"></i>
-        <p>Settings and Privacy</p>
-        <select onChange={(e) => handleDropdownChange(e, 'Privacy Settings')}>
-          <option value="public">Public</option>
-          <option value="private">Private</option>
-          <option value="custom">Custom</option>
-        </select>
-      </div>
-
       {/* Account Ownership */}
       <div className="setting-option">
         <i className="fas fa-user-cog"></i>
@@ -63,6 +60,17 @@ const Settings: React.FC = () => {
           <option value="manage">Manage Account</option>
           <option value="deactivate">Deactivate Account</option>
           <option value="delete">Delete Account</option>
+        </select>
+      </div>
+
+      {/* Notifications Section */}
+      <div className="setting-option">
+        <i className="fas fa-bell"></i>
+        <p>Notifications</p>
+        <select onChange={(e) => handleDropdownChange(e, 'Notifications')}>
+          <option value="all">All Notifications</option>
+          <option value="important">Important Only</option>
+          <option value="none">None</option>
         </select>
       </div>
 
@@ -77,14 +85,14 @@ const Settings: React.FC = () => {
         </select>
       </div>
 
-      {/* Font Size */}
+      {/* Privacy Section */}
       <div className="setting-option">
-        <i className="fas fa-font"></i>
-        <p>Font Size</p>
-        <select onChange={(e) => handleDropdownChange(e, 'Font Size')}>
-          <option value="small">Small</option>
-          <option value="medium" selected>Medium</option>
-          <option value="large">Large</option>
+        <i className="fas fa-shield-alt"></i>
+        <p>Privacy Settings</p>
+        <select onChange={(e) => handleDropdownChange(e, 'Privacy Settings')}>
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+          <option value="custom">Custom</option>
         </select>
       </div>
 
@@ -93,7 +101,7 @@ const Settings: React.FC = () => {
         <i className="fas fa-language"></i>
         <p>Language</p>
         <select onChange={(e) => handleDropdownChange(e, 'Language')}>
-          <option value="en" selected>English</option>
+          <option value="en">English</option>
           <option value="ne">Nepali</option>
           <option value="hi">Hindi</option>
         </select>
