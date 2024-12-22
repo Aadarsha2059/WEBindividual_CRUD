@@ -28,6 +28,7 @@ import DonorsProfile from "./public/donorsprofile";
 import Settings from "./public/settings";
 import SellersPage from "./public/sellerspage";
 import DataVisualization from "./public/donorvisualization";
+import JobPage from "./public/jobpage";
 
 const queryClient = new QueryClient();
 
@@ -76,6 +77,8 @@ function App() {
     {path:"/settings",element:<Settings/>},
     {path:"/sellerspage",element:<SellersPage/>},
     {path:"/donorvisualization",element:<DataVisualization/>},
+    {path:"/jobpage",element:<JobPage/>},
+    
     
     
     

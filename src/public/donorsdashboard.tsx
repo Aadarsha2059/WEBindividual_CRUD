@@ -81,9 +81,9 @@ const DonorsDashboard: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="article" onClick={() => navigate("/article")}> {/* Added onClick handler for articles */}
-              <i className='bx bx-news'></i> 
-              <span className="text">Study Journals</span>
+            <a href="jobpage" onClick={() => navigate("/jobpage")}> {/* Added onClick handler for jobpage */}
+              <i className='bx bx-dollar-circle'></i> 
+              <span className="text">Do Assignments and Earn</span>
             </a>
           </li>
           <li>
