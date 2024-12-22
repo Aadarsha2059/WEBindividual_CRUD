@@ -50,6 +50,8 @@ function Home() {
 
                         <li onClick={()=>navigate("/donorsdashboard")}><a>Dashboard</a></li>
 
+                        <li onClick={()=>navigate("/donorvisualization")}><a>Data Visualization</a></li>
+
                         
                         
 

@@ -27,6 +27,7 @@ import DonorsDashboard from "./public/donorsdashboard";
 import DonorsProfile from "./public/donorsprofile";
 import Settings from "./public/settings";
 import SellersPage from "./public/sellerspage";
+import DataVisualization from "./public/donorvisualization";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +75,8 @@ function App() {
     {path:"/donorsprofile",element:<DonorsProfile/>},
     {path:"/settings",element:<Settings/>},
     {path:"/sellerspage",element:<SellersPage/>},
+    {path:"/donorvisualization",element:<DataVisualization/>},
+    
     
     
     

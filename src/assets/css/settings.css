@@ -61,7 +61,7 @@ body {
     align-items: center;
     margin: 20px 0;
     padding: 20px;
-    background: linear-gradient(145deg, #252540, #1c1c32);
+    background: linear-gradient(145deg, #5c5cb2, #5252b4);
     border-radius: 15px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 -4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
