@@ -29,6 +29,7 @@ import Settings from "./public/settings";
 import SellersPage from "./public/sellerspage";
 import DataVisualization from "./public/donorvisualization";
 import JobPage from "./public/jobpage";
+import ChatBox from "./public/chatbox";
 
 
 const queryClient = new QueryClient();
@@ -79,6 +80,7 @@ function App() {
     {path:"/sellerspage",element:<SellersPage/>},
     {path:"/donorvisualization",element:<DataVisualization/>},
     {path:"/jobpage",element:<JobPage/>},
+    {path:"/chatbox",element:<ChatBox/>},
   
     
     

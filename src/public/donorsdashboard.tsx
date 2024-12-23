@@ -87,6 +87,13 @@ const DonorsDashboard: React.FC = () => {
             </a>
           </li>
           <li>
+            <a href="chatbox" onClick={() => navigate("/chatbox")}> {/* Added onClick handler for chatbox*/}
+            <i className='bx bx-message-square-dots'></i>
+
+              <span className="text">Message</span>
+            </a>
+          </li>
+          <li>
             <a href="#" className="logout" onClick={() => navigate("/")}> {/* Updated to navigate to home.tsx */}
               <i className='bx bx-log-out-circle'></i>
               <span className="text">Logout</span>
