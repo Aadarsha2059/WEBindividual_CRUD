@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import video from "../assets/images/Sell goods.mp4"; 
 import "../assets/css/sellerspage.css";
 
 function SellersPage() {
@@ -78,6 +79,9 @@ function SellersPage() {
       <button className="logout-button" onClick={handleLogout}>
         LOG OUT
       </button>
+      <video className="sellers-page-video" autoPlay muted loop>
+        <source src={video} type="video/mp4" />
+      </video>
       <div className="container">
         <h1>Sell Your Book</h1>
         <form onSubmit={handleSubmit(submit)} id="sellBookForm">
@@ -123,7 +127,7 @@ function SellersPage() {
           <select id="condition" {...register("condition")} required>
             <option value="">Select Condition</option>
             <option value="First Hand">First Hand</option>
-            <option value="Second Hand">Second Hand & A bit Older</option>
+            <option value="Second Hand & A bit Older">Second Hand & A bit Older</option>
             <option value="Second Hand & Recently Bought">Second Hand & Recently Bought</option>
           </select>
 

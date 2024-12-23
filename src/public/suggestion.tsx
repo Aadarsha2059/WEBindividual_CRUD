@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import "../assets/css/suggestion.css";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import video from "../assets/images/suggestionboxvideo.mp4"; 
+import video from "../assets/images/finalsuggestion.mp4"; 
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 type SuggestionFormData = {

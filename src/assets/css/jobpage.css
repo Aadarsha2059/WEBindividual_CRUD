@@ -1,367 +1,309 @@
 /* General Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Small Video in Corner */
+.video-corner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 200px; /* Set the desired width */
+  height: 150px; /* Set the desired height */
+  z-index: 10;
+}
+
+.video-corner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px; /* Optional: to make the video corners rounded */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Added shadow for depth */
+}
+
+/* Assignment Page */
+.assignment-page {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; /* Ensures content overlays the video */
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  font-size: 36px;
+  color: #1f2a3d;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Added text shadow for emphasis */
+}
+
+/* Developer Note */
+.developer-note {
+  background-color: #ffe5b7;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  border-left: 5px solid #f39c12; /* Added left border for emphasis */
+}
+
+/* Category Buttons */
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.category-btn {
+  background-color: #2d3956;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Added transition effects */
+}
+
+.category-btn i {
+  margin-right: 8px;
+}
+
+.category-btn:hover {
+  background-color: #1f2a3d;
+  transform: translateY(-2px); /* Added hover effect for smooth transition */
+}
+
+/* Assignment List */
+.assignment-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.assignment-item {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added smooth hover effect */
+}
+
+.assignment-item:hover {
+  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.assignment-item h4 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-transform: capitalize; /* Title case */
+}
+
+.assignment-item p {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.assignment-item .deadline,
+.assignment-item .amount,
+.assignment-item .developer-share {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.assignment-item button {
+  background-color: #2d3956;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.assignment-item button:hover {
+  background-color: #1f2a3d;
+  transform: translateY(-2px);
+}
+
+.assignment-item.no-result {
+  color: #e74c3c;
+  font-size: 16px;
+  text-align: center;
+  padding: 20px;
+  background-color: #fde2e4; /* Soft red background */
+  border-radius: 8px;
+}
+
+/* Dialog Overlay */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20; /* Ensure the dialog appears above other content */
+}
+
+/* Dialog Box */
+.dialog-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 450px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: slideIn 0.3s forwards; /* Added animation for dialog box */
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7fc;
-    color: #333;
-    line-height: 1.6;
-    padding-top: 20px;
-  }
-  
-  .assignment-page {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Header */
-  h1 {
-    text-align: center;
-    font-size: 36px;
-    color: #1f2a3d;
-    margin-bottom: 40px;
-    font-weight: 700;
-  }
-  
-  /* Developer Note */
-  .developer-note {
-    background-color: #fff3cd;
-    border: 1px solid #ffeeba;
-    padding: 15px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    font-size: 16px;
-    color: #856404;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .developer-note strong {
-    color: #d39e00;
-  }
-  
-  .developer-note i {
-    color: #d39e00;
-  }
-  
-  /* Category Buttons */
-  .category-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  
-  .category-btn {
-    background-color: #fff;
-    color: #fff;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 50px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-    transition: background-color 0.4s ease, transform 0.3s ease;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-  
-  .category-btn i {
-    font-size: 24px;
-  }
-  
-  .category-btn:focus {
-    outline: none;
-  }
-  
-  .category-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-  }
-  
-  .dsa-btn {
-    background: linear-gradient(145deg, #f39c12, #e67e22);
-  }
-  
-  .data-science-btn {
-    background: linear-gradient(145deg, #27ae60, #2ecc71);
-  }
-  
-  .python-btn {
-    background: linear-gradient(145deg, #8e44ad, #9b59b6);
-  }
-  
-  /* Loading State */
-  .loading-state {
-    text-align: center;
-    font-size: 20px;
-    color: #3498db;
-    animation: blink 1s infinite;
-  }
-  
-  @keyframes blink {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  /* Assignment List Grid */
-  .assignment-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-    justify-items: center;
-  }
-  
-  .assignment-item {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
-    max-width: 350px;
-    position: relative;
-  }
-  
-  .assignment-item.active:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  }
-  
-  .assignment-item h4 {
-    font-size: 20px;
-    color: #2c3e50;
-    margin-bottom: 15px;
-  }
-  
-  .assignment-item p {
-    font-size: 16px;
-    margin-bottom: 15px;
-    color: #7f8c8d;
-  }
-  
-  .assignment-item .deadline,
-  .assignment-item .amount,
-  .assignment-item .developer-share {
-    font-size: 14px;
-    color: #95a5a6;
-  }
-  
-  .assignment-item button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .assignment-item button:hover {
-    background-color: #2980b9;
-    transform: scale(1.1);
-  }
-  
-  /* Success Message */
-  .success-message {
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
-    color: #27ae60;
-    background-color: #d5fbe3;
-    border-radius: 8px;
-    margin-top: 20px;
-    animation: fadeInSuccess 0.5s ease-out;
-  }
-  
-  @keyframes fadeInSuccess {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Error handling */
-  .assignment-item.no-result {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #e74c3c;
-    font-size: 18px;
-  }
-  
-  .assignment-item.no-result i {
-    font-size: 50px;
-    margin-bottom: 20px;
-  }
-  
-  /* Dialog Box Styles */
-  .dialog-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .dialog-box {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dialog-box h3 {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-  
-  .dialog-content {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .file-upload,
-  .further-info {
-    margin-bottom: 20px;
-  }
-  
-  .file-upload label,
-  .further-info label {
-    font-size: 16px;
-    color: #2c3e50;
-    margin-bottom: 10px;
-  }
-  
-  .file-upload input[type="file"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  .further-info textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    min-height: 100px;
-    resize: vertical;
-  }
-  
-  .dialog-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  .submit-btn,
-  .cancel-btn {
-    background-color: #3498db;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .submit-btn:hover,
-  .cancel-btn:hover {
-    background-color: #2980b9;
-    transform: scale(1.05);
-  }
-  
-  .cancel-btn {
-    background-color: #e74c3c;
-  }
-  
-  .cancel-btn:hover {
-    background-color: #c0392b;
-  }
-  
-  /* Final Submission Success Dialog */
-  .final-submit-dialog {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2000;
-  }
-  
-  .final-submit-message {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    text-align: center;
-  }
-  
-  .final-submit-message h3 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .final-submit-message p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 20px;
-  }
-  
-  .final-submit-message button {
-    background-color: #3498db;
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .final-submit-message button:hover {
-    background-color: #2980b9;
-    transform: scale(1.05);
-  }
-  
+}
+
+.dialog-box h3 {
+  color: #2d3956;
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.dialog-box p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Form Elements Inside Dialog */
+.dialog-content {
+  margin-bottom: 20px;
+}
+
+.dialog-content label {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.dialog-content input[type="file"],
+.dialog-content textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border 0.3s ease; /* Added focus effect */
+}
+
+.dialog-content input[type="file"]:focus,
+.dialog-content textarea:focus {
+  border-color: #2d3956;
+}
+
+.dialog-content textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialog-actions button {
+  background-color: #2d3956;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 48%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dialog-actions button:hover {
+  background-color: #1f2a3d;
+  transform: translateY(-2px);
+}
+
+.dialog-actions .cancel-btn {
+  background-color: #e74c3c;
+}
+
+.dialog-actions .cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Final Confirmation Dialog */
+.dialog-overlay .final-dialog-box {
+  width: 450px;
+  text-align: center;
+}
+
+.final-dialog-box h3 {
+  color: #2d3956;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.final-dialog-box p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.final-dialog-box .dialog-actions button {
+  background-color: #27ae60;
+}
+
+.final-dialog-box .dialog-actions button:hover {
+  background-color: #2ecc71;
+}
+
+.final-dialog-box .dialog-actions .cancel-btn {
+  background-color: #e74c3c;
+  width: 48%;
+}
+
+.final-dialog-box .dialog-actions .cancel-btn:hover {
+  background-color: #c0392b;
+}

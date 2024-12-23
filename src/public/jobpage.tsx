@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "../assets/css/jobpage.css";
+import doassignmentVideo from "../assets/images/doassignment.mp4"; // Import the video
 
 const AssignmentPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -94,19 +95,23 @@ const AssignmentPage = () => {
   };
 
   const handleFinalSubmission = () => {
-    // Here, you would ideally send the data (CV and Further Info) to the backend
-    // For this demo, we'll just show the final confirmation dialog.
     setFinalDialogOpen(true); // Open the final confirmation dialog
     setIsDialogOpen(false); // Close the initial dialog
   };
 
   const handleCloseFinalDialog = () => {
     setFinalDialogOpen(false); // Close the final dialog
-    // Reset the form or handle additional actions here if needed
   };
 
   return (
     <div className="assignment-page">
+      {/* Small Video in Corner */}
+      <div className="video-corner">
+        <video autoPlay loop muted>
+          <source src={doassignmentVideo} type="video/mp4" />
+        </video>
+      </div>
+
       <h1>Available Assignments</h1>
 
       {/* Short note for developers */}
@@ -144,7 +149,7 @@ const AssignmentPage = () => {
                 <i className="fas fa-money-bill-wave"></i> Amount: {assignment.amount} NRS
               </div>
               <div className="developer-share">
-                <i className="fas fa-hand-holding-usd"></i> 5% of this amount goes to developers who developed this syste
+                <i className="fas fa-hand-holding-usd"></i> 5% of this amount goes to developers who developed this system
               </div>
               <button onClick={handleApplyNow}>Apply Now</button>
             </div>

@@ -30,6 +30,7 @@ import SellersPage from "./public/sellerspage";
 import DataVisualization from "./public/donorvisualization";
 import JobPage from "./public/jobpage";
 
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 4000); // 4 seconds
+    }, 2500); // 4 seconds
 
     return () => clearTimeout(timer);
   }, []);
@@ -78,7 +79,7 @@ function App() {
     {path:"/sellerspage",element:<SellersPage/>},
     {path:"/donorvisualization",element:<DataVisualization/>},
     {path:"/jobpage",element:<JobPage/>},
-    
+  
     
     
     

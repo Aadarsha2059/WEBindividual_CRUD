@@ -10,6 +10,29 @@ body {
   min-height: 100vh;
 }
 
+/* Full-Screen Video Container */
+.video-container {
+  position: fixed; /* Fix the video to the background */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure the container spans the full width of the viewport */
+  height: 100%; /* Ensure the container spans the full height of the viewport */
+  z-index: -1; /* Keep it behind all other content */
+  overflow: hidden; /* Hide any overflow from the video */
+  background-color: black; /* Fallback background in case the video fails to load */
+}
+
+/* Video Styling for Full-Screen */
+.background-video {
+  position: absolute;
+  top: 0; /* Align the video to the top of the viewport */
+  left: 0; /* Align the video to the left of the viewport */
+  width: 100vw; /* Make the video fill the full width of the viewport */
+  height: 100vh; /* Make the video fill the full height of the viewport */
+  object-fit: cover; /* Ensure the video fully covers the screen */
+  opacity: 0.85; /* Optional: Adjust opacity for blending effect */
+}
+
 /* Container */
 .profile-container {
   width: 125%;
@@ -127,48 +150,31 @@ body {
 /* Powerful Glow Animation */
 @keyframes powerful-glow {
   0% {
-    box-shadow: 0 0 15px #ff4500;
-  }
-  25% {
-    box-shadow: 0 0 25px #ffcc00;
-  }
-  50% {
-    box-shadow: 0 0 35px #32cd32;
-  }
-  75% {
-    box-shadow: 0 0 25px #1e90ff;
+    border-color: #ccc;
   }
   100% {
-    box-shadow: 0 0 15px #ff1493;
+    border-color: #74ebd5;
+    box-shadow: 0 0 10px #74ebd5;
   }
 }
 
-/* Password Alert */
-#password-alert {
-  margin-top: 5px;
-  font-size: 0.9rem;
-  color: #e74c3c;
+/* Button Styling */
+.profile-actions {
+  margin-top: 20px;
 }
 
-/* Profile Actions Button */
 .profile-actions button {
-  background: #74ebd5;
-  color: #fff;
+  background-color: #74ebd5;
+  padding: 15px 30px;
   border: none;
-  padding: 14px 20px;
+  border-radius: 30px;
   font-size: 1.2rem;
-  border-radius: 8px;
+  font-weight: bold;
+  color: white;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-  width: 100%;
-  box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
 
 .profile-actions button:hover {
-  background: #d2f607;
-  transform: scale(1.05);
-}
-
-.profile-actions button:focus {
-  outline: none;
+  background-color: #51d0b6;
 }

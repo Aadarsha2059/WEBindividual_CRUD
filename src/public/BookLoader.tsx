@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/css/BookLoader.css';
-import video from '../assets/images/loading.mp4'; 
+import video from '../assets/images/perfectloading.mp4'; 
 
 const BookLoader: React.FC = () => {
     return (
