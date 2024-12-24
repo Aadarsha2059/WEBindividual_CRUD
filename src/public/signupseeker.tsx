@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/signupseeker.css";
-import video from "../assets/images/video.mp4"; // Add your video file path
+import video from "../assets/images/finalsignupseekerbuyer.mp4"; // Add your video file path
 
 interface SeekerData {
   seekerName: string;

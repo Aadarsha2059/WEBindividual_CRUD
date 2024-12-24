@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "../assets/css/jobpage.css";
 import doassignmentVideo from "../assets/images/doassignment.mp4"; // Import the video
 
-const AssignmentPage = () => {
+const Jobpage = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [applySuccess, setApplySuccess] = useState(false);
@@ -130,6 +130,9 @@ const AssignmentPage = () => {
         <button onClick={() => handleCategoryClick('Python')} className="category-btn python-btn">
           <i className="fas fa-python"></i> Python Assignments
         </button>
+        <button onClick={() => handleCategoryClick('Java')} className="category-btn java-btn">
+          <i className="fas fa-coffee"></i> Java Assignments
+        </button>
       </div>
 
       {/* Loading State */}
@@ -154,6 +157,11 @@ const AssignmentPage = () => {
               <button onClick={handleApplyNow}>Apply Now</button>
             </div>
           ))
+        ) : selectedCategory === 'Java' ? (
+          <div className="assignment-item no-result">
+            <i className="fas fa-exclamation-triangle"></i>
+            Java assignments will be available by this coming Friday.
+          </div>
         ) : (
           <div className="assignment-item no-result">
             <i className="fas fa-exclamation-triangle"></i>
@@ -213,4 +221,4 @@ const AssignmentPage = () => {
   );
 };
 
-export default AssignmentPage;
+export default Jobpage;

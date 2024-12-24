@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import "../assets/css/signupdonor.css";
-import video from "../assets/images/signupdonorseller.mp4";
+import video from "../assets/images/finaldonorsellersignup.mp4";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 

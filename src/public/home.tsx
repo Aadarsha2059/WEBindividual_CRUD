@@ -47,9 +47,10 @@ function Home() {
                         <li onClick={()=>navigate("/chatdonorseeker")}><a>Chat here</a></li>
                        
                         <li onClick={()=>navigate("/teamsection")}><a>Dev Team</a></li>
+                        
 
-                        <li onClick={()=>navigate("/donorsdashboard")}><a>Dashboard</a></li>
-                        <li onClick={()=>navigate("/chatbox")}><a>Chat Box</a></li>
+                        
+                        
 
                         
 

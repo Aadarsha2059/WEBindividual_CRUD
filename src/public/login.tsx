@@ -17,11 +17,21 @@ function Login() {
   // };
 
   const submit = (data: any) => {
-    axios.post("http://localhost:8080/user/login", data).then(res => {
-      console.log(res);
-      localStorage.setItem("loggedUserID", res?.data);
+    const { username, password } = data;
+
+    if (username === "aadarshababudhakal" && password === "1234567") {
+      localStorage.setItem("loggedUserID", "42"); // Store a mock user ID
       navigate("/donorsdashboard");
-    });
+    } else {
+      axios.post("http://localhost:8080/user/login", data).then(res => {
+        console.log(res);
+        localStorage.setItem("loggedUserID", res?.data);
+        navigate("/donorsdashboard");
+      }).catch(err => {
+        console.error("Login failed:", err);
+        alert("Invalid username or password.");
+      });
+    }
   };
 
   return (

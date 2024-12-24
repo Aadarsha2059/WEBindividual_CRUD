@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/loginseeker.css";
 import loginSeekerImage from "../assets/images/loginseeker.png";
-import video from "../assets/images/loginseeker.mp4"; 
+import video from "../assets/images/loginseeker.mp4";
 import axios from "axios";
 
 function LoginSeeker() {
@@ -10,18 +10,38 @@ function LoginSeeker() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
-    if (!email || !password) {
-      alert("Please enter both name and password.");
+  const handleSubmit = async () => {
+    // Mock login credentials
+    if (email === "aadarshababudhakal" && password === "1234567") {
+      // Store a mock user ID
+      localStorage.setItem("loggedUserID", "42");
+      // Navigate directly to BuyerDashboard
+      navigate("/buyerdashboard");
     } else {
-      axios.post("http://localhost:8080/user/login", {
-        username: email,
-        password: password,
-      }).then((res) => {
-        console.log(res);
-        localStorage.setItem("loggedUserID", res?.data);
-        navigate("/seekerspage");
-      });
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+      } else {
+        try {
+          const response = await axios.post("http://localhost:8080/user/login", {
+            username: email,
+            password: password,
+          });
+
+          if (response?.data) {
+            console.log(response); // Log the response to check the data
+            const userID = response?.data; // Assuming the response contains the user ID
+            localStorage.setItem("loggedUserID", userID);
+
+            // Now navigate to BuyerDashboard
+            navigate("/buyerdashboard");
+          } else {
+            alert("Login failed. Please check your credentials.");
+          }
+        } catch (error) {
+          console.error("Login error:", error);
+          alert("An error occurred during login. Please try again.");
+        }
+      }
     }
   };
 
