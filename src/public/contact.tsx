@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faBox, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faBox, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import video from '../assets/images/finalcontact.mp4';
 import '../assets/css/contact.css';
@@ -9,6 +9,11 @@ function Contact() {
   const navigate = useNavigate();
   const [showAd, setShowAd] = useState(true);
   const [timeLeft, setTimeLeft] = useState(20);
+  const [location, setLocation] = useState({ latitude: null, longitude: null });
+  const [placeName, setPlaceName] = useState('');
+  const [weatherAlert, setWeatherAlert] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showLocationDialog, setShowLocationDialog] = useState(false);
 
   // Handle countdown timer
   useEffect(() => {
@@ -22,6 +27,51 @@ function Contact() {
 
     return () => clearTimeout(timer);
   }, [timeLeft]);
+
+  // Fetch user's location and weather details
+  useEffect(() => {
+    const fetchWeatherDetails = async (latitude, longitude) => {
+      try {
+        const weatherResponse = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=YOUR_WEATHER_API_KEY&units=metric`
+        );
+        const weatherData = await weatherResponse.json();
+        const weatherAlert = `🌦️ Weather: ${weatherData.weather[0].description}, Temp: ${weatherData.main.temp}°C`;
+        setWeatherAlert(weatherAlert);
+      } catch (error) {
+        setWeatherAlert('Unable to fetch weather information.');
+      }
+    };
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          setLocation({ latitude, longitude });
+
+          // Fetch place name using reverse geocoding API
+          try {
+            const response = await fetch(
+              `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=YOUR_OPENCAGE_API_KEY`
+            );
+            const data = await response.json();
+            const place = data.results[0]?.components?.city || 'Unknown location';
+            setPlaceName(place);
+
+            // Fetch weather details after place name
+            fetchWeatherDetails(latitude, longitude);
+          } catch (error) {
+            setPlaceName('Unable to fetch place name.');
+          }
+        },
+        (error) => {
+          setErrorMessage('Unable to fetch location.');
+        }
+      );
+    } else {
+      setErrorMessage('Geolocation is not supported by this browser.');
+    }
+  }, []);
 
   return (
     <>
@@ -60,6 +110,21 @@ function Contact() {
             <p>
               <FontAwesomeIcon icon={faPhone} /> <strong>Phone:</strong> 98000000000
             </p>
+            <button
+              className="location-button"
+              onClick={() => setShowLocationDialog(true)}
+              style={{
+                marginTop: '10px',
+                backgroundColor: '#007BFF',
+                color: '#fff',
+                border: 'none',
+                padding: '10px 15px',
+                cursor: 'pointer',
+                borderRadius: '5px',
+              }}
+            >
+              <FontAwesomeIcon icon={faMapMarkerAlt} /> View My Location
+            </button>
           </div>
         </section>
         {showAd && (
@@ -81,6 +146,44 @@ function Contact() {
           </div>
         )}
       </div>
+
+      {/* Location Dialog */}
+      {showLocationDialog && (
+        <div className="location-dialog">
+          <div className="dialog-content">
+            <h3>Your Current Location</h3>
+            {location.latitude && location.longitude ? (
+              <>
+                <p>
+                  <strong>Coordinates:</strong> Latitude: {location.latitude}, Longitude: {location.longitude}
+                </p>
+                <p>
+                  <strong>City:</strong> {placeName}
+                </p>
+                <p>
+                  <strong>Weather Alert:</strong> {weatherAlert}
+                </p>
+              </>
+            ) : (
+              <p>{errorMessage || 'Fetching location...'}</p>
+            )}
+            <button
+              onClick={() => setShowLocationDialog(false)}
+              style={{
+                marginTop: '10px',
+                backgroundColor: '#FF0000',
+                color: '#fff',
+                border: 'none',
+                padding: '10px 15px',
+                cursor: 'pointer',
+                borderRadius: '5px',
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

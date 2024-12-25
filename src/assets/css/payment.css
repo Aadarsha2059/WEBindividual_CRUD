@@ -1,0 +1,140 @@
+/* Reset Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ece9e6, #ffffff);
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center content vertically and horizontally */
+    min-height: 100vh; /* Allow content to take full height */
+    overflow-x: hidden; /* Allow horizontal scrolling */
+    flex-direction: column; /* Stack content vertically */
+}
+
+/* Container Styles */
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Keep the container centered */
+    width: 100%;
+    padding: 20px;
+    flex-direction: column; /* Ensure content is stacked vertically */
+    overflow: auto; /* Allow scrolling within the container */
+}
+
+/* Card Styles */
+.payment-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px; /* Ensure space between cards */
+}
+
+/* Decorative Indicator */
+.indicator {
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border-radius: 5px;
+    margin: 0 auto 20px;
+}
+
+/* Header Styles */
+.payment-card h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Payment Options Container */
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Payment Option Styles */
+.payment-option {
+    display: flex;
+    align-items: center;
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 15px 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.payment-option img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease;
+}
+
+.payment-option span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+    flex-grow: 1;
+}
+
+.payment-option .checkmark {
+    font-size: 18px;
+    color: #28a745;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover and Active States */
+.payment-option:hover {
+    background: #f0f9ff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.payment-option:hover img {
+    transform: scale(1.1);
+}
+
+.payment-option.selected {
+    background: #e6f7e9;
+    border: 2px solid #28a745;
+}
+
+.payment-option.selected .checkmark {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .payment-card {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .payment-option {
+        flex-direction: row;
+        padding: 10px;
+    }
+
+    .payment-option img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .payment-option span {
+        font-size: 16px;
+    }
+}

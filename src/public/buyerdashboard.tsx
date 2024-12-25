@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importing useNavigate hook
 import '../assets/css/buyerdashboard.css';
 
 // Importing the images
@@ -16,6 +17,7 @@ const BuyerDashboard: React.FC = () => {
   const [total, setTotal] = useState<number>(0);
   const [search, setSearch] = useState<string>('');
   const [category, setCategory] = useState<string>('All');
+  const navigate = useNavigate(); // Initializing useNavigate hook
 
   const addToCart = (title: string, author: string, price: number) => {
     setCart([...cart, { title, author, price }]);
@@ -30,8 +32,7 @@ const BuyerDashboard: React.FC = () => {
   };
 
   const payNow = () => {
-    alert('Proceeding to payment...');
-    // Add payment logic here
+    navigate('/payment'); 
   };
 
   const filterBooks = (category: string) => {
@@ -54,7 +55,7 @@ const BuyerDashboard: React.FC = () => {
             </a>
           </li>
           <li>
-          <a href="seekerspage" onClick={() => navigate("/seekerspage")}> {/* Added onClick handler for My seekerspage */}
+            <a href="seekerspage" onClick={() => navigate("/seekerspage")}> {/* Added onClick handler for My seekerspage */}
               <i className="bx bxs-book-bookmark"></i>
               <span className="text">Get Free Books</span>
             </a>
@@ -72,7 +73,7 @@ const BuyerDashboard: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="#">
+          <a href="suggestions" onClick={() => navigate("/suggestions")}> {/* Added onClick handler for suggestion*/}
               <i className="bx bxs-book-open"></i>
               <span className="text">Drop your Suggestions</span>
             </a>
@@ -90,7 +91,7 @@ const BuyerDashboard: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="#">
+          <a href="payment" onClick={() => navigate("/payment")}> {/* Added onClick handler for payment */}
               <i className="bx bx-dollar-circle"></i>
               <span className="text">Payment</span>
             </a>

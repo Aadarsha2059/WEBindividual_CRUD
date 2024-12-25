@@ -31,6 +31,8 @@ import DataVisualization from "./public/donorvisualization";
 import JobPage from "./public/jobpage";
 import ChatBox from "./public/chatbox";
 import BuyerDashboard from "./public/buyerdashboard";
+import Payment from "./public/payment";
+import Esewa from "./public/esewa";
 
 
 const queryClient = new QueryClient();
@@ -83,6 +85,9 @@ function App() {
     {path:"/jobpage",element:<JobPage/>},
     {path:"/chatbox",element:<ChatBox/>},
     {path:"/buyerdashboard",element:<BuyerDashboard/>},
+    {path:"/payment",element:<Payment/>},
+    {path:"/esewa",element:<Esewa/>},
+  
   
     
     
