@@ -117,6 +117,26 @@ body {
     transform: scale(1);
 }
 
+/* Special Decorations for eSewa */
+.payment-option.esewa {
+    border: 3px solid #4caf50; /* Green border */
+    background: linear-gradient(to right, #e8f5e9, #ffffff); /* Subtle gradient */
+}
+
+.payment-option.esewa img {
+    border-color: #4caf50; /* Match border color */
+}
+
+/* Special Decorations for Cash On Delivery */
+.payment-option.cash-on-delivery {
+    border: 3px solid #ff9800; /* Orange border */
+    background: linear-gradient(to right, #fff3e0, #ffffff); /* Subtle gradient */
+}
+
+.payment-option.cash-on-delivery img {
+    border-color: #ff9800; /* Match border color */
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .payment-card {

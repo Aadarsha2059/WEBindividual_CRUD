@@ -33,6 +33,7 @@ import ChatBox from "./public/chatbox";
 import BuyerDashboard from "./public/buyerdashboard";
 import Payment from "./public/payment";
 import Esewa from "./public/esewa";
+import CashPayment from "./public/cashpayment";
 
 
 const queryClient = new QueryClient();
@@ -87,6 +88,7 @@ function App() {
     {path:"/buyerdashboard",element:<BuyerDashboard/>},
     {path:"/payment",element:<Payment/>},
     {path:"/esewa",element:<Esewa/>},
+    {path:"/cashpayment",element:<CashPayment/>},
   
   
     

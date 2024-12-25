@@ -305,6 +305,7 @@ body {
   }
 }
 
+/* Additional glowing colors (green, purple, red, etc.) */
 @keyframes glowing-green {
   0% {
     box-shadow: 0 0 10px var(--glow-green), 0 0 20px var(--glow-green), 0 0 30px var(--glow-green);

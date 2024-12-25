@@ -20,6 +20,10 @@ const Payment: React.FC = () => {
     navigate('/esewa'); // Navigate to esewa.tsx
   };
 
+  const handleCashOnDeliveryClick = () => {
+    navigate('/cashpayment'); // Navigate to cashpayment.tsx
+  };
+
   const handleShowHistory = () => {
     setShowHistory(!showHistory); // Toggle the history dialog visibility
   };
@@ -67,8 +71,11 @@ const Payment: React.FC = () => {
             <span>Khalti</span>
           </div>
 
-          {/* Cash On Delivery */}
-          <div className="payment-option">
+          {/* Cash On Delivery - Default Green Border */}
+          <div
+            className="payment-option selected-cash"
+            onClick={handleCashOnDeliveryClick}
+          >
             <img src={cashOnDelivery} alt="Cash On Delivery" />
             <span>Cash On Delivery</span>
           </div>

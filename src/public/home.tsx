@@ -47,7 +47,9 @@ function Home() {
                         <li onClick={()=>navigate("/chatdonorseeker")}><a>Chat here</a></li>
                        
                         <li onClick={()=>navigate("/teamsection")}><a>Dev Team</a></li>
-                        <li onClick={()=>navigate("/esewa")}><a>E-sewa</a></li>
+
+                        
+                        
 
                        
                         
@@ -68,7 +70,7 @@ function Home() {
                         
                         
                         
-                        
+ 
                     </ul>
                     <div className="social_icon">
                         <i className="fa-solid fa-magnifying-glass"></i>
@@ -78,11 +80,11 @@ function Home() {
 
                 <div className="main">
                     <div className="main_tag">
-                        <h1>WELCOME TO<br /><span>पाठशाला PathSala</span></h1>
+                        <h1>WELCOME TO<br /><span>"STU- THRIFT" </span></h1>
                         <p>
-                            Reading books is a magical journey that expands our minds.
-                            Through books, we can explore distant lands and touch the human soul.
-                            Reading cultivates empathy, allowing us to understand others on a deeper level.
+                          To facilitate buy & sell or donate & seek goods related 
+                          to students at affordable prices....
+                          "Empowering Students, One Swap at a Time!"
                         </p>
                         <a href="#" className="main_btn">Learn More</a>
                     </div>
@@ -98,15 +100,15 @@ function Home() {
                         <i className="fa-solid fa-truck-fast"></i>
                         <h3>Fast Delivery</h3>
                         <p>
-                            Books will be transported to the seeker's location via best modes of transportation.
+                            Goods will be transported to the seeker's location via best modes of transportation.
                         </p>
                     </div>
                     <div className="services_card">
                         <i className="fa-solid fa-headset"></i>
                         <h3>24 x 7 Services</h3>
                         <p>
-                            Donors can donate books any time they wish.
-                            Seekers will receive books during day time only.
+                            Donors can donate goods any time they wish.
+                            Seekers will receive goods during day time only.
                         </p>
                     </div>
                     <div className="services_card">
@@ -122,7 +124,7 @@ function Home() {
                         <h3>Secure Payment</h3>
                         <p>
                             Seekers must pay the transportation charge of delivery 
-                            and the minimum cost of the book.
+                            and the minimum cost of the good.
                         </p>
                     </div>
                 </div>
@@ -135,12 +137,12 @@ function Home() {
                 <div className="about_tag">
                     <h1>About Us</h1>
                     <p>
-                    We are excited to launch Pathsala, a book donation initiative designed
-                     to connect generous donors with eager book seekers across Nepal. 
-                    Our platform acts as a bridge, allowing users to donate or sell used books, notes, and study materials at minimal cost. 
-                    Seekers can access free donated books or purchase first and second-hand books at affordable prices. 
-                    With the support of our eLibrary system, Pathsala makes it easier than ever to share knowledge 
-                    and help others find the literary resources they need.
+                    We are excited to launch Stu-Thrift, an innovative designed to connect
+                    generous contributors with eager students across Nepal or any specific city.
+                    Our platform serves as a bridge, enabling users to donate, sell or seek a variety of 
+                    goods at minimal cost..
+                    With Stu-Thrift, student can access free donate items or purchase affordable resources,
+                    making education and student life more accessible for everyone .
                     </p>
                 </div>
             </section>
@@ -312,7 +314,7 @@ function Home() {
                             <h2>Client Review</h2>
                             <p className="client">Client: Ritesh Das.</p>
                             <p className="details">
-                                It's my great privilege to thank the donor and Pathsala.
+                                It's my great privilege to thank the donor and stuthrift.
                                 Great effort by team members to connect donors and seekers within Nepal.
                                 We got the opportunity to sell second hand books and notes for juniors at minimum cost.
                                  
@@ -327,8 +329,8 @@ function Home() {
                             <h2>Client Review</h2>
                             <p className="client">Client: Chirayu Baij</p>
                             <p className="details">
-                                Innovative work by the developer in the field of education.
-                                I got a book for my study which helped me a lot. I appreciate your service.
+                                Innovative work by the developer in the field of education and students.
+                                I got a book  and other notes for my study which helped me a lot. I appreciate your service.
                             </p>
                         </div>
                     </div>
@@ -340,8 +342,8 @@ function Home() {
                             <h2>Client Review</h2>
                             <p className="client">Client: Uttam Sapkota</p>
                             <p className="details">
-                                Surely, in future this website will be the most visited site by passionate readers.
-                                It will be best for readers and will promote reading culture.Hats off to developers team.
+                                Surely, in future this website will be the most visited site by students.
+                                It will be best as student will be financially active selling the products.
                             </p>
                         </div>
                     </div>
@@ -362,9 +364,9 @@ function Home() {
             </section>
 
             <footer>
-                <h1>पाठशाला PathSala</h1>
+                <h1>STU-THRIFT...</h1>
                 <p>
-                पाठशाला PathSala 2024...BE CONNECTED WITH US FOR UPDATES!!!!
+                "STU-THRIFT" 2024...BE CONNECTED WITH US FOR UPDATES!!!!
                 </p>
                 <div className="input_box">
                     <input type="email" placeholder="Enter your email" />
