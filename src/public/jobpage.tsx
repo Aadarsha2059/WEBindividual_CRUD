@@ -13,7 +13,6 @@ const Jobpage = () => {
 
   // Sample data for the assignments
   const assignments = [
-    // DSA Assignments
     {
       title: 'DSA Algorithm Assignment - Sorting & Searching',
       category: 'DSA',
@@ -28,8 +27,6 @@ const Jobpage = () => {
       deadline: '2024-12-20',
       amount: 7000,
     },
-
-    // Data Science Assignments
     {
       title: 'Data Science Regression Analysis',
       category: 'Data Science',
@@ -44,8 +41,6 @@ const Jobpage = () => {
       deadline: '2024-12-18',
       amount: 6000,
     },
-
-    // Python Assignments
     {
       title: 'Python Web Scraping - E-Commerce Data',
       category: 'Python',
@@ -69,7 +64,6 @@ const Jobpage = () => {
     },
   ];
 
-  // Filter assignments based on selected category
   const filteredAssignments = assignments.filter(
     (assignment) => selectedCategory === '' || assignment.category === selectedCategory
   );
@@ -86,17 +80,21 @@ const Jobpage = () => {
     setIsDialogOpen(true); // Open dialog when "Apply Now" is clicked
   };
 
-  const handleFileChange = (e) => {
-    setCvFile(e.target.files[0]); // Handle file selection
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCvFile(e.target.files ? e.target.files[0] : null); // Handle file selection
   };
 
-  const handleFurtherInfoChange = (e) => {
+  const handleFurtherInfoChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setFurtherInfo(e.target.value); // Handle further info input
   };
 
   const handleFinalSubmission = () => {
-    setFinalDialogOpen(true); // Open the final confirmation dialog
-    setIsDialogOpen(false); // Close the initial dialog
+    if (!cvFile && !furtherInfo.trim()) {
+      alert('Please attach a PDF file or mention your academic level to proceed.');
+    } else {
+      setFinalDialogOpen(true); // Open the final confirmation dialog
+      setIsDialogOpen(false); // Close the initial dialog
+    }
   };
 
   const handleCloseFinalDialog = () => {
@@ -112,7 +110,7 @@ const Jobpage = () => {
         </video>
       </div>
 
-      <h1>Available Assignments</h1>
+      <h1>Available Projects</h1>
 
       {/* Short note for developers */}
       <div className="developer-note">

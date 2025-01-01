@@ -1,3 +1,4 @@
+// src/App.tsx
 import React, { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -19,7 +20,6 @@ import SuggestionsPage from "./public/suggestion";
 import Chatbot from "./public/chatbot";
 import Article from "./public/article";
 import BookLoader from "./public/BookLoader";
-import Chat from "./public/ChatDonorSeeker";
 import ChatDonorSeeker from "./public/ChatDonorSeeker";
 import TeamSection from "./public/aboutsection";
 import AdminPathSala from "./public/adminpathsala";
@@ -29,12 +29,19 @@ import Settings from "./public/settings";
 import SellersPage from "./public/sellerspage";
 import DataVisualization from "./public/donorvisualization";
 import JobPage from "./public/jobpage";
-import ChatBox from "./public/chatbox";
+
 import BuyerDashboard from "./public/buyerdashboard";
 import Payment from "./public/payment";
 import Esewa from "./public/esewa";
 import CashPayment from "./public/cashpayment";
 
+import KathmanduCityMap from "./public/kathmanducity"; // Importing the map component
+import ForgotPassword from "./public/forgotpassword";
+import ChatBott from "./public/chatbott";
+import AdvertisementSection from "./public/softwarica_adver";
+import ChatApp from "./public/chatting";
+import AuctionGame from "./auctiongame";
+import BuyersPage from "./public/buyerspage";
 
 const queryClient = new QueryClient();
 
@@ -77,25 +84,33 @@ function App() {
     { path: "/contact", element: <Contact /> },
     { path: "/chatdonorseeker", element: <ChatDonorSeeker /> },
     { path: "/article", element: <Article /> },
-    {path:"/teamsection",element:<TeamSection/>},
-    {path:"/donorsdashboard",element:<DonorsDashboard/>},
-    {path:"/donorsprofile",element:<DonorsProfile/>},
-    {path:"/settings",element:<Settings/>},
-    {path:"/sellerspage",element:<SellersPage/>},
-    {path:"/donorvisualization",element:<DataVisualization/>},
-    {path:"/jobpage",element:<JobPage/>},
-    {path:"/chatbox",element:<ChatBox/>},
-    {path:"/buyerdashboard",element:<BuyerDashboard/>},
-    {path:"/payment",element:<Payment/>},
-    {path:"/esewa",element:<Esewa/>},
-    {path:"/cashpayment",element:<CashPayment/>},
-  
-  
-    
-    
-    
-    
-    
+    { path: "/teamsection", element: <TeamSection /> },
+    { path: "/donorsdashboard", element: <DonorsDashboard /> },
+    { path: "/donorsprofile", element: <DonorsProfile /> },
+    { path: "/settings", element: <Settings /> },
+    { path: "/sellerspage", element: <SellersPage /> },
+    { path: "/donorvisualization", element: <DataVisualization /> },
+    { path: "/jobpage", element: <JobPage /> },
+
+    { path: "/buyerdashboard", element: <BuyerDashboard /> },
+    { path: "/payment", element: <Payment /> },
+    { path: "/esewa", element: <Esewa /> },
+    { path: "/cashpayment", element: <CashPayment /> },
+
+    { path: "/kathmanducity", element: <KathmanduCityMap /> }, // Map route
+
+    { path: "/forgotpassword", element: <ForgotPassword /> },
+
+    { path: "/chatbott", element: <ChatBott /> },
+    { path: "/softwarica", element: <AdvertisementSection/> },
+    { path: "/chattingpage", element: <ChatApp/> },
+
+    { path: "/auctiongame", element: <AuctionGame/> },
+
+    { path: "/buyerspage", element: <BuyersPage/> },
+
+
+
 
     { path: "*", element: <>Unauthorized</> },
   ];

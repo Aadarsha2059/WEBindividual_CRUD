@@ -1,0 +1,123 @@
+/* Advertisement Section */
+.advertisement-container {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    background: #de7777; /* Light gray background color */
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .advertisement-container .heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f1c31d;
+    margin-bottom: 10px;
+  }
+  
+  .advertisement-container .slogan {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .advertisement {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* To position the close button correctly */
+  }
+  
+ 
+  
+  .softwarica img,
+  .computer img,
+  .alphabeta img,
+  .foreign-study img {
+    width: 180px; /* Adjust image size */
+    height: 180px; /* Adjust image size */
+    border-radius: 8px; /* Optional: add rounded corners for images */
+  }
+  
+  .content {
+    flex: 1;
+    text-align: center;
+    padding: 0 15px;
+  }
+  
+  .content h3 {
+    margin: 0;
+    color: #1791f5;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .content p {
+    font-size: 1rem;
+    color: #5237c8;
+    margin: 5px 0;
+  }
+  
+  .content .ad-text {
+    font-size: 1rem;
+    color: #f90ed2;
+    margin-top: 10px;
+  }
+  
+  .content .btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #82ed0f;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .content .btn:hover {
+    background-color: #cbe237;
+  }
+  
+  .advertisement-container {
+    border: 2px solid #ddd; /* Adding a subtle border to make the box stand out */
+    border-radius: 15px; /* Rounded corners for the ad box */
+    padding: 20px; /* Padding inside the box for spacing */
+    background-color: #ffffff; /* White background for contrast */
+  }
+  
+  .advertisement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* To correctly position the close button */
+  }
+  
+  .content {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .close-ad-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #ff4d4d; /* Brighter red color for better visibility */
+    cursor: pointer;
+  }
+  

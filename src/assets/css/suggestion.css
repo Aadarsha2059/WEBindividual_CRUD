@@ -4,6 +4,22 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    font-family: 'Arial', sans-serif; /* Clean and professional font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s forwards; /* Add fade-in effect for smooth transition */
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Ensure the video covers the entire background */
@@ -21,112 +37,147 @@
 .content {
     position: relative;
     z-index: 1; /* Ensure content stays above the video */
-    background: rgba(91, 240, 10, 0.7); /* Semi-transparent dark background for readability */
-    color: #f5f5f5; /* Light text color for contrast */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    margin: 20px auto;
-    max-width: 800px; /* Adjust width to suit your design */
+    background: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background for better contrast */
+    color: #ffffff; /* Light text color for contrast */
+    padding: 35px 45px;
+    border-radius: 20px; /* Rounded corners for a soft effect */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.7); /* Strong shadow for depth */
+    margin: 20px;
+    width: 80%; /* Set max width for responsiveness */
+    max-width: 900px;
     box-sizing: border-box;
-    /* Set a max height and enable scrolling */
-    max-height: calc(100vh - 40px); /* Adjust based on your design */
+    max-height: calc(100vh - 60px); /* Adjust based on your design */
     overflow-y: auto;
+    backdrop-filter: blur(10px); /* Add a subtle blur effect */
+    animation: slideUp 1s ease-out; /* Smooth sliding effect */
+}
+
+/* Smooth slide-up animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Header styling */
 .content h1 {
-    color: #a8301b; /* Tomato color for main header */
-    font-size: 2.5rem; /* Larger font size for main header */
-    margin-bottom: 20px;
+    color: #ff6f61; /* Vibrant tomato color for the main header */
+    font-size: 3.5rem; /* Larger font size for main header */
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Subtle shadow for better readability */
 }
 
+/* Section header styling */
 .content h2 {
-    color: #1c1d1e; /* Steel blue for section headers */
-    font-size: 1.75rem; /* Slightly larger font size for section headers */
-    margin-bottom: 15px;
+    color: #67c1f5; /* Steel blue for section headers */
+    font-size: 2.5rem; /* Slightly larger font size for section headers */
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
 /* Form styling */
 .suggestion form {
     display: flex;
     flex-direction: column;
+    gap: 20px; /* Increased spacing for form elements */
 }
 
+/* Form label styling */
 .suggestion label {
-    font-size: 1rem;
-    color: #131313; /* Light blue for labels */
-    margin-top: 10px;
+    font-size: 1.25rem;
+    color: #e0e0e0; /* Neutral color for labels */
+    margin-top: 12px;
+    font-weight: 500;
 }
 
+/* Textarea styling */
 .suggestion textarea {
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 5px;
-    font-size: 1rem;
-    background-color: #444;
-    color: #11e8ec; /* Red text for textarea */
+    padding: 18px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    margin-top: 8px;
+    font-size: 1.2rem;
+    background-color: #333;
+    color: #d4f1f9; /* Light blue text for textarea */
+    resize: vertical;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
+.suggestion textarea:focus {
+    border-color: #67c1f5; /* Highlight border on focus */
+    outline: none;
+    box-shadow: 0 0 8px rgba(103, 193, 245, 0.6); /* Soft blue glow on focus */
+}
+
+/* Button styling */
 .buttons button {
-    background-color: #ccdbb0; /* Blue for primary action */
-    color: #0d0d0d; /* Green text for button */
+    background-color: #67c1f5; /* Sky blue for primary action */
+    color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 18px 32px;
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 1rem;
-    margin-top: 15px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Add shadow for depth */
 }
 
 .buttons button:hover {
-    background-color: #27948b;
+    background-color: #479ac7; /* Slightly darker blue on hover */
     transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Enhance shadow on hover */
 }
 
 /* Table styling */
 #suggestionsTable {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 30px;
+    font-size: 1.1rem;
 }
 
 #suggestionsTable th,
 #suggestionsTable td {
-    padding: 10px;
+    padding: 16px;
     border: 1px solid #ddd;
     text-align: left;
 }
 
 #suggestionsTable th {
-    background-color: #333;
-    color: #10f410; /* Green for table headers */
+    background-color: #444;
+    color: #ff6f61; /* Tomato color for table headers */
+    text-transform: uppercase;
 }
 
 #suggestionsTable tr:nth-child(even) {
-    background-color: #bd5d5d; /* Light red for even rows */
+    background-color: #f4f4f4; /* Light grey for even rows */
 }
 
 #suggestionsTable tr:hover {
-    background-color: #875d5d; /* Light grey on hover */
+    background-color: #efefef; /* Slightly darker grey on hover */
 }
-#suggestionsTable .delete-button:hover {
-    background-color: #cc0000; /* Darker red on hover */
-    transform: scale(1.05);
-}
-/* backButton.css */
-.back-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #0b951d;
+
+#suggestionsTable .delete-button {
+    background-color: #ff6f61; /* Red for delete button */
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 16px;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 5px;
-    z-index: 1000; /* Ensure the button is above other elements */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#suggestionsTable .delete-button:hover {
+    background-color: #d63f3f; /* Darker red on hover */
+    transform: scale(1.1);
 }

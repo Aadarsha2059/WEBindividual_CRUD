@@ -64,16 +64,8 @@ function DonorsPage() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("loggedUserID"); 
-    navigate('/'); 
-  };
-
   return (
     <>
-      <button className="logout-button" onClick={handleLogout}>
-        LOG OUT
-      </button>
       <video className="donors-page-video" autoPlay muted loop>
         <source src={video} type="video/mp4" />
       </video>

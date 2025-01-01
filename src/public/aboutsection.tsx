@@ -43,7 +43,7 @@ const TeamSection: React.FC = () => {
     return (
         <div className="wrapper">
             <div className="title">
-                <h4>पाठशाला Team</h4>
+                <h4>STU THRIFT DEVELOPERS</h4>
             </div>
 
             <div className="card_Container">
@@ -77,8 +77,8 @@ const TeamSection: React.FC = () => {
             </div>
 
             <footer className="footer">
-                <h4>PathSala E-book </h4>
-                <p>"Imparting KNOWLEDGE is the greatest service to mankind.."</p>
+                <h4>STU THRIFT </h4>
+                <p>"Caring human by selling and donating goods"</p>
             </footer>
         </div>
     );

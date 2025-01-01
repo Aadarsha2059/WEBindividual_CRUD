@@ -72,22 +72,12 @@ function SellersPage() {
     }
   };
 
-  // Corrected handleLogout function
-  const handleLogout = () => {
-    // Clear local storage before redirecting
-    localStorage.removeItem("loggedUserID");
-    navigate("/"); // Redirect to the homepage or login page
-  };
-
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPrice(Number(event.target.value)); // Update price state when slider is changed
   };
 
   return (
     <>
-      <button className="logout-button" onClick={handleLogout}>
-        LOG OUT
-      </button>
       <video className="sellers-page-video" autoPlay muted loop>
         <source src={video} type="video/mp4" />
       </video>

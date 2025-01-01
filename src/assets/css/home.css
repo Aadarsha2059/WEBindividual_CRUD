@@ -6,19 +6,24 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background-color: #90d0ed;
+    background-color: #f4f7f6;
+    color: #333;
 }
 
 /* Navigation styles */
 nav {
-    background-color: #5d605d;
+    background-color: #2c3e50;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeInNav 2s forwards;
+    animation-delay: 2s; /* Delay for navigation fade-in */
 }
 
 nav ul {
@@ -27,18 +32,23 @@ nav ul {
 }
 
 nav ul li {
-    margin-right: 1rem;
+    margin-right: 2rem;
+    opacity: 0;
+    animation: fadeInNavLinks 1s forwards;
+    animation-delay: 3s; /* Delay for links fade-in */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1.1rem;
 }
 
 nav ul li a:hover {
-    color: #cd8208;
+    color: #e67e22;
+    transform: scale(1.05);
 }
 
 .social_icon {
@@ -47,15 +57,15 @@ nav ul li a:hover {
 }
 
 .social_icon i {
-    font-size: 1.2rem;
-    margin-left: 1rem;
+    font-size: 1.5rem;
+    margin-left: 1.5rem;
     color: #fff;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .social_icon i:hover {
-    color: #fca311;
+    color: #e67e22;
 }
 
 /* Main section styles */
@@ -63,51 +73,67 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
+    background-image: url('your-main-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    opacity: 0;
+    animation: fadeInMain 2s forwards;
+    animation-delay: 1s; /* Delay for main section fade-in */
 }
 
 .main_tag {
     flex: 1;
+    animation: moveWithWind 5s linear infinite; /* Animation for wind effect */
 }
 
 .main_tag h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
     line-height: 1.2;
+    font-weight: 700;
 }
 
 .main_tag span {
-    color: #1e6829;
+    color: #e67e22;
+    font-weight: bold;
 }
 
 .main_tag p {
+    font-size: 1.2rem;
     margin-bottom: 2rem;
+    line-height: 1.7;
 }
 
+/* Main button */
 .main_btn {
     display: inline-block;
-    background-color: #e6af56;
-    color: #840d0d;
-    padding: 0.8rem 2rem;
+    background-color: #e67e22;
+    color: #fff;
+    padding: 1rem 2rem;
     text-decoration: none;
-    border-radius: 0.3rem;
-    transition: background-color 0.3s ease;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .main_btn:hover {
-    background-color: #e5e5e5;
+    background-color: #fff;
     color: #333;
+    transform: scale(1.1);
 }
 
 .main_img img {
     max-width: 100%;
     height: auto;
+    border-radius: 1rem;
 }
 
 /* Services section styles */
 .services {
     background-color: #fff;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
     text-align: center;
 }
 
@@ -115,37 +141,40 @@ nav ul li a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .services_card {
     flex: 1;
     margin: 1rem;
-    padding: 2rem;
-    background-color: #f2f2f2;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 2.5rem;
+    background-color: #f7f7f7;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .services_card:hover {
-    transform: translateY(-0.2rem);
+    transform: translateY(-0.3rem);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .services_card i {
     font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #fca311;
+    margin-bottom: 1.5rem;
+    color: #e67e22;
 }
 
 .services_card h3 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
     color: #333;
+    font-weight: 600;
 }
 
 .services_card p {
     color: #666;
+    font-size: 1.1rem;
 }
 
 /* About section styles */
@@ -153,14 +182,15 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4rem 2rem;
-    background-color: #87b2ca;
-    color: #6b3f3f;
+    padding: 6rem 2rem;
+    background-color: #2980b9;
+    color: #fff;
 }
 
 .about_image img {
     max-width: 100%;
     height: auto;
+    border-radius: 1rem;
 }
 
 .about_tag {
@@ -169,89 +199,94 @@ nav ul li a:hover {
 }
 
 .about_tag h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .about_tag p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: 1.3rem;
+    line-height: 1.7;
 }
 
 /* Featured books section styles */
 .featured_books {
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
+    background-color: #ecf0f1;
     text-align: center;
 }
 
 .featured_books h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
     color: #333;
+    font-weight: 600;
 }
 
 .featured_book_box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
     margin-top: 2rem;
 }
 
 .featured_book_card {
-    flex: 1;
-    margin: 1rem;
     background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
 .featured_book_card:hover {
-    transform: translateY(-0.2rem);
+    transform: translateY(-0.3rem);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .featured_book_img img {
     max-width: 100%;
     height: auto;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .featured_book_tag {
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .featured_book_tag h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
     color: #333;
 }
 
 .featured_book_tag .donor {
     font-style: italic;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .featured_book_tag .categories {
     display: inline-block;
-    background-color: #5d605d;
+    background-color: #2c3e50;
     color: #fff;
-    padding: 0.2rem 0.5rem;
-    border-radius: 0.2rem;
-    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
 
 /* Reviews section styles */
 .review {
-    background-color: #f2f2f2;
-    padding: 4rem 2rem;
+    background-color: #fff;
+    padding: 6rem 2rem;
     text-align: center;
 }
 
 .review h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: 3rem;
+    margin-bottom: 3rem;
     color: #333;
+    font-weight: 600;
 }
 
 .review_box {
@@ -264,108 +299,144 @@ nav ul li a:hover {
 .review_card {
     flex: 1;
     margin: 1rem;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    background-color: #f7f7f7;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .review_card:hover {
-    transform: translateY(-0.2rem);
+    transform: translateY(-0.3rem);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .review_image img {
     max-width: 100%;
     height: auto;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .review_tag {
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .review_tag h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
     color: #333;
 }
 
 .review_tag .client {
     font-style: italic;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .review_tag .details {
     color: #666;
+    font-size: 1.2rem;
 }
 
-/* footer.css */
-
-
+/* Footer section styles */
 footer {
-    background-color: #5d605d;
-    color: white;
+    background-color: #2c3e50;
+    color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 3rem 2rem;
     position: relative;
     bottom: 0;
     width: 100%;
 }
 
 footer h1 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
 }
 
 footer p {
-    font-size: 1em;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
 footer .input_box {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 footer .input_box input {
-    padding: 10px;
-    font-size: 1em;
+    padding: 1rem;
+    font-size: 1.1rem;
     border: none;
     border-radius: 5px 0 0 5px;
     outline: none;
+    width: 300px;
 }
 
 footer .input_box i {
-    background-color: #555;
+    background-color: #e67e22;
     color: white;
-    padding: 10px;
+    padding: 1rem;
     border-radius: 0 5px 5px 0;
+    cursor: pointer;
 }
 
 footer .footer_social_icon {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 footer .footer_social_icon i {
-    margin: 0 10px;
-    font-size: 1.5em;
+    margin: 0 15px;
+    font-size: 2rem;
     cursor: pointer;
     transition: color 0.3s;
 }
 
 footer .footer_social_icon i:hover {
-    color: #ddd;
+    color: #e67e22;
 }
 
 footer p.end {
-    font-size: 0.9em;
-    margin-top: 20px;
+    font-size: 1rem;
+    margin-top: 2rem;
 }
 
 footer p.end span {
     font-weight: bold;
     margin-left: 5px;
+}
+
+/* Animations */
+@keyframes fadeInMain {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInNav {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInNavLinks {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Wind movement effect for welcome text and paragraph */
+@keyframes moveWithWind {
+    0% { transform: translateX(0); opacity: 1; }
+    25% { transform: translateX(-100vw); opacity: 0; }
+    50% { transform: translateX(100vw); opacity: 0; }
+    75% { transform: translateX(0); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes moveWithWind7s {
+    0% { transform: translateX(0); opacity: 1; }
+    35% { transform: translateX(-100vw); opacity: 0; }
+    50% { transform: translateX(100vw); opacity: 0; }
+    85% { transform: translateX(0); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }

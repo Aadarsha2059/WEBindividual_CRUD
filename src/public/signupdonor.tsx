@@ -5,6 +5,7 @@ import "../assets/css/signupdonor.css";
 import video from "../assets/images/finaldonorsellersignup.mp4";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { FaUser, FaEnvelope, FaLock, FaMapMarkerAlt } from "react-icons/fa";
 
 function SignupDonar() {
   const { register, handleSubmit } = useForm();
@@ -40,13 +41,25 @@ function SignupDonar() {
         <h4>Become a registered book donor</h4>
         <form onSubmit={handleSubmit(submit)}>
           <label>User Name</label>
-          <input type="text" {...register("userName")} placeholder="" required />
+          <div className="input-container">
+            <FaUser className="icon" />
+            <input type="text" {...register("userName")} placeholder="Enter your username" required />
+          </div>
           <label>Email</label>
-          <input type="email" {...register("email")} placeholder="" required />
+          <div className="input-container">
+            <FaEnvelope className="icon" />
+            <input type="email" {...register("email")} placeholder="Enter your email" required />
+          </div>
           <label>Password</label>
-          <input type="password" {...register("password")} placeholder="" required />
+          <div className="input-container">
+            <FaLock className="icon" />
+            <input type="password" {...register("password")} placeholder="Enter your password" required />
+          </div>
           <label>Address</label>
-          <input type="text" {...register("address")} placeholder="" required />
+          <div className="input-container">
+            <FaMapMarkerAlt className="icon" />
+            <input type="text" {...register("address")} placeholder="Enter your address" required />
+          </div>
           <input type="submit" value="Submit" />
         </form>
         <p>

@@ -1,0 +1,11 @@
+/* src/public/styles.css */
+
+/* Google map styling */
+#map {
+  width: 150%;
+  height: 1000px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

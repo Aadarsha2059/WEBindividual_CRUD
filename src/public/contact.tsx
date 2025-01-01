@@ -6,7 +6,6 @@ import video from '../assets/images/finalcontact.mp4';
 import '../assets/css/contact.css';
 
 function Contact() {
-  const navigate = useNavigate();
   const [showAd, setShowAd] = useState(true);
   const [timeLeft, setTimeLeft] = useState(20);
   const [location, setLocation] = useState({ latitude: null, longitude: null });
@@ -78,31 +77,13 @@ function Contact() {
       <video className="contact-video" autoPlay muted loop>
         <source src={video} type="video/mp4" />
       </video>
-      <button
-        className="back-button"
-        onClick={() => navigate('/')}
-        style={{
-          position: 'absolute',
-          top: '20px',
-          right: '20px',
-          backgroundColor: '#000',
-          color: '#fff',
-          border: 'none',
-          padding: '10px 20px',
-          cursor: 'pointer',
-          borderRadius: '5px',
-          zIndex: 1000,
-        }}
-      >
-        BACK
-      </button>
       <div className="contact-box">
         <section className="contact">
           <h2>Contact Us</h2>
           <div className="contact-info">
             <p>
               <FontAwesomeIcon icon={faEnvelope} /> <strong>Email:</strong>{' '}
-              <a href="mailto:donorsnepal123456@gmail.com">hamropathsala@gmail.com</a>
+              <a href="mailto:donorsnepal123456@gmail.com">stuthrift111@gmail.com</a>
             </p>
             <p>
               <FontAwesomeIcon icon={faBox} /> <strong>Post Box:</strong> 980098

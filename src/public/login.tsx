@@ -40,16 +40,36 @@ function Login() {
         <source src={video} type="video/mp4" />
       </video>
       <div className="login-box">
-        <h1>Login as A Donor</h1>
+        <h1>Login(Donor & Seller)</h1>
         <form onSubmit={handleSubmit(submit)}>
           <label>Username</label>
-          <input type="text" placeholder="" required {...register('username')} />
+          <div className="input-container">
+            <i className="fas fa-user"></i>
+            <input
+              type="text"
+              placeholder="Enter your username"
+              required
+              {...register('username')}
+            />
+          </div>
           <label>Password</label>
-          <input type="password" placeholder="" required {...register('password')} />
+          <div className="input-container">
+            <i className="fas fa-lock"></i>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              required
+              {...register('password')}
+            />
+          </div>
+          <div className="forgot-password">
+            <a onClick={() => navigate("/forgotpassword")}>Forgot Password?</a>
+          </div>
           <input type="submit" value="Submit" />
         </form>
         <p className="para-2">
-          Don't have an account? <a onClick={() => navigate("/singupdonar")}>Sign Up as Donor</a>
+          Don't have an account?{" "}
+          <a onClick={() => navigate("/singupdonar")}>Sign Up as Donor</a>
         </p>
       </div>
     </>

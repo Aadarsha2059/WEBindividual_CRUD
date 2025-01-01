@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import '../assets/css/donorsdashboard.css';
 import arrivalOne from '../assets/images/arrival_1.jpg';
 import arrivalTwo from '../assets/images/arrival_2.jpg';
@@ -14,17 +14,30 @@ import arrivalten from '../assets/images/arrival_10.jpg';
 
 const DonorsDashboard: React.FC = () => {
   const navigate = useNavigate(); // Initialize navigate hook
+  const [showCategories, setShowCategories] = useState(false); // State to toggle dropdown visibility
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null); // State for selected category
+  const [showDialog, setShowDialog] = useState(false); // State to toggle dialog box
+
   const books = [
-    { imgSrc: arrivalOne, title: "Book Title One", author: "Suraj", price: "Rs. 500" },
-    { imgSrc: arrivalTwo, title: "Book Title Two", author: "Aadarsha", price: "Rs. 400" },
-    { imgSrc: arrivalThree, title: "Book Title 3", author: "Bishnu", price: "FREE OF COST" },
-    { imgSrc: arrivalFour, title: "Book Title 4", author: "Anuj", price: "Rs. 200" },
-    { imgSrc: arrivalSix, title: "Book Title 5", author: "Ram bahadur", price: "FREE OF COST" },
-    { imgSrc: arrivalseven, title: "Book Title 5", author: "Shyam bahadur", price: "FREE OF COST" },
-    { imgSrc: arrivalEight, title: "Book Title 5", author: "Hari Bahadur", price: "Rs. 800" },
-    { imgSrc: arrivalnine, title: "Book Title 5", author: "Krishna Bahadur", price: "Rs. 600" },
-    { imgSrc: arrivalten, title: "Book Title 5", author: "Purna Bahadur", price:"FREE OF COST" },
+    { imgSrc: arrivalOne, title: "Book Title One", author: "Suraj", price: "Rs. 500", category: "Literature" },
+    { imgSrc: arrivalTwo, title: "Book Title Two", author: "Aadarsha", price: "Rs. 400", category: "Politics" },
+    { imgSrc: arrivalThree, title: "Book Title 3", author: "Bishnu", price: "FREE OF COST", category: "Science" },
+    { imgSrc: arrivalFour, title: "Book Title 4", author: "Anuj", price: "Rs. 200", category: "Geo Politics" },
+    { imgSrc: arrivalSix, title: "Book Title 5", author: "Ram bahadur", price: "FREE OF COST", category: "Information Tech" },
+    { imgSrc: arrivalseven, title: "Book Title 6", author: "Shyam bahadur", price: "FREE OF COST", category: "Literature" },
+    { imgSrc: arrivalEight, title: "Book Title 7", author: "Hari Bahadur", price: "Rs. 800", category: "Science" },
+    { imgSrc: arrivalnine, title: "Book Title 8", author: "Krishna Bahadur", price: "Rs. 600", category: "Politics" },
+    { imgSrc: arrivalten, title: "Book Title 9", author: "Purna Bahadur", price: "FREE OF COST", category: "Geo Politics" },
   ];
+
+  const categories = ["Literature", "Politics", "Geo Politics", "Information Tech", "Science"];
+
+  const handleCategorySelect = (category: string) => {
+    setSelectedCategory(category);
+    setShowDialog(true);
+  };
+
+  const filteredBooks = books.filter(book => book.category === selectedCategory);
 
   return (
     <div>
@@ -48,19 +61,19 @@ const DonorsDashboard: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="sellerspage" onClick={() => navigate("/sellerspage")}> {/* Added onClick handler for suggestions */}
+            <a href="sellerspage" onClick={() => navigate("/sellerspage")}>
               <i className='bx bx-dollar-circle'></i>
               <span className="text">Sell Books</span>
             </a>
           </li>
           <li>
-            <a href="#" onClick={() => navigate("/suggestions")}> {/* Updated to navigate to suggestions page */}
+            <a href="#" onClick={() => navigate("/suggestions")}>
               <i className='bx bx-message-square-detail'></i>
               <span className="text">Drop your Suggestions</span>
             </a>
           </li>
           <li>
-          <a href="settings" onClick={() => navigate("/settings")}> {/* Updated to navigate to suggestions page */}
+            <a href="settings" onClick={() => navigate("/settings")}>
               <i className='bx bx-cog'></i>
               <span className="text">Settings</span>
             </a>
@@ -68,33 +81,32 @@ const DonorsDashboard: React.FC = () => {
         </ul>
         <ul className="side-menu">
           <li>
-            <a href="#" onClick={() => navigate("/donorsprofile")}> {/* Added onClick handler for My Profile */}
+            <a href="#" onClick={() => navigate("/donorsprofile")}>
               <i className='bx bx-user-circle'></i>
               <span className="text">My Profile</span>
             </a>
           </li>
 
           <li>
-            <a href="donorvisualization" onClick={() => navigate("/donorvisualization")}> {/* Added onClick handler for transaction and progress */}
-            <i className='bx bx-loader-circle bx-spin'></i>
+            <a href="donorvisualization" onClick={() => navigate("/donorvisualization")}>
+              <i className='bx bx-loader-circle bx-spin'></i>
               <span className="text">Books transactions & Progress</span>
             </a>
           </li>
           <li>
-            <a href="jobpage" onClick={() => navigate("/jobpage")}> {/* Added onClick handler for jobpage */}
-              <i className='bx bx-dollar-circle'></i> 
-              <span className="text">Do Assignments and Earn</span>
+            <a href="jobpage" onClick={() => navigate("/jobpage")}>
+              <i className='bx bx-dollar-circle'></i>
+              <span className="text">Do Projects and Earn</span>
             </a>
           </li>
           <li>
-            <a href="chatbox" onClick={() => navigate("/chatbox")}> {/* Added onClick handler for chatbox*/}
-            <i className='bx bx-message-square-dots'></i>
-
-              <span className="text">Message</span>
+            <a href="chattingpage" onClick={() => navigate("/chattingpage")}>
+              <i className='bx bx-message-square-dots'></i>
+              <span className="text">Chat</span>
             </a>
           </li>
           <li>
-            <a href="#" className="logout" onClick={() => navigate("/")}> {/* Updated to navigate to home.tsx */}
+            <a href="#" className="logout" onClick={() => navigate("/")}>
               <i className='bx bx-log-out-circle'></i>
               <span className="text">Logout</span>
             </a>
@@ -108,7 +120,19 @@ const DonorsDashboard: React.FC = () => {
         {/* NAVBAR */}
         <nav>
           <i className='bx bx-menu'></i>
-          <a href="#" className="nav-link">Categories</a>
+          <a href="#" className="nav-link" onClick={() => setShowCategories(!showCategories)}>Categories</a>
+
+          {/* Dropdown Menu */}
+          {showCategories && (
+            <ul className="dropdown">
+              {categories.map((category, index) => (
+                <li key={index}>
+                  <a href="#" onClick={() => handleCategorySelect(category)}>{category}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+
           <form action="#">
             <div className="form-input">
               <input type="search" placeholder="Search..." />
@@ -144,6 +168,28 @@ const DonorsDashboard: React.FC = () => {
         </main>
       </section>
       {/* CONTENT */}
+
+      {/* Dialog Box */}
+      {showDialog && (
+        <div className="dialog-overlay">
+          <div className="dialog-box">
+            <h2>{selectedCategory} Books</h2>
+            <button className="close-btn" onClick={() => setShowDialog(false)}>Close</button>
+            <div className="dialog-content">
+              {filteredBooks.length > 0 ? (
+                filteredBooks.map((book, index) => (
+                  <div key={index} className="dialog-book-item">
+                    <h3>{book.title}</h3>
+                    <p>Author: {book.author}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No books available in this category.</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

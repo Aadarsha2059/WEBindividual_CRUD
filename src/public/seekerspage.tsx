@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import video from '../assets/images/seekerpagevideo.mp4';
 import '../assets/css/seekerspage.css';
 
 function SeekersPage() {
@@ -13,8 +12,6 @@ function SeekersPage() {
         queryFn() {
             return axios.get('http://localhost:8080/book/getAllData');
         },
-
-        
     });
 
     const reserveApiCall = useMutation({
@@ -49,45 +46,53 @@ function SeekersPage() {
     };
 
     return (
-        <>
-            <button className="logout-button" onClick={handleLogout}>
-                LOG OUT...
-            </button>
-            <video className="seekers-page-video" autoPlay muted loop>
-                <source src={video} type="video/mp4" />
-            </video>
-            <div className="container">
-                <h1>Books Available Now</h1>
-                <table id="availableBooksTable">
-                    <thead>
-                        <tr>
-                            <th>Genre</th>
-                            <th>Book Name</th>
-                            <th>Image</th>
-                            <th>Action</th>
-                            <th>Reservation Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {apiCallToGet?.data?.data?.map((book: any) => (
-                            <tr key={book.id}>
-                                <td>{book.genre}</td>
-                                <td>{book.name}</td>
-                                <td><img src={`data:image/jpeg;base64,${book.image}`} width={100} alt={book.name} /></td>
-                                <td>
-                                    {!book.userId ? (
-                                        <button onClick={() => handleReserve(book.id)}>Reserve</button>
-                                    ) : (
-                                        <button onClick={() => deleteReserve(book.seekerId)}>Cancel Reserve</button>
-                                    )}
-                                </td>
-                                <td>{!book.userId ? 'Available' : 'Reserved'}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+        <div className="page-wrapper">
+            <div className="sidebar">
+                <div className="logo">
+                    <h2>STU THRIFT</h2>
+                </div>
+                <h3>Categories</h3>
+                <ul>
+                    <li onClick={() => navigate('/seekers')}>Novels/Story Books</li>
+                    <li onClick={() => navigate('/donors')}>College notes/pdf</li>
+                    <li onClick={handleLogout}>Miscellaneous Goods</li>
+                </ul>
             </div>
-        </>
+
+            <div className="main-content">
+                <div className="container">
+                    <h1>Books Available Now</h1>
+                    <table id="availableBooksTable">
+                        <thead>
+                            <tr>
+                                <th>Genre</th>
+                                <th>Book Name</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                                <th>Reservation Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {apiCallToGet?.data?.data?.map((book: any) => (
+                                <tr key={book.id}>
+                                    <td>{book.genre}</td>
+                                    <td>{book.name}</td>
+                                    <td><img src={`data:image/jpeg;base64,${book.image}`} width={100} alt={book.name} /></td>
+                                    <td>
+                                        {!book.userId ? (
+                                            <button onClick={() => handleReserve(book.id)}>Reserve</button>
+                                        ) : (
+                                            <button onClick={() => deleteReserve(book.seekerId)}>Cancel Reserve</button>
+                                        )}
+                                    </td>
+                                    <td>{!book.userId ? 'Available' : 'Reserved'}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     );
 }
 

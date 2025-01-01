@@ -11,11 +11,8 @@ function LoginSeeker() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async () => {
-    // Mock login credentials
     if (email === "aadarshababudhakal" && password === "1234567") {
-      // Store a mock user ID
       localStorage.setItem("loggedUserID", "42");
-      // Navigate directly to BuyerDashboard
       navigate("/buyerdashboard");
     } else {
       if (!email || !password) {
@@ -28,11 +25,9 @@ function LoginSeeker() {
           });
 
           if (response?.data) {
-            console.log(response); // Log the response to check the data
-            const userID = response?.data; // Assuming the response contains the user ID
+            console.log(response);
+            const userID = response?.data;
             localStorage.setItem("loggedUserID", userID);
-
-            // Now navigate to BuyerDashboard
             navigate("/buyerdashboard");
           } else {
             alert("Login failed. Please check your credentials.");
@@ -56,16 +51,20 @@ function LoginSeeker() {
             <img src={loginSeekerImage} alt="Login Seeker Image" />
           </div>
           <div className="login-form">
-            <h1>Login as A Seeker</h1>
+            <h1>Login as A Seeker & Buyer</h1>
             <form>
-              <label>Seeker Name</label>
+              <label>
+                <i className="fas fa-user icon"></i> Seeker Name
+              </label>
               <input
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your name"
               />
-              <label>Password</label>
+              <label>
+                <i className="fas fa-lock icon"></i> Password
+              </label>
               <input
                 type="password"
                 value={password}
@@ -75,7 +74,10 @@ function LoginSeeker() {
               <input type="button" value="Submit" onClick={handleSubmit} />
             </form>
             <p className="info-text">
-              Note: "If you have previously signed up as a donor, you can use the same name and password here to become a seeker."
+              <i className="fas fa-info-circle"></i> Note: "If you have previously signed up as a donor, you can use the same name and password here to become a seeker."
+            </p>
+            <p className="forgot-password">
+              <a onClick={() => navigate("/forgotpassword")}>Forgot Password?</a>
             </p>
             <p className="para-2">
               Don't have a seeker account?{" "}

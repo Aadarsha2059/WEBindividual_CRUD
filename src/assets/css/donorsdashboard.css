@@ -389,3 +389,62 @@ body {
     box-shadow: 0 0 10px var(--glow-cyan), 0 0 20px var(--glow-cyan), 0 0 30px var(--glow-cyan);
   }
 }
+
+
+/* Dropdown Menu Styling */
+nav .dropdown {
+  display: block;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+  width: 200px;
+  top: 50px;
+}
+
+nav .dropdown li a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: #333;
+}
+
+nav .dropdown li a:hover {
+  background-color: #ddd;
+}
+
+/* Enhanced Search Bar */
+form .form-input {
+  position: relative;
+}
+
+form .form-input input {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+form .form-input button.search-btn {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+form .form-input button.search-btn i {
+  color: #333;
+}
+
+/* Search input focus effect */
+form .form-input input:focus {
+  border-color: #007bff;
+}
+
+

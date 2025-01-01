@@ -1,9 +1,11 @@
+// SignupSeeker.tsx
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/signupseeker.css";
-import video from "../assets/images/finalsignupseekerbuyer.mp4"; // Add your video file path
+import video from "../assets/images/finalsignupseekerbuyer.mp4";
+import { FaUser, FaEnvelope, FaLock, FaMapMarkerAlt } from "react-icons/fa"; // Icons
 
 interface SeekerData {
   seekerName: string;
@@ -28,7 +30,7 @@ function SignupSeeker() {
     },
     onError: (error: any) => {
       alert("Error saving data: " + error.message);
-    }
+    },
   });
 
   const submit = (data: SeekerData) => {
@@ -40,41 +42,49 @@ function SignupSeeker() {
       <video className="signup-seeker-video" autoPlay muted loop>
         <source src={video} type="video/mp4" />
       </video>
-      <div className="signup-box">
+      <div className="signup-seeker-box">
         <div className="back-button" onClick={() => navigate('/loginseeker')}>
           <button>Back</button>
         </div>
         <h1>Sign Up</h1>
         <h4>Become a registered book seeker</h4>
         <form onSubmit={handleSubmit(submit)}>
-          <label>Seeker Name</label>
-          <input
-            type="text"
-            {...register("seekerName")}
-            placeholder="Enter your name"
-            required
-          />
-          <label>Email</label>
-          <input
-            type="email"
-            {...register("email")}
-            placeholder="Enter your email"
-            required
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            {...register("password")}
-            placeholder="Enter your password"
-            required
-          />
-          <label>Address</label>
-          <input
-            type="text"
-            {...register("address")}
-            placeholder="Enter your address"
-            required
-          />
+          <div className="input-box">
+            <FaUser className="icon" />
+            <input
+              type="text"
+              {...register("seekerName")}
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+          <div className="input-box">
+            <FaEnvelope className="icon" />
+            <input
+              type="email"
+              {...register("email")}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div className="input-box">
+            <FaLock className="icon" />
+            <input
+              type="password"
+              {...register("password")}
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <div className="input-box">
+            <FaMapMarkerAlt className="icon" />
+            <input
+              type="text"
+              {...register("address")}
+              placeholder="Enter your address"
+              required
+            />
+          </div>
           <input type="submit" value="Submit" />
         </form>
         <p>

@@ -73,7 +73,7 @@ const SoldAndDonatedBooks: React.FC = () => {
     labels: ['Under 18', '18-25', '26-35', '36-45', '46+'],
     datasets: [
       {
-        label: 'Age Group Distribution',
+        label: 'Active Users Age Distribution..',
         data: [10, 40, 30, 15, 5],
         backgroundColor: ['#ff9800', '#fb8c00', '#f57c00', '#ef6c00', '#e65100'],
         hoverBackgroundColor: '#ffa726',

@@ -80,7 +80,7 @@ function SuggestionsPage() {
         className="back-button"
         onClick={() => navigate('/')}
       >
-        BACK
+        
       </button>
       <div className="suggestions-container">
         <video className="suggestion-background-video" autoPlay muted loop>
@@ -88,7 +88,7 @@ function SuggestionsPage() {
           Your browser does not support the video tag.
         </video>
         <div className="content">
-          <h1>PATHSALA E-BOOK SYSTEM....</h1>
+          <h1>STU-THRIFT SYSTEM....</h1>
           <section className="suggestion">
             <h2>Drop Your Suggestions</h2>
             <form onSubmit={handleSubmit(submitSuggestion)} id="suggestion-form">

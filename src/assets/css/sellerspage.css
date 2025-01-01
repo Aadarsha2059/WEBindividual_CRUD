@@ -23,24 +23,6 @@ body, html {
     z-index: -1;
 }
 
-.logout-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #e74c3c;
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    cursor: pointer;
-    border-radius: 6px;
-    font-size: 1rem;
-    z-index: 1000;
-    box-shadow: 0 0 12px rgba(231, 76, 60, 0.8);
-}
-
-.logout-button:hover {
-    background-color: #c0392b;
-}
 
 .container {
     position: relative;
