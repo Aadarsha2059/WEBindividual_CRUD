@@ -6,21 +6,11 @@ const ForgotPassword = () => {
   const [pin, setPin] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
-  const [favoriteFood, setFavoriteFood] = useState('');
-  const [favoriteColor, setFavoriteColor] = useState('');
-  const [petName, setPetName] = useState('');
-  const [holidayDestination, setHolidayDestination] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [showPinDialog, setShowPinDialog] = useState(false);
   const [showPasswordRecoveryDialog, setShowPasswordRecoveryDialog] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
   const [errorMessages, setErrorMessages] = useState<string[]>([]);
-
-  const securityQuestions = [
-    'Your favorite food',
-    'Your favorite color',
-    'Your pet’s name',
-    'Your favorite holiday destination',
-  ];
 
   const validateEmail = (email: string) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -56,14 +46,14 @@ const ForgotPassword = () => {
       setErrorMessages((prev) => [...prev, 'Pin code must be 6 digits.']);
       return;
     }
-    setResponseMessage('Pin code verified. Please answer the security questions.');
+    setResponseMessage('Pin code verified. Please enter your new password.');
     setShowPinDialog(false);
     setShowPasswordRecoveryDialog(true);
   };
 
   const handlePasswordRecoverySubmit = () => {
     setErrorMessages([]);
-    if (!newPassword || !confirmNewPassword || !favoriteFood || !favoriteColor || !petName || !holidayDestination) {
+    if (!newPassword || !confirmNewPassword || !phoneNumber) {
       setErrorMessages((prev) => [...prev, 'Please fill all fields.']);
       return;
     }
@@ -135,62 +125,15 @@ const ForgotPassword = () => {
               required
             />
           </div>
-          <p>Answer security questions</p>
           <div className="input-group">
-            <i className="fas fa-utensils"></i>
-            <select
-              value={favoriteFood}
-              onChange={(e) => setFavoriteFood(e.target.value)}
+            <i className="fas fa-phone-alt"></i>
+            <input
+              type="text"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              placeholder="Phone Number"
               required
-            >
-              <option value="">Your favorite food</option>
-              <option value="Pizza">Pizza</option>
-              <option value="Pasta">Pasta</option>
-              <option value="Burger">Burger</option>
-              <option value="Sushi">Sushi</option>
-            </select>
-          </div>
-          <div className="input-group">
-            <i className="fas fa-paint-brush"></i>
-            <select
-              value={favoriteColor}
-              onChange={(e) => setFavoriteColor(e.target.value)}
-              required
-            >
-              <option value="">Your favorite color</option>
-              <option value="Red">Red</option>
-              <option value="Blue">Blue</option>
-              <option value="Green">Green</option>
-              <option value="Yellow">Yellow</option>
-            </select>
-          </div>
-          <div className="input-group">
-            <i className="fas fa-paw"></i>
-            <select
-              value={petName}
-              onChange={(e) => setPetName(e.target.value)}
-              required
-            >
-              <option value="">Your pet's name</option>
-              <option value="Max">Max</option>
-              <option value="Bella">Bella</option>
-              <option value="Charlie">Charlie</option>
-              <option value="Lucy">Lucy</option>
-            </select>
-          </div>
-          <div className="input-group">
-            <i className="fas fa-sun"></i>
-            <select
-              value={holidayDestination}
-              onChange={(e) => setHolidayDestination(e.target.value)}
-              required
-            >
-              <option value="">Your favorite holiday destination</option>
-              <option value="Paris">Paris</option>
-              <option value="Bali">Bali</option>
-              <option value="New York">New York</option>
-              <option value="Tokyo">Tokyo</option>
-            </select>
+            />
           </div>
           <button onClick={handlePasswordRecoverySubmit}>Submit</button>
         </div>

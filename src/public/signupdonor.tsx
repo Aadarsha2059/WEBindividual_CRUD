@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "../assets/css/signupdonor.css";
 import video from "../assets/images/finaldonorsellersignup.mp4";
 import { useMutation } from "@tanstack/react-query";
@@ -15,18 +15,21 @@ function SignupDonar() {
     mutationKey: ["SAVE_API_OF_SIGUP_DONOR"],
     mutationFn(data) {
       return axios.post("http://localhost:8080/user", data);
-    }
+    },
   });
 
   const submit = (data: any) => {
     saveApi.mutate(data, {
       onSuccess(res) {
-        alert("Signed up successfully as a donor!");
-        navigate('/login'); 
-      }
+        alert("Signed up successfully as a Donor/Seller!");
+        navigate("/login");
+      },
+      onError(err) {
+        alert("Failed to sign up. Please try again.");
+        console.error("Error:", err);
+      },
     });
-    console.log(data);
-  }
+  };
 
   return (
     <>
@@ -34,7 +37,7 @@ function SignupDonar() {
         <source src={video} type="video/mp4" />
       </video>
       <div className="signup-box">
-        <div className="back-button" onClick={() => navigate('/login')}>
+        <div className="back-button" onClick={() => navigate("/login")}>
           <button>Back</button>
         </div>
         <h1>Sign Up</h1>
@@ -43,22 +46,38 @@ function SignupDonar() {
           <label>User Name</label>
           <div className="input-container">
             <FaUser className="icon" />
-            <input type="text" {...register("userName")} placeholder="Enter your username" required />
+            <input
+              type="text"
+              {...register("userName", { required: true })}
+              placeholder="Enter your username"
+            />
           </div>
           <label>Email</label>
           <div className="input-container">
             <FaEnvelope className="icon" />
-            <input type="email" {...register("email")} placeholder="Enter your email" required />
+            <input
+              type="email"
+              {...register("email", { required: true })}
+              placeholder="Enter your email"
+            />
           </div>
           <label>Password</label>
           <div className="input-container">
             <FaLock className="icon" />
-            <input type="password" {...register("password")} placeholder="Enter your password" required />
+            <input
+              type="password"
+              {...register("password", { required: true })}
+              placeholder="Enter your password"
+            />
           </div>
           <label>Address</label>
           <div className="input-container">
             <FaMapMarkerAlt className="icon" />
-            <input type="text" {...register("address")} placeholder="Enter your address" required />
+            <input
+              type="text"
+              {...register("address", { required: true })}
+              placeholder="Enter your address"
+            />
           </div>
           <input type="submit" value="Submit" />
         </form>

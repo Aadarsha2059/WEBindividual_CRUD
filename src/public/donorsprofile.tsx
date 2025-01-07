@@ -4,8 +4,8 @@ import video from '../assets/images/finalprofileusers.mp4';
 
 const DonorsProfile: React.FC = () => {
   const [profilePic, setProfilePic] = useState<string>('https://via.placeholder.com/150');
-  const [fullName, setFullName] = useState<string>('Aadarsha Babu');
-  const [age, setAge] = useState<number>(30);
+  const [fullName, setFullName] = useState<string>('Aadarsha Babu Dhakal');
+  const [age, setAge] = useState<number>(22);
   const [location, setLocation] = useState<string>('Kathmandu, Nepal');
   const [gender, setGender] = useState<string>('Male');
   const [contact, setContact] = useState<string>('+977-9800000000');

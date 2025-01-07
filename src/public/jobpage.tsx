@@ -14,21 +14,21 @@ const Jobpage = () => {
   // Sample data for the assignments
   const assignments = [
     {
-      title: 'DSA Algorithm Assignment - Sorting & Searching',
+      title: 'DSA Algorithm Projects - Sorting & Searching',
       category: 'DSA',
       description: 'Work on sorting and searching algorithms for a 2-week period.',
       deadline: '2024-12-31',
       amount: 5000,
     },
     {
-      title: 'DSA Dynamic Programming Assignment',
+      title: 'DSA Dynamic Programming Projects',
       category: 'DSA',
       description: 'Solve dynamic programming problems with complexity analysis.',
       deadline: '2024-12-20',
       amount: 7000,
     },
     {
-      title: 'Data Science Regression Analysis',
+      title: 'Data Science Regression Analysis Projects ',
       category: 'Data Science',
       description: 'Perform regression analysis on a dataset for prediction.',
       deadline: '2024-12-15',
@@ -120,16 +120,16 @@ const Jobpage = () => {
       {/* Category Buttons with Icons */}
       <div className="category-buttons">
         <button onClick={() => handleCategoryClick('DSA')} className="category-btn dsa-btn">
-          <i className="fas fa-code"></i> DSA Assignments
+          <i className="fas fa-code"></i> DSA Projects
         </button>
         <button onClick={() => handleCategoryClick('Data Science')} className="category-btn data-science-btn">
-          <i className="fas fa-brain"></i> Data Science Assignments
+          <i className="fas fa-brain"></i> Data Science Projects
         </button>
         <button onClick={() => handleCategoryClick('Python')} className="category-btn python-btn">
-          <i className="fas fa-python"></i> Python Assignments
+          <i className="fas fa-python"></i> Python Projects
         </button>
         <button onClick={() => handleCategoryClick('Java')} className="category-btn java-btn">
-          <i className="fas fa-coffee"></i> Java Assignments
+          <i className="fas fa-coffee"></i> Java Projects
         </button>
       </div>
 
@@ -179,7 +179,7 @@ const Jobpage = () => {
       {isDialogOpen && (
         <div className="dialog-overlay">
           <div className="dialog-box">
-            <h3>Attach the sample of similar assignment you did previously</h3>
+            <h3>Sample projects pdf u did previously *optional</h3>
             <div className="dialog-content">
               <div className="file-upload">
                 <label>Attach PDF:</label>
@@ -190,7 +190,7 @@ const Jobpage = () => {
                 <textarea
                   value={furtherInfo}
                   onChange={handleFurtherInfoChange}
-                  placeholder="If you are a fresher and no assignment experience.... You can mention academic excellency here"
+                  placeholder="Describe your skills, academic qualifications and project experience"
                 />
               </div>
             </div>

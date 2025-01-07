@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom'; 
 import axios from "axios";
@@ -6,56 +6,72 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import video from "../assets/images/finaldonor.mp4"; 
 import "../assets/css/donorspage.css";
 
-function DonorsPage() {
-  const { register, handleSubmit } = useForm();
-  const navigate = useNavigate(); 
+interface BookData {
+  id: number;
+  genres: string;
+  booksName: string;
+  image: string; // This should be either a base64 string for images or PDF
+  cost?: string; // Optional for seller
+  type?: string; // Type for donors
+}
 
-  const apiCallToGet = useQuery({
+interface FormData {
+  image: FileList;
+  genres: string;
+  booksName: string;
+  cost?: string; // Cost input for sellers
+  type?: string; // Type options for donors
+}
+
+function DonorsPage() {
+  const { register, handleSubmit } = useForm<FormData>();
+  const navigate = useNavigate(); 
+  const [userType, setUserType] = useState<string>("donor");
+
+  const apiCallToGet = useQuery<BookData[]>({
     queryKey: ["GT_DATa"],
-    queryFn() {
-      return axios.get("http://localhost:8080/book/user/" + localStorage.getItem("loggedUserID"));
+    queryFn: async () => {
+      const response = await axios.get("http://localhost:8080/book/users/" + localStorage.getItem("loggedUserID"));
+      return response.data.data;
     },
   });
-
-  console.log(apiCallToGet?.data?.data);
 
   const apiCallTosave = useMutation({
     mutationKey: ["SAVE_BOOK_DATA"],
-    mutationFn(data) {
-      console.log(data['image'][0]);
+    mutationFn: async (data: FormData) => {
       const formData = new FormData();
-      formData.append("image", data['image'][0]);
-      formData.append("booksName", data['booksName']);
-      formData.append("genres", data['genres']);
+      formData.append("image", data.image[0]);
+      formData.append("booksName", data.booksName);
+      formData.append("genres", data.genres);
       formData.append("userId", localStorage.getItem("loggedUserID") || "");
+      if (userType === "seller" && data.cost) {
+        formData.append("cost", data.cost);
+      } else if (userType === "donor" && data.type) {
+        formData.append("type", data.type);
+      }
 
-      return axios.post("http://localhost:8080/book", formData);
+      await axios.post("http://localhost:8080/book", formData);
     },
   });
 
-  const submit = (data: any) => {
-    console.log({ ...data, userId: localStorage.getItem("loggedUserID") });
+  const submit = (data: FormData) => {
     apiCallTosave.mutate({ ...data, userId: localStorage.getItem("loggedUserID") }, {
-      onSuccess(res) {
-        alert("Book has been donated successfully!"); // Alert message added here
+      onSuccess() {
+        alert(`${userType === "donor" ? "Book donated" : "Book listed for sale"} successfully!`);
         apiCallToGet.refetch();
-      }
-    });
-    axios.post("http://localhost:8080/book", { ...data, userId: localStorage.getItem("loggedUserID") }).then(res => {
-      console.log(res);
-      alert(res?.data?.message);
+      },
     });
   };
 
   const deleteApiCall = useMutation({
     mutationKey: ["DELETE_BOOK_DATA"],
-    mutationFn(id: any) {
-      return axios.delete("http://localhost:8080/book/" + id);
+    mutationFn: async (id: number) => {
+      await axios.delete("http://localhost:8080/book/" + id);
     },
   });
 
-  const handleDelete = (id: any) => {
-    if (window.confirm("Are you sure you want to delete this donated book?")) {
+  const handleDelete = (id: number) => {
+    if (window.confirm("Are you sure you want to delete this entry?")) {
       deleteApiCall.mutate(id, {
         onSuccess() {
           apiCallToGet.refetch();
@@ -70,8 +86,19 @@ function DonorsPage() {
         <source src={video} type="video/mp4" />
       </video>
       <div className="container">
-        <h1>Donate My Book</h1>
-        <form onSubmit={handleSubmit(submit)} id="donatehtmlForm">
+        <h1>{userType === "donor" ? "Donate My Book" : "Sell My Book"}</h1>
+
+        <form onSubmit={handleSubmit(submit)} id="donateSellForm">
+          <label htmlFor="userType">Choose Action:</label>
+          <select
+            id="userType"
+            value={userType}
+            onChange={(e) => setUserType(e.target.value)}
+          >
+            <option value="donor">Become a Donor</option>
+            <option value="seller">Become a Seller</option>
+          </select>
+
           <label htmlFor="bookImage">Book Image / File:</label>
           <input
             type="file"
@@ -97,48 +124,64 @@ function DonorsPage() {
           <label htmlFor="bookName">Book Name:</label>
           <input type="text" id="bookName" {...register("booksName")} required />
 
-          <button type="submit" id="submitBtn">Donate Here</button>
+          {userType === "donor" ? (
+            <>
+              <label htmlFor="bookType">Type:</label>
+              <select id="bookType" {...register("type")} required>
+                <option value="">Select Type</option>
+                <option value="First Hand">First Hand</option>
+                <option value="Second Hand">Second Hand</option>
+                <option value="Second Hand & Proper Condition">Second Hand & Proper Condition</option>
+              </select>
+
+              <div className="static-info">Cost: FREE</div>
+            </>
+          ) : (
+            <>
+              <label htmlFor="bookCost">Cost:</label>
+              <input type="number" id="bookCost" {...register("cost")} required />
+            </>
+          )}
+
+          <button type="submit" id="submitBtn">
+            {userType === "donor" ? "Donate Here" : "List for Sale"}
+          </button>
         </form>
 
-        <h2>Donated Books</h2>
+        <h2>{userType === "donor" ? "Donated Books" : "Listed Books"}</h2>
         <table id="donatedBooksTable">
           <thead>
             <tr>
               <th>Book ID</th>
               <th>Genre</th>
               <th>Book Name</th>
-              <th>File</th>
+              <th>{userType === "donor" ? "Type" : "Cost"}</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {apiCallToGet?.data?.data?.map((d: any) => {
-              const isPdf = d.image && d.image.startsWith("JVBER");
-              return (
-                <tr key={d.id}>
-                  <td>{d.id}</td>
-                  <td>{d.genres}</td>
-                  <td>{d.booksName}</td>
-                  <td>
-                    {isPdf ? (
-                      <embed
-                        src={`data:application/pdf;base64,${d.image}`}
-                        type="application/pdf"
-                        frameBorder="0"
-                        scrolling="auto"
-                        height="200"
-                        width="200"
-                      />
-                    ) : (
-                      <img src={`data:image/jpeg;base64,${d.image}`} width={100} alt="Book" />
-                    )}
-                  </td>
-                  <td>
-                    <button onClick={() => handleDelete(d.id)}>Delete</button>
-                  </td>
-                </tr>
-              );
-            })}
+            {apiCallToGet.data?.map((book) => (
+              <tr key={book.id}>
+                <td>{book.id}</td>
+                <td>{book.genres}</td>
+                <td>{book.booksName}</td>
+                <td>{userType === "donor" ? book.type : book.cost}</td>
+                <td>
+                  <button
+                    className="edit"
+                    onClick={() => navigate(`/editBook/${book.id}`)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="delete"
+                    onClick={() => handleDelete(book.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
