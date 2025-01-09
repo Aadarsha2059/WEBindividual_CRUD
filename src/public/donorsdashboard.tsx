@@ -56,16 +56,11 @@ const DonorsDashboard: React.FC = () => {
           </li>
           <li>
             <a href="donorspage">
-              <i className='bx bx-donate-heart'></i>
-              <span className="text">Donate Books</span>
+            <i className='bx bx-dollar-circle'></i>
+              <span className="text">Donate/Sell Books</span>
             </a>
           </li>
-          <li>
-            <a href="sellerspage" onClick={() => navigate("/sellerspage")}>
-              <i className='bx bx-dollar-circle'></i>
-              <span className="text">Sell Books</span>
-            </a>
-          </li>
+         
           <li>
             <a href="#" onClick={() => navigate("/suggestions")}>
               <i className='bx bx-message-square-detail'></i>

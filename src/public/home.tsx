@@ -39,19 +39,19 @@ function Home() {
                     </div>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li onClick={() => navigate("/login")}><a>Login as D</a></li>
-                        <li onClick={()=>navigate("/loginseeker")}><a>Login as S</a></li>
-                        <li onClick={()=>navigate("/chatbott")}><a>Chatbott</a></li>
+                        <li onClick={() => navigate("/login")}><a>Login as SELLER/DONOR</a></li>
+                        <li onClick={()=>navigate("/loginseeker")}><a>Login as BUYER/SEEKER</a></li>
+                        <li onClick={()=>navigate("/chatbott")}><a>CHATBOT</a></li>
                         
             
-                        <li onClick={()=>navigate("/contact")}><a>Contact</a></li>
+                        <li onClick={()=>navigate("/contact")}><a>CONTACT</a></li>
             
                        
-                        <li onClick={()=>navigate("/teamsection")}><a>Dev Team</a></li>
+                        <li onClick={()=>navigate("/teamsection")}><a>DEV TEAM</a></li>
 
-                        <li onClick={()=>navigate("/kathmanducity")}><a>Kathmandu MAP</a></li>
+                        <li onClick={()=>navigate("/kathmanducity")}><a>KATHMANDU MAP</a></li>
 
-                        <li onClick={()=>navigate("/softwarica")}><a>Our Partners</a></li>
+                        <li onClick={()=>navigate("/softwarica")}><a>OUR PARTNERS</a></li>
 
                         
 

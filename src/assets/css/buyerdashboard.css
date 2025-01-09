@@ -26,6 +26,8 @@ li {
   --grey: #ecf0f1;
   --dark-text: #4a6572;
   --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --cart-bg: #f4f6f7;
+  --cart-border: #bdc3c7;
 }
 
 /* Body */
@@ -242,20 +244,36 @@ body {
 #cart-items {
   display: none;
   padding: 20px;
-  background: var(--light);
+  background:  #800080;
   box-shadow: var(--shadow);
+  border: 1px solid var(--cart-border);
   border-radius: 8px;
   margin-top: 20px;
+  font-family: var(--lato);
 }
 
 #cart-items.visible {
   display: block;
 }
 
+#cart-items h4 {
+  color:  #800080;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#cart-items p {
+  font-size: 16px;
+  color:  #800080;
+  margin-bottom: 5px;
+}
+
 #total-price {
   font-weight: bold;
   font-size: 18px;
   margin-top: 10px;
+  color: #800080;
 }
 
 #pay-now {
@@ -266,6 +284,9 @@ body {
   cursor: pointer;
   margin-top: 20px;
   border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s;
 }
 
 #pay-now:hover {

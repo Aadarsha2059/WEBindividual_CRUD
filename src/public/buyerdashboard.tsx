@@ -57,15 +57,10 @@ const BuyerDashboard: React.FC = () => {
           <li>
             <a href="seekerspage" onClick={() => navigate("/seekerspage")}> {/* Added onClick handler for My seekerspage */}
               <i className="bx bxs-book-bookmark"></i>
-              <span className="text">Get Free Books</span>
+              <span className="text">BUY MORE BOOKS/ GET FREE BOOKS</span>
             </a>
           </li>
-          <li>
-           <a href="buyerspage" onClick={() => navigate("/buyerspage")}> {/* Added onClick handler for My buyerspage */}
-              <i className="bx bxs-book-bookmark"></i>
-              <span className="text">Buy Other Goods</span>
-            </a>
-          </li>
+         
           <li>
           <a href="chattingpage" onClick={() => navigate("/chattingpage")}>
               <i className='bx bx-message-square-dots'></i>

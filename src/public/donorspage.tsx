@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom'; 
 import axios from "axios";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import video from "../assets/images/finaldonor.mp4"; 
+import video from "../assets/images/Sell goods.mp4";
 import "../assets/css/donorspage.css";
 
 interface BookData {
@@ -12,7 +12,7 @@ interface BookData {
   booksName: string;
   image: string; // This should be either a base64 string for images or PDF
   cost?: string; // Optional for seller
-  type?: string; // Type for donors
+  type?: string; // Type for both donors and sellers
 }
 
 interface FormData {
@@ -20,21 +20,24 @@ interface FormData {
   genres: string;
   booksName: string;
   cost?: string; // Cost input for sellers
-  type?: string; // Type options for donors
+  type?: string; // Type options for both donors and sellers
 }
 
 function DonorsPage() {
-  const { register, handleSubmit } = useForm<FormData>();
+  const { register, handleSubmit, setValue } = useForm<FormData>();
   const navigate = useNavigate(); 
   const [userType, setUserType] = useState<string>("donor");
 
   const apiCallToGet = useQuery<BookData[]>({
     queryKey: ["GT_DATa"],
     queryFn: async () => {
-      const response = await axios.get("http://localhost:8080/book/users/" + localStorage.getItem("loggedUserID"));
-      return response.data.data;
+      const response = await axios.get("http://localhost:8080/book/user/" + localStorage.getItem("loggedUserID"));
+      console.log(response.data)
+      return response.data;
     },
   });
+
+  console.log(apiCallToGet)
 
   const apiCallTosave = useMutation({
     mutationKey: ["SAVE_BOOK_DATA"],
@@ -43,10 +46,11 @@ function DonorsPage() {
       formData.append("image", data.image[0]);
       formData.append("booksName", data.booksName);
       formData.append("genres", data.genres);
+      formData.append("cost", data.cost);
+      formData.append("type",data.type);
       formData.append("userId", localStorage.getItem("loggedUserID") || "");
-      if (userType === "seller" && data.cost) {
-        formData.append("cost", data.cost);
-      } else if (userType === "donor" && data.type) {
+      formData.append("cost", userType === "donor" ? "0" : data.cost || "");
+      if (data.type) {
         formData.append("type", data.type);
       }
 
@@ -80,6 +84,14 @@ function DonorsPage() {
     }
   };
 
+  const handleUserTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setUserType(value);
+    if (value === "donor") {
+      setValue("cost", "0");
+    }
+  };
+
   return (
     <>
       <video className="donors-page-video" autoPlay muted loop>
@@ -93,7 +105,7 @@ function DonorsPage() {
           <select
             id="userType"
             value={userType}
-            onChange={(e) => setUserType(e.target.value)}
+            onChange={handleUserTypeChange}
           >
             <option value="donor">Become a Donor</option>
             <option value="seller">Become a Seller</option>
@@ -124,22 +136,28 @@ function DonorsPage() {
           <label htmlFor="bookName">Book Name:</label>
           <input type="text" id="bookName" {...register("booksName")} required />
 
-          {userType === "donor" ? (
-            <>
-              <label htmlFor="bookType">Type:</label>
-              <select id="bookType" {...register("type")} required>
-                <option value="">Select Type</option>
-                <option value="First Hand">First Hand</option>
-                <option value="Second Hand">Second Hand</option>
-                <option value="Second Hand & Proper Condition">Second Hand & Proper Condition</option>
-              </select>
+          <label htmlFor="bookType">Type:</label>
+          <select id="bookType" {...register("type")} required>
+            <option value="">Select Type</option>
+            <option value="First Hand">First Hand</option>
+            <option value="Second Hand">Second Hand</option>
+            <option value="Second Hand & Proper Condition">Second Hand & Proper Condition</option>
+          </select>
 
-              <div className="static-info">Cost: FREE</div>
-            </>
-          ) : (
+          {userType === "seller" ? (
             <>
               <label htmlFor="bookCost">Cost:</label>
               <input type="number" id="bookCost" {...register("cost")} required />
+            </>
+          ) : (
+            <>
+              <label htmlFor="bookCost">Cost:FREE OF COST.....</label>
+              <input
+                type="number"
+                id="bookCost"
+                value="0"
+                readOnly
+              />
             </>
           )}
 
@@ -155,17 +173,23 @@ function DonorsPage() {
               <th>Book ID</th>
               <th>Genre</th>
               <th>Book Name</th>
-              <th>{userType === "donor" ? "Type" : "Cost"}</th>
+              <th>Cost</th>
+
+              <th>Type</th>
+              {userType === "seller" && <th>Cost</th>}
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {apiCallToGet.data?.map((book) => (
+            {apiCallToGet?.data?.map((book) => (
               <tr key={book.id}>
                 <td>{book.id}</td>
                 <td>{book.genres}</td>
                 <td>{book.booksName}</td>
-                <td>{userType === "donor" ? book.type : book.cost}</td>
+                <td>{book.cost}</td>
+                <td>{book.type}</td>
+
+                {userType === "seller" && <td>{book.cost}</td>}
                 <td>
                   <button
                     className="edit"
