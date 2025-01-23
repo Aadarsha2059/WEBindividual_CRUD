@@ -62,7 +62,7 @@
 }
 
 .signup-seeker-box input[type="submit"]:hover {
-  background: #45a049;
+  background: #1e40db;
 }
 
 .signup-seeker-box p {
@@ -70,7 +70,7 @@
 }
 
 .signup-seeker-box a {
-  color: #4CAF50;
+  color: #78dffe;
   text-decoration: none;
 }
 
@@ -86,7 +86,7 @@
 
 .back-button button {
   padding: 10px 20px;
-  background-color: #13d1a5;
+  background-color: #89edd6;
   border: none;
   cursor: pointer;
 }

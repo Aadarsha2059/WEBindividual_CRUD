@@ -13,6 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative; /* Ensures relative positioning for absolute elements */
 }
 
 .form-container {
@@ -21,6 +22,7 @@ body {
   border-radius: 12px;
   padding: 25px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  position: relative; /* For internal alignment adjustments */
 }
 
 .form-container h2 {
@@ -66,6 +68,12 @@ input:focus {
   box-shadow: 0 0 5px rgba(39, 174, 96, 0.5);
 }
 
+input[disabled] {
+  background-color: #f9f9f9;
+  color: #a5a5a5;
+  cursor: not-allowed;
+}
+
 .submit-button {
   background-color: #27ae60;
   color: #fff;
@@ -83,4 +91,32 @@ input:focus {
 
 .submit-button:hover {
   background-color: #219150;
+}
+
+p {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #34495e;
+}
+
+/* Show History Button */
+.show-history-button {
+  position: fixed; /* Fixed positioning ensures it stays at the top-right */
+  top: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  z-index: 1000; /* Ensures it stays above other elements */
+}
+
+.show-history-button:hover {
+  background-color: #0056b3;
 }

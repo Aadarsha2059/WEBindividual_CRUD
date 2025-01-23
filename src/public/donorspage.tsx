@@ -151,7 +151,7 @@ function DonorsPage() {
             </>
           ) : (
             <>
-              <label htmlFor="bookCost">Cost:FREE OF COST.....</label>
+              <label htmlFor="bookCost">Cost: <span style={{ color: "green", fontWeight: "bold" }}>FREE*</span></label>
               <input
                 type="number"
                 id="bookCost"
@@ -173,10 +173,8 @@ function DonorsPage() {
               <th>Book ID</th>
               <th>Genre</th>
               <th>Book Name</th>
-              <th>Cost</th>
-
-              <th>Type</th>
               {userType === "seller" && <th>Cost</th>}
+              <th>Type</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -186,10 +184,8 @@ function DonorsPage() {
                 <td>{book.id}</td>
                 <td>{book.genres}</td>
                 <td>{book.booksName}</td>
-                <td>{book.cost}</td>
-                <td>{book.type}</td>
-
                 {userType === "seller" && <td>{book.cost}</td>}
+                <td>{book.type}</td>
                 <td>
                   <button
                     className="edit"

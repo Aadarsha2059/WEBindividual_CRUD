@@ -5,18 +5,18 @@ import logo from '../assets/images/logo.png';
 import tablePng from '../assets/images/table.png';
 import aboutImg from '../assets/images/about.png';
 import karnaliblues from '../assets/images/karnaliblues.png';
-import book2 from '../assets/images/book_2.jpg';
-import book3 from '../assets/images/book_3.jpg';
-import book4 from '../assets/images/book_4.jpg';
-import book5 from '../assets/images/book_5.jpg';
-import book6 from '../assets/images/book_6.jpg';
-import pagalbasti from '../assets/images/pagalbasti.png';
-import book8 from '../assets/images/book_8.png';
-import book9 from '../assets/images/book_9.jpg';
-import book10 from '../assets/images/book_10.png';
-import book11 from '../assets/images/book_11.jpg';
-import devkotapoems from '../assets/images/devkotapoems.png';
-import doshichasma from '../assets/images/doshichasma.png';
+import book2 from '../assets/images/ProductOne.jpeg';
+import book3 from '../assets/images/ProductTwo.jpeg';
+import book4 from '../assets/images/ProductThree.jpeg';
+import book5 from '../assets/images/ProductFour.jpeg';
+import book6 from '../assets/images/ProductSix.jpeg';
+import pagalbasti from '../assets/images/keyboard.png';
+import book8 from '../assets/images/bottle.png';
+import book9 from '../assets/images/civil engineering books.png';
+import book10 from '../assets/images/Study Chair.png';
+import book11 from '../assets/images/Mouse.png';
+import devkotapoems from '../assets/images/software books.png';
+import doshichasma from '../assets/images/pharmacy.png';
 import bhagwatgeeta from '../assets/images/bhagwatgeeta.png';
 import sumnima from '../assets/images/sumnina.png';
 import bisnu from '../assets/images/bisnhu.png.jpeg';
@@ -26,6 +26,7 @@ import uttam from '../assets/images/uttam.png';
 import chirayu from '../assets/images/chirayu.png';
 import suraj from '../assets/images/suraj.png';
 import anuj from '../assets/images/anuj.png';
+import chatbott from '../assets/images/mychatbott.png';
 
 function Home() {
     const navigate = useNavigate();
@@ -39,21 +40,20 @@ function Home() {
                     </div>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li onClick={() => navigate("/login")}><a>Login as SELLER/DONOR</a></li>
-                        <li onClick={()=>navigate("/loginseeker")}><a>Login as BUYER/SEEKER</a></li>
-                        <li onClick={()=>navigate("/chatbott")}><a>CHATBOT</a></li>
+                        <li onClick={() => navigate("/login")}><a>Login as    SELLER</a></li>
+                        <li onClick={()=>navigate("/loginseeker")}><a>Login as BUYER</a></li>
+                    
                         
             
                         <li onClick={()=>navigate("/contact")}><a>CONTACT</a></li>
             
                        
-                        <li onClick={()=>navigate("/teamsection")}><a>DEV TEAM</a></li>
+                        <li onClick={()=>navigate("/teamsection")}><a>Our Team</a></li>
 
-                        <li onClick={()=>navigate("/kathmanducity")}><a>KATHMANDU MAP</a></li>
+                        <li onClick={()=>navigate("/kathmanducity")}><a>KATHMANDU</a></li>
 
-                        <li onClick={()=>navigate("/softwarica")}><a>OUR PARTNERS</a></li>
+                        <li onClick={()=>navigate("/softwarica")}><a>PARTNERS</a></li>
 
-                        
 
                        
 
@@ -83,10 +83,7 @@ function Home() {
 
                         
                
-                        
-                        
-                        
- 
+                    
                     </ul>
                     <div className="social_icon">
                         <i className="fa-solid fa-magnifying-glass"></i>
@@ -107,6 +104,15 @@ function Home() {
                     <div className="main_img">
                         <img src={tablePng} alt="Table with books" />
                     </div>
+                    <div>
+              {/* Your other home page content */}
+             <img
+          src={chatbott}
+         alt="Chatbot Icon"
+         className="chatbot-icon"
+         onClick={() =>navigate('/chatbott')} // Add functionality for opening chatbot
+            />
+               </div>
                 </div>
             </section>
 
@@ -164,16 +170,16 @@ function Home() {
             </section>
 
             <section className="featured_books">
-                <h1>Featured Books</h1>
+                <h1>Featured PRODUCTS</h1>
                 <div className="featured_book_box">
                     <div className="featured_book_card">
                         <div className="featured_book_img">
                             <img src={karnaliblues} alt="Book 1" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
-                            <p className="donor">Donor: Bishnu Budhathoki</p>
-                            <div className="categories">Thriller</div>
+                            <h2>Product</h2>
+                            <p className="donor">Seller: Bishnu Budhathoki</p>
+                            <div className="categories">BOOK</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -181,9 +187,9 @@ function Home() {
                             <img src={book2} alt="Book 2" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
+                            <h2>Product</h2>
                             <p className="donor">Donor: Sujal Basnet</p>
-                            <div className="categories">Horror</div>
+                            <div className="categories">CALCULATOR</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -191,9 +197,9 @@ function Home() {
                             <img src={book3} alt="Book 3" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
+                            <h2>Product</h2>
                             <p className="donor">Donor: Anuj Singh</p>
-                            <div className="categories">Love Story</div>
+                            <div className="categories">GUITAR</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -201,9 +207,9 @@ function Home() {
                             <img src={book4} alt="Book 4" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
-                            <p className="donor">Donor: Ishan Shrestha</p>
-                            <div className="categories">Love Story</div>
+                            <h2>Product</h2>
+                            <p className="donor">Seller: Ishan Shrestha</p>
+                            <div className="categories">STUDY TABLE</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -211,9 +217,9 @@ function Home() {
                             <img src={book5} alt="Book 5" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
-                            <p className="donor">Donor: Roshan Lamichhane</p>
-                            <div className="categories">Fiction</div>
+                            <h2>Product</h2>
+                            <p className="donor">Seller: Roshan Lamichhane</p>
+                            <div className="categories">STUDY LAMP</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -221,9 +227,9 @@ function Home() {
                             <img src={book6} alt="Book 6" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
-                            <p className="donor">Donor: Chirayu Baij</p>
-                            <div className="categories">Biography</div>
+                            <h2>Product</h2>
+                            <p className="donor">Seller: Chirayu Baij</p>
+                            <div className="categories">SPEAKER</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -231,9 +237,9 @@ function Home() {
                             <img src={pagalbasti} alt="Book 7" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
-                            <p className="donor">Donor: Suraj Tamang</p>
-                            <div className="categories">Thriller</div>
+                            <h2>Product</h2>
+                            <p className="donor">Seller: Suraj Tamang</p>
+                            <div className="categories">KEYBOARD</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -241,9 +247,9 @@ function Home() {
                             <img src={book8} alt="Book 8" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
+                            <h2>Product</h2>
                             <p className="donor">Donor: Rishan Shrestha</p>
-                            <div className="categories">Love Story</div>
+                            <div className="categories">THERMOS BOTTLE</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -251,9 +257,9 @@ function Home() {
                             <img src={book9} alt="Book 9" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
-                            <p className="donor">Donor: Dipesh Bohora</p>
-                            <div className="categories">Thriller</div>
+                            <h2>Product</h2>
+                            <p className="donor">Seller: Dipesh Bohora</p>
+                            <div className="categories">CHAIR</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -261,9 +267,9 @@ function Home() {
                             <img src={book10} alt="Book 10" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
+                            <h2>Product</h2>
                             <p className="donor">Donor: Chirayu Baij</p>
-                            <div className="categories">Love Story</div>
+                            <div className="categories">CHAIR</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -271,9 +277,9 @@ function Home() {
                             <img src={book11} alt="Book 11" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
+                            <h2>Product</h2>
                             <p className="donor">Donor: Aayush Rasaili</p>
-                            <div className="categories">Horror</div>
+                            <div className="categories">MOUSE</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -281,9 +287,9 @@ function Home() {
                             <img src={devkotapoems} alt="Book 12" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
+                            <h2>Product</h2>
                             <p className="donor">Donor: Raj Karki</p>
-                            <div className="categories">Love Story</div>
+                            <div className="categories">BOOK</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -291,9 +297,9 @@ function Home() {
                             <img src={doshichasma} alt="Book 13" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
+                            <h2>Product</h2>
                             <p className="donor">Donor: Aayash Dwa</p>
-                            <div className="categories">Love Story</div>
+                            <div className="categories">BOOK</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -301,9 +307,9 @@ function Home() {
                             <img src={bhagwatgeeta} alt="Book 14" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
+                            <h2>Product</h2>
                             <p className="donor">Donor: Aayush Kafle</p>
-                            <div className="categories">Science</div>
+                            <div className="categories">BOOK</div>
                         </div>
                     </div>
                     <div className="featured_book_card">
@@ -311,9 +317,9 @@ function Home() {
                             <img src={sumnima} alt="Book 15" />
                         </div>
                         <div className="featured_book_tag">
-                            <h2>Book Title</h2>
+                            <h2>Product</h2>
                             <p className="donor">Donor: Rahul Poddar</p>
-                            <div className="categories">Poetry</div>
+                            <div className="categories">BOOK</div>
                         </div>
                     </div>
                 </div>
@@ -378,6 +384,9 @@ function Home() {
                     </div>
                 </div>
             </section>
+
+        
+            
 
             <footer>
                 <h1>STU-THRIFT...</h1>

@@ -28,10 +28,10 @@ ChartJS.register(
 const SoldAndDonatedBooks: React.FC = () => {
   // Data for Pie Chart
   const pieData = {
-    labels: ['Donated Books', 'Sold Books'],
+    labels: ['Donated Products', 'Sold Products'],
     datasets: [
       {
-        label: 'Books Distribution',
+        label: 'Products Distribution',
         data: [20, 80],
         backgroundColor: ['#4caf50', '#f44336'],
         hoverBackgroundColor: ['#66bb6a', '#e57373'],
@@ -58,25 +58,13 @@ const SoldAndDonatedBooks: React.FC = () => {
 
   // Data for Bar Charts
   const barData1 = {
-    labels: ['Fiction', 'Love Story', 'History', 'Information Tech', 'Engineering', 'Loksewa'],
+    labels: ['Stationery', 'Musical Instruments', 'Study tables', 'Technology', 'Sports', 'Loksewa'],
     datasets: [
       {
-        label: 'Books Demanded',
+        label: 'Goods Demande',
         data: [50, 40, 30, 60, 70, 80],
         backgroundColor: ['#2196f3', '#1e88e5', '#1976d2', '#1565c0', '#0d47a1', '#003c8f'],
         hoverBackgroundColor: '#64b5f6',
-      },
-    ],
-  };
-
-  const barData2 = {
-    labels: ['Under 18', '18-25', '26-35', '36-45', '46+'],
-    datasets: [
-      {
-        label: 'Active Users Age Distribution..',
-        data: [10, 40, 30, 15, 5],
-        backgroundColor: ['#ff9800', '#fb8c00', '#f57c00', '#ef6c00', '#e65100'],
-        hoverBackgroundColor: '#ffa726',
       },
     ],
   };
@@ -139,19 +127,15 @@ const SoldAndDonatedBooks: React.FC = () => {
 
   return (
     <div className="data-visualization">
-      <h2 className="chart-title">Sold & Donated Books Visualizations</h2>
+      <h2 className="chart-title">Sold & Donated Products Visualizations</h2>
       <div className="chart-container">
         <div className="chart">
-          <h3>Donated vs Sold Books</h3>
+          <h3>Donated vs Sold Goods</h3>
           <Pie data={pieData} options={pieOptions} />
         </div>
         <div className="chart">
-          <h3>Books Demanded by Category</h3>
+          <h3>Goods Demanded by Category</h3>
           <Bar data={barData1} options={barOptions} />
-        </div>
-        <div className="chart">
-          <h3>Age Group Distribution</h3>
-          <Bar data={barData2} options={barOptions} />
         </div>
         <div className="chart">
           <h3>Monthly Donations Trend</h3>

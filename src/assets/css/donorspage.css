@@ -3,7 +3,7 @@ body {
     background: linear-gradient(to bottom, #1a1a2e, #16213e);
     margin: 0;
     padding: 0;
-    color: #fefefe;
+    color: #e69b9b;
 }
 
 .container {
@@ -62,7 +62,7 @@ input[type="number"] {
     width: 100%;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.1);
-    color: #fefefe;
+    color: #a2e35d;
     transition: box-shadow 0.3s, background-color 0.3s, transform 0.3s;
 }
 
@@ -98,12 +98,12 @@ select:after {
 button {
     padding: 15px;
     background: linear-gradient(to right, #28a745, #218838);
-    color: #fff;
+    color: #d6d44d;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
-    text-shadow: 0 0 10px #fff;
+    text-shadow: 0 0 10px #e0e57f;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
@@ -141,7 +141,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    color: #fefefe;
+    color: #40d4e4;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
@@ -163,7 +163,7 @@ table tbody tr:nth-child(odd) {
 img {
     max-width: 100px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(209, 170, 170, 0.5);
 }
 
 .donors-page-video {

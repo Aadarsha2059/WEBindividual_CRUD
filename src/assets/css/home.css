@@ -8,22 +8,22 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background-color: #f4f7f6;
+    background-color: #17bdf5; /* Lighter background for better contrast */
     color: #333;
 }
 
 /* Navigation styles */
 nav {
-    background-color: #7292b3;
-    color: #7708f6;
+    background-color: #a2551b; /* Bright orange for warmth */
+    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 3rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     opacity: 0;
     animation: fadeInNav 2s forwards;
-    animation-delay: 2s; /* Delay for navigation fade-in */
+    animation-delay: 2s;
 }
 
 nav ul {
@@ -32,23 +32,24 @@ nav ul {
 }
 
 nav ul li {
-    margin-right: 2rem;
+    margin-right: 2.5rem;
     opacity: 0;
     animation: fadeInNavLinks 1s forwards;
-    animation-delay: 3s; /* Delay for links fade-in */
+    animation-delay: 3s;
 }
 
 nav ul li a {
-    color: #fff204;
+    color: #fff;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.2rem;
     transition: color 0.3s ease, transform 0.3s ease;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 nav ul li a:hover {
-    color: #e67e22;
-    transform: scale(1.05);
+    color: #333;
+    transform: scale(1.1);
 }
 
 .social_icon {
@@ -57,15 +58,15 @@ nav ul li a:hover {
 }
 
 .social_icon i {
-    font-size: 1.5rem;
-    margin-left: 1.5rem;
+    font-size: 1.8rem;
+    margin-left: 2rem;
     color: #fff;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .social_icon i:hover {
-    color: #e67e22;
+    color: #333;
 }
 
 /* Main section styles */
@@ -73,49 +74,51 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6rem 2rem;
+    padding: 6rem 3rem;
     background-image: url('your-main-background-image.jpg');
     background-size: cover;
     background-position: center;
     color: #fff;
     opacity: 0;
     animation: fadeInMain 2s forwards;
-    animation-delay: 1s; /* Delay for main section fade-in */
+    animation-delay: 1s;
 }
 
 .main_tag {
     flex: 1;
-    animation: moveWithWind 5s linear infinite; /* Animation for wind effect */
+    animation: moveWithWind 5s linear infinite;
 }
 
 .main_tag h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 1.5rem;
     line-height: 1.2;
     font-weight: 700;
 }
 
 .main_tag span {
-    color: #e67e22;
+    color: #ff9f00; /* Orange to create contrast */
     font-weight: bold;
 }
 
 .main_tag p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 2rem;
     line-height: 1.7;
+    font-weight: 400;
 }
 
 /* Main button */
 .main_btn {
     display: inline-block;
-    background-color: #e67e22;
+    background-color: #ff9f00; /* Attractive orange */
     color: #fff;
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     text-decoration: none;
     border-radius: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
 }
 
 .main_btn:hover {
@@ -132,8 +135,8 @@ nav ul li a:hover {
 
 /* Services section styles */
 .services {
-    background-color: #8ca086;
-    padding: 6rem 2rem;
+    background-color: #e1f7d5; /* Lighter green for fresher, welcoming feel */
+    padding: 6rem 3rem;
     text-align: center;
 }
 
@@ -146,9 +149,9 @@ nav ul li a:hover {
 
 .services_card {
     flex: 1;
-    margin: 1rem;
+    margin: 1.5rem;
     padding: 2.5rem;
-    background-color: #796b6b;
+    background-color: #4f6367;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -162,13 +165,13 @@ nav ul li a:hover {
 .services_card i {
     font-size: 3rem;
     margin-bottom: 1.5rem;
-    color: #b8df1c;
+    color: #ff9f00; /* Orange accent */
 }
 
 .services_card h3 {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: #fff;
     font-weight: 600;
 }
 
@@ -182,8 +185,8 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6rem 2rem;
-    background-color: #d0a5e0;
+    padding: 6rem 3rem;
+    background-color: #f3a683; /* Lighter coral tone */
     color: #fff;
 }
 
@@ -199,9 +202,10 @@ nav ul li a:hover {
 }
 
 .about_tag h1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     margin-bottom: 1rem;
     font-weight: 700;
+    font-size: 3rem;
 }
 
 .about_tag p {
@@ -211,13 +215,13 @@ nav ul li a:hover {
 
 /* Featured books section styles */
 .featured_books {
-    padding: 6rem 2rem;
-    background-color: #88e0aa;
+    padding: 6rem 3rem;
+    background-color: #ffcc5c; /* Bright yellow to grab attention */
     text-align: center;
 }
 
 .featured_books h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 2rem;
     color: #333;
     font-weight: 600;
@@ -267,7 +271,7 @@ nav ul li a:hover {
 
 .featured_book_tag .categories {
     display: inline-block;
-    background-color: #2c3e50;
+    background-color: #3b9d9d;
     color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
@@ -277,13 +281,13 @@ nav ul li a:hover {
 
 /* Reviews section styles */
 .review {
-    background-color: #eaa577;
-    padding: 6rem 2rem;
+    background-color: #ccf17c; /* Warm yellow for positive reviews */
+    padding: 6rem 3rem;
     text-align: center;
 }
 
 .review h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 3rem;
     color: #333;
     font-weight: 600;
@@ -298,7 +302,7 @@ nav ul li a:hover {
 
 .review_card {
     flex: 1;
-    margin: 1rem;
+    margin: 1.5rem;
     background-color: #f7f7f7;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -339,8 +343,8 @@ nav ul li a:hover {
 
 /* Footer section styles */
 footer {
-    background-color: #7292b3;
-    color: #fff;
+    background-color: #a2551b; /* Attractive orange */
+    color: #eba0a0;
     text-align: center;
     padding: 3rem 2rem;
     position: relative;
@@ -349,9 +353,9 @@ footer {
 }
 
 footer h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 footer p {
@@ -366,94 +370,110 @@ footer .input_box {
     margin-bottom: 2rem;
 }
 
-footer .input_box input {
+footer .input_box input[type="email"] {
     padding: 1rem;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    width: 300px;
+    border: 1px solid #a76363;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    color: #ceed68;
+    background-color: transparent;
+    margin-right: 1rem;
+    width: 70%;
 }
 
-footer .input_box i {
-    background-color: #e67e22;
-    color: white;
-    padding: 1rem;
-    border-radius: 0 5px 5px 0;
+footer .input_box input[type="submit"] {
+    background-color: #ef8e8e;
+    color: #333;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    transition: background-color 0.3s ease;
     cursor: pointer;
 }
 
-footer .footer_social_icon {
-    margin-bottom: 2rem;
+footer .input_box input[type="submit"]:hover {
+    background-color: #ff9f00;
+    color: #e07373;
 }
 
-footer .footer_social_icon i {
-    margin: 0 15px;
+footer .social_icon i {
     font-size: 2rem;
+    margin-left: 1rem;
+    color: #d26767;
+    transition: color 0.3s ease;
     cursor: pointer;
-    transition: color 0.3s;
 }
 
-footer .footer_social_icon i:hover {
-    color: #e67e22;
+footer .social_icon i:hover {
+    color: #333;
 }
 
-footer p.end {
-    font-size: 1rem;
-    margin-top: 2rem;
-}
-
-footer p.end span {
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-/* Animations */
-@keyframes fadeInMain {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
+/* Key animations */
 @keyframes fadeInNav {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInNavLinks {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-/* Wind movement effect for welcome text and paragraph */
+@keyframes fadeInMain {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @keyframes moveWithWind {
-    0% { transform: translateX(0); opacity: 1; }
-    25% { transform: translateX(-100vw); opacity: 0; }
-    50% { transform: translateX(100vw); opacity: 0; }
-    75% { transform: translateX(0); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(30px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
-@keyframes moveWithWind7s {
-    0% { transform: translateX(0); opacity: 1; }
-    35% { transform: translateX(-100vw); opacity: 0; }
-    50% { transform: translateX(100vw); opacity: 0; }
-    85% { transform: translateX(0); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
-}
-
-
-
-/* Utility Classes for Hover Effects */
-.hover-effect {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-effect:hover {
-    transform: translateY(-0.3rem);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Applying Utility Class */
-.services_card, .review_card, .featured_book_card {
-    @extend .hover-effect;
-}
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    width: 80px; /* Increased size */
+    height: 80px; /* Increased size */
+    cursor: pointer;
+    z-index: 1000; /* Ensures it stays above other elements */
+    border-radius: 50%; /* Makes it circular */
+    box-shadow: 0 4px 6px rgba(247, 0, 0, 0.1), 0 0 15px rgba(252, 3, 235, 0.5); /* Adds a subtle glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    animation: glow 1.5s infinite alternate; /* Glowing effect animation */
+  }
+  
+  /* Glow animation */
+  @keyframes glow {
+    0% {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 15px rgba(255, 217, 0, 0.952);
+    }
+    100% {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 25px rgba(255, 165, 0, 1); /* Brighter glow */
+    }
+  }
+  
+  .chatbot-icon:hover {
+    transform: scale(1.2); /* Enlarges more on hover */
+    box-shadow: 0 4px 6px rgba(243, 5, 5, 0.975), 0 0 30px rgba(255, 69, 0, 0.8); /* Brighter glow on hover */
+  }
+  

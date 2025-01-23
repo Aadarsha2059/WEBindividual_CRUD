@@ -221,7 +221,7 @@ body {
 
 /* Glowing effect */
 .book-card:hover {
-  box-shadow: 0 0 20px 5px rgba(52, 152, 219, 0.6), 0 0 20px rgba(52, 152, 219, 0.6);
+  box-shadow: 0 0 20px 5px rgba(138, 193, 229, 0.6), 0 0 20px rgba(52, 152, 219, 0.6);
   transform: scale(1.05);
 }
 

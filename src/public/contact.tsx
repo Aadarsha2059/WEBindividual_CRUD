@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faBox, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-import video from '../assets/images/finalcontact.mp4';
+import video from '../assets/images/contact_final_stuthrift.mp4';
 import '../assets/css/contact.css';
 
 function Contact() {

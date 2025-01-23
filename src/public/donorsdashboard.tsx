@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../assets/css/donorsdashboard.css';
-import arrivalOne from '../assets/images/arrival_1.jpg';
-import arrivalTwo from '../assets/images/arrival_2.jpg';
-import arrivalThree from '../assets/images/arrival_3.jpg';
-import arrivalFour from '../assets/images/arrival_4.jpg';
-import arrivalFive from '../assets/images/arrival_5.jpg';
-import arrivalSix from '../assets/images/arrival_6.jpg';
+import arrivalOne from '../assets/images/ProductFive.jpeg';
+import arrivalTwo from '../assets/images/ProductOne.jpeg';
+import arrivalThree from '../assets/images/ProductSix.jpeg';
+import arrivalFour from '../assets/images/ProductTwo.jpeg';
+import arrivalFive from '../assets/images/Study Chair.png';
+import arrivalSix from '../assets/images/bottle.png';
 import arrivalseven from '../assets/images/arrival_7.jpg';
 import arrivalEight from '../assets/images/arrival_8.webp';
 import arrivalnine from '../assets/images/arrival_9.jpg';
@@ -19,15 +19,15 @@ const DonorsDashboard: React.FC = () => {
   const [showDialog, setShowDialog] = useState(false); // State to toggle dialog box
 
   const books = [
-    { imgSrc: arrivalOne, title: "Book Title One", author: "Suraj", price: "Rs. 500", category: "Literature" },
-    { imgSrc: arrivalTwo, title: "Book Title Two", author: "Aadarsha", price: "Rs. 400", category: "Politics" },
-    { imgSrc: arrivalThree, title: "Book Title 3", author: "Bishnu", price: "FREE OF COST", category: "Science" },
-    { imgSrc: arrivalFour, title: "Book Title 4", author: "Anuj", price: "Rs. 200", category: "Geo Politics" },
-    { imgSrc: arrivalSix, title: "Book Title 5", author: "Ram bahadur", price: "FREE OF COST", category: "Information Tech" },
-    { imgSrc: arrivalseven, title: "Book Title 6", author: "Shyam bahadur", price: "FREE OF COST", category: "Literature" },
-    { imgSrc: arrivalEight, title: "Book Title 7", author: "Hari Bahadur", price: "Rs. 800", category: "Science" },
-    { imgSrc: arrivalnine, title: "Book Title 8", author: "Krishna Bahadur", price: "Rs. 600", category: "Politics" },
-    { imgSrc: arrivalten, title: "Book Title 9", author: "Purna Bahadur", price: "FREE OF COST", category: "Geo Politics" },
+    { imgSrc: arrivalOne, title: "Geometry Tools", price: "FREE OF COST", category: "Stationery" },
+    { imgSrc: arrivalTwo, title: "Calculator", author: "Aadarsha", price: "Rs. 400", category: "Politics" },
+    { imgSrc: arrivalThree, title: "Speaker", author: "Bishnu", price: "FREE OF COST", category: "Science" },
+    { imgSrc: arrivalFour, title: "Guitar", author: "Anuj", price: "Rs. 200", category: "Geo Politics" },
+    { imgSrc: arrivalSix, title: "Thermos Bottle", author: "Ram bahadur", price: "FREE OF COST", category: "Information Tech" },
+    { imgSrc: arrivalseven, title: "Olympus", author: "Shyam bahadur", price: "FREE OF COST", category: "Literature" },
+    { imgSrc: arrivalEight, title: "Happy Kid", author: "Hari Bahadur", price: "Rs. 800", category: "Science" },
+    { imgSrc: arrivalnine, title: "Rangers Appentice", author: "Krishna Bahadur", price: "Rs. 600", category: "Politics" },
+    { imgSrc: arrivalten, title: "Percy Jackson", author: "Purna Bahadur", price: "FREE OF COST", category: "Geo Politics" },
   ];
 
   const categories = ["Literature", "Politics", "Geo Politics", "Information Tech", "Science"];

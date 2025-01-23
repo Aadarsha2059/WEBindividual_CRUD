@@ -1,148 +1,156 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from 'axios'; // Import axios for API calls
 import '../assets/css/cashpayment.css';
 
 const CashPayment: React.FC = () => {
-  // State for form fields
   const [formData, setFormData] = useState({
-    customerName: '',
-    address: '',
-    contactNumber: '',
-    email: '',
-    paymentStatus: false,
+    receiverName: '',
+    productName: '',
+    quantity: 0,
+    price: 0,
+    totalAmount: 0,
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [responseMessage, setResponseMessage] = useState<string | null>(null);
+  const [history, setHistory] = useState<any[]>([]);
 
   // Handle form input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value,
-    });
+    const { name, value } = e.target;
+    const parsedValue = name === 'quantity' || name === 'price' ? parseFloat(value) || 0 : value;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: parsedValue,
+      totalAmount: name === 'quantity' || name === 'price' 
+        ? (name === 'quantity' ? parsedValue * prevData.price : prevData.quantity * parsedValue)
+        : prevData.totalAmount,
+    }));
   };
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setResponseMessage(null);
 
     try {
-      // Send POST request to the backend API to save data in PostgreSQL
-      const response = await axios.post('http://localhost:8080/cash_payment', formData);
-      
-      // Handle success
-      setResponseMessage('Cash Payment saved successfully!');
-      setIsSubmitting(false);
+      // Send data to backend using axios
+      await axios.post('http://localhost:8080/cashpay', {
+        receiverName: formData.receiverName,
+        productName: formData.productName,
+        quantity: formData.quantity,
+        pricePerUnit: formData.price,
+        totalAmount: formData.totalAmount,
+      });
+
+      // Save data to history
+      setHistory((prevHistory) => [...prevHistory, formData]);
+
+      // Reset form data
+      setFormData({
+        receiverName: '',
+        productName: '',
+        quantity: 0,
+        price: 0,
+        totalAmount: 0,
+      });
+
+      alert('Cash Payment submitted successfully!');
     } catch (error) {
-      // Handle error
-      console.error('Error saving cash payment:', error);
-      setResponseMessage('Failed to save cash payment. Please try again.');
-      setIsSubmitting(false);
+      console.error('Error submitting cash payment:', error);
+      alert('Failed to submit payment, please try again later.');
     }
   };
 
   return (
     <div className="form-container">
       <h2>
-        <i className="bx bxs-wallet"></i> Cash on Delivery
+        <i className="bx bxs-wallet"></i> Cash Payment
       </h2>
+
       <form onSubmit={handleSubmit}>
-        {/* Customer Name */}
+        {/* Receiver Name */}
         <div className="form-group">
-          <label htmlFor="customerName">
-            <i className="bx bxs-user"></i> Customer Name
+          <label htmlFor="receiverName">
+            <i className="bx bxs-user"></i> Receiver's Name
           </label>
           <input
             type="text"
-            id="customerName"
-            name="customerName"
-            value={formData.customerName}
+            id="receiverName"
+            name="receiverName"
+            value={formData.receiverName}
             onChange={handleChange}
-            placeholder="Enter your name"
+            placeholder="Enter receiver's name"
             required
           />
         </div>
 
-        {/* Address */}
+        {/* Product Name */}
         <div className="form-group">
-          <label htmlFor="address">
-            <i className="bx bxs-map"></i> Address
+          <label htmlFor="productName">
+            <i className="bx bxs-box"></i> Product Name
           </label>
           <input
             type="text"
-            id="address"
-            name="address"
-            value={formData.address}
+            id="productName"
+            name="productName"
+            value={formData.productName}
             onChange={handleChange}
-            placeholder="Enter your address"
+            placeholder="Enter product name"
             required
           />
         </div>
 
-        {/* Contact Number */}
+        {/* Quantity */}
         <div className="form-group">
-          <label htmlFor="contactNumber">
-            <i className="bx bxs-phone"></i> Contact Number
+          <label htmlFor="quantity">
+            <i className="bx bxs-layer"></i> Quantity
           </label>
           <input
-            type="tel"
-            id="contactNumber"
-            name="contactNumber"
-            value={formData.contactNumber}
+            type="number"
+            id="quantity"
+            name="quantity"
+            value={formData.quantity}
             onChange={handleChange}
-            placeholder="Enter your contact number"
+            placeholder="Enter quantity"
             required
           />
         </div>
 
-        {/* Email */}
+        {/* Price */}
         <div className="form-group">
-          <label htmlFor="email">
-            <i className="bx bxs-envelope"></i> Email ID
+          <label htmlFor="price">
+            <i className="bx bxs-dollar-circle"></i> Price per Unit
           </label>
           <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
+            type="number"
+            id="price"
+            name="price"
+            value={formData.price}
             onChange={handleChange}
-            placeholder="Enter your email"
+            placeholder="Enter price"
             required
           />
         </div>
 
-        {/* Payment Status */}
+        {/* Total Amount */}
         <div className="form-group">
-          <label htmlFor="paymentStatus">
-            <i className="bx bxs-check"></i> Payment Status
+          <label htmlFor="totalAmount">
+            <i className="bx bxs-calculator"></i> Total Amount
           </label>
           <input
-            type="checkbox"
-            id="paymentStatus"
-            name="paymentStatus"
-            checked={formData.paymentStatus}
-            onChange={handleChange}
+            type="text"
+            id="totalAmount"
+            name="totalAmount"
+            value={formData.totalAmount.toFixed(2)}
+            readOnly
+            disabled
           />
         </div>
 
         {/* Submit Button */}
-        <button type="submit" className="submit-button" disabled={isSubmitting}>
-          {isSubmitting ? (
-            <span>Submitting...</span>
-          ) : (
-            <>
-              <i className="bx bxs-check-circle"></i> Submit
-            </>
-          )}
+        <button type="submit" className="submit-button">
+          <i className="bx bxs-check-circle"></i> Submit
         </button>
       </form>
-
-      {/* Response Message */}
-      {responseMessage && <p>{responseMessage}</p>}
     </div>
   );
 };
